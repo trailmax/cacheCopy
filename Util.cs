@@ -91,6 +91,30 @@ namespace cacheCopy
 
 
 
+        /// <summary>
+        /// Finds the registry key in a registry folder
+        /// </summary>
+        /// <param name="folder">The folder to search in</param>
+        /// <param name="StartsWith">The search criteria - key must start with this value</param>
+        /// <returns> Full key name if found, empty string if nothing found</returns>
+        public static string FindRegistryKey(RegistryKey regFolder, String StartsWith)
+        {
+            if (null == regFolder)
+                return "";
+
+            var subKeys = regFolder.GetSubKeyNames();
+            String key = subKeys.Where(k => k.StartsWith(StartsWith)).First();
+
+            if (null != key && key != string.Empty)
+            {
+                return regFolder.Name + @"\" + key;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
 
         /// <summary>
         /// Determines whether a value is present at the specified key name
