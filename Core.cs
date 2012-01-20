@@ -202,52 +202,61 @@ namespace cacheCopy
         /// </summary>
         public void executeMainRoutine(BackgroundWorker worker, DoWorkEventArgs e)
         {
-            mainGUI.setProgressLabel("Reading files");
-
-            List<String> errors = new List<string>();
-
-            readFiles(mainGUI.getSourceFolder());
-
-            // read data about filters from GUI and set the filters in Core
-            setFilters();
-
-            mainGUI.setProgressLabel("Filtering files");
-            // apply filters to files and save error messages from there
-            applyFilters(worker, e);
-
-            int totalFilesCopied = 0;
-            // finally copy the files
-            string targetFolder = mainGUI.getTargetFolder();
-            for (int i = 0; i < files.Count; i++ )
+            try
             {
-                FileInfo file = files[i];
-                mainGUI.setProgressLabel("Copying files: "+i.ToString()+"/"+files.Count.ToString());
-                if (worker.CancellationPending == true)
-                {
-                    e.Cancel = true;
-                    errors.Add("Cancelled by user");
-                    break;
-                }
+                mainGUI.setProgressLabel("Reading files");
 
-                string newPath = Core.generateFileName(targetFolder, file.Name, ".jpg");
+                List<String> errors = new List<string>();
 
-                try
-                {
-                    file.CopyTo(newPath);
-                    totalFilesCopied++;
-                }
-                catch (IOException)
-                {
-                    errors.Add("Could not copy file: " + file.Name);
-                }
+                readFiles(mainGUI.getSourceFolder());
 
-                // update progress bar
-                reportProgress(files.Count, i, worker);
+                // read data about filters from GUI and set the filters in Core
+                setFilters();
+
+                mainGUI.setProgressLabel("Filtering files");
+                // apply filters to files and save error messages from there
+                applyFilters(worker, e);
+
+                int totalFilesCopied = 0;
+                // finally copy the files
+                string targetFolder = mainGUI.getTargetFolder();
+                for (int i = 0; i < files.Count; i++)
+                {
+                    FileInfo file = files[i];
+                    mainGUI.setProgressLabel("Copying files: " + i.ToString() + "/" + files.Count.ToString());
+                    if (worker.CancellationPending == true)
+                    {
+                        e.Cancel = true;
+                        errors.Add("Cancelled by user");
+                        break;
+                    }
+
+                    string newPath = Core.generateFileName(targetFolder, file.Name, ".jpg");
+
+                    try
+                    {
+                        file.CopyTo(newPath);
+                        totalFilesCopied++;
+                    }
+                    catch (IOException)
+                    {
+                        errors.Add("Could not copy file: " + file.Name);
+                    }
+
+                    // update progress bar
+                    reportProgress(files.Count, i, worker);
+
+                }
+                mainGUI.setProgressLabel("");
+                //return errors;
+                e.Result = totalFilesCopied;
 
             }
-            mainGUI.setProgressLabel("");
-            //return errors;
-            e.Result = totalFilesCopied;
+            catch (Exception ex)
+            {
+                Util.WriteToLogFile(ex);
+                throw;
+            }
         }
 
 
