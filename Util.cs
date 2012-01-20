@@ -145,6 +145,30 @@ namespace cacheCopy
             return false;
         }
 
+
+
+
+        /// <summary>
+        /// Writes exception information to log file.
+        /// </summary>
+        /// <param name="e">The e.</param>
+        public static void WriteToLogFile(Exception e)
+        {
+            StreamWriter sw = new StreamWriter("Errors.txt", true);
+            sw.WriteLine("################################################");
+            sw.WriteLine();
+            sw.WriteLine("Error occurred at #{0}", DateTime.Now.ToString());
+            sw.WriteLine("Exception: ");
+            sw.WriteLine(e.Message);
+            sw.WriteLine(e.StackTrace);
+            sw.WriteLine();
+            sw.WriteLine("Inner Exception");
+            sw.WriteLine(e.InnerException.Message);
+            sw.WriteLine(e.InnerException.StackTrace);
+            sw.WriteLine();
+            sw.Dispose();                
+        }
+
     }
 
 
