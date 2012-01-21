@@ -19,19 +19,15 @@ namespace cacheCopy
         /// </returns>
         public bool isBrowserInstalled()
         {
-            // check for uninstallation folder in windows registry. 
-            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
-
-            // it should contain Mozilla Firefox folder
-            String uninstallReg = Util.FindRegistryKey(key, "Mozilla Firefox");
-            if (uninstallReg != String.Empty)
-                return true;    // if the folder present, Firefox is installed
+            // check if there is a record in software for local user
+            if (Registry.CurrentUser.OpenSubKey(@"Software\Mozilla\Firefox")!= null)
+                return true;
 
             // try to get a version 
             if (getBrowserVersion() != String.Empty)
                 return true;    //if we can find a version, Firefox is installed
 
-            // if no uninstallation info and no version, probably there is no Firefox
+            // probably there is no Firefox
             return false;
         }
 

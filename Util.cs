@@ -103,7 +103,7 @@ namespace cacheCopy
                 return "";
 
             var subKeys = regFolder.GetSubKeyNames();
-            String key = subKeys.Where(k => k.StartsWith(StartsWith)).First();
+            String key = subKeys.Where(k => k.StartsWith(StartsWith)).FirstOrDefault();
 
             if (null != key && key != string.Empty)
             {
@@ -146,8 +146,6 @@ namespace cacheCopy
         }
 
 
-
-
         /// <summary>
         /// Writes exception information to log file.
         /// </summary>
@@ -158,13 +156,7 @@ namespace cacheCopy
             sw.WriteLine("################################################");
             sw.WriteLine();
             sw.WriteLine("Error occurred at #{0}", DateTime.Now.ToString());
-            sw.WriteLine("Exception: ");
-            sw.WriteLine(e.Message);
-            sw.WriteLine(e.StackTrace);
-            sw.WriteLine();
-            sw.WriteLine("Inner Exception");
-            sw.WriteLine(e.InnerException.Message);
-            sw.WriteLine(e.InnerException.StackTrace);
+            sw.WriteLine(e.ToString());
             sw.WriteLine();
             sw.Dispose();                
         }

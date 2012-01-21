@@ -44,6 +44,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,6 +56,7 @@
     <WarningLevel>0</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>cacheCopy.Program</StartupObject>
@@ -153,10 +155,20 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>if exist “$(TargetPath)” move “$(TargetPath)” “$(TargetPath).delete.%25random%25”</PreBuildEvent>
+    <PreBuildEvent>IF "$(ConfigurationName)"=="Release" Goto Exit
+
+if exist “$(TargetPath)” move “$(TargetPath)” “$(TargetPath).delete.%25random%25”
+
+:Exit</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>del “$(TargetPath).delete.*”</PostBuildEvent>
+    <PostBuildEvent>del “$(TargetPath).delete.*”
+
+IF "$(ConfigurationName)"=="Debug" Goto Exit
+
+   7za a -tzip "$(TargetName)".zip "$(TargetPath)" "$(TargetPath).config" 
+
+:Exit</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
