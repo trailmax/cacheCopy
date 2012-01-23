@@ -24,7 +24,7 @@ namespace cacheCopy
 
             try
             {
-                // create the core of the application
+                 //create the core of the application
                 Core core = new Core();
 
                 // create GUI for the application, giving reference to core
@@ -47,14 +47,7 @@ namespace cacheCopy
                 Util.WriteToLogFile(e);
             }
 
-            
-
         }
-
-
-
-
-
 
 
     }
