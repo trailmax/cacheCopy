@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using Microsoft.Win32;
+using SYS = System.Environment;
 
 namespace cacheCopy
 {
@@ -70,25 +71,15 @@ namespace cacheCopy
         /// <returns>String with path. If path not found, return empty string</returns>
         private string getProfilesPath()
         {
-            string path = "";
+            String[] paths = new String[] 
+            {	
+                SYS.GetEnvironmentVariable("LOCALAPPDATA") + @"\Mozilla\Firefox\Profiles",
+                SYS.GetEnvironmentVariable("APPDATA") + @"\Mozilla\Firefox\Profiles",
+                SYS.GetEnvironmentVariable("WINDIR") + @"\Mozilla", 
+                SYS.GetEnvironmentVariable("WINDIR") + @"\Application Data\Mozilla\" 
+            };
 
-            if (!isBrowserInstalled()) return path;
-
-            String localAppData = System.Environment.GetEnvironmentVariable("LOCALAPPDATA");
-
-            //%LOCALAPPDATA%\Mozilla\Firefox\Profiles\alpha-numeric.default\Cache
-
-            //TODO find out what's XP path for Firefox storage
-            //There is no localapp data defined
-            if (localAppData == String.Empty)
-                return "";
-
-
-            path = Path.Combine(localAppData, @"Mozilla\Firefox\Profiles");
-
-            if (!Directory.Exists(path)) return "" ;
-
-            return path;
+            return Util.GetExistingPathByBoolean(paths, Directory.Exists);
         }
 
 
@@ -98,22 +89,30 @@ namespace cacheCopy
         /// <returns>List with ProfilePath objects</returns>
         public List<ProfilePath> getProfiles()
         {
+            List<String> paths = new List<String> 
+            {	
+                SYS.GetEnvironmentVariable("LOCALAPPDATA") + @"\Mozilla\Firefox\Profiles",
+                SYS.GetEnvironmentVariable("APPDATA") + @"\Mozilla\Firefox\Profiles",
+                SYS.GetEnvironmentVariable("WINDIR") + @"\Mozilla", 
+                SYS.GetEnvironmentVariable("WINDIR") + @"\Application Data\Mozilla\" 
+            };
 
-            String profilesPath = getProfilesPath();
+            // remove all invalid paths
+            paths.RemoveAll( path => !Directory.Exists(path) );
 
-            if (null == profilesPath || profilesPath == "")
+            List<DirectoryInfo> subdirs = new List<DirectoryInfo>();
+
+            foreach (String dir in paths)
             {
-                return new List<ProfilePath>();
+                List<DirectoryInfo> ss = (new DirectoryInfo(dir)).GetDirectories().ToList<DirectoryInfo>();
+                subdirs.AddRange(ss);
             }
+            // get all the subdirs for the profile paths
 
-            // find all the folder there
-            DirectoryInfo dir = new DirectoryInfo(profilesPath);
 
-            DirectoryInfo[] subDirectories = dir.GetDirectories();
-
-            var dirs = from sd in subDirectories
-                       where sd.Name.EndsWith(".default")
-                       select new ProfilePath("Firefox - " + sd.Name, sd.FullName);
+            var dirs = from sd in subdirs
+                       where Directory.Exists(sd.FullName + @"\Cache") && sd.FullName.EndsWith(".default")
+                       select new ProfilePath("Firefox - " + sd.Name, sd.FullName + @"\Cache");
 
             return dirs.ToList<ProfilePath>();
 

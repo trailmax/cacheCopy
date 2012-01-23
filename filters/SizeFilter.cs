@@ -22,20 +22,20 @@ namespace cacheCopy.filters
 
         public bool checkFile(FileInfo file)
         {
-            if (minSize > 0 && maxSize > 0 &&
-                minSize > file.Length && file.Length < maxSize)
+            if (minSize >= 0 && maxSize >= 0 &&
+                minSize >= file.Length && file.Length <= maxSize)
             {
                 return true;
             }
 
-            if (minSize > 0 && maxSize == 0 &&
-                file.Length > minSize )
+            if (minSize >= 0 && maxSize == 0 &&
+                file.Length >= minSize )
             {
                 return true;
             }
 
-            if (minSize == 0 && maxSize > 0 &&
-                 file.Length < maxSize  )
+            if (minSize == 0 && maxSize >= 0 &&
+                 file.Length <= maxSize  )
             {
                 return true;
             }

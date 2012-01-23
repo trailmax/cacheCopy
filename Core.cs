@@ -208,7 +208,8 @@ namespace cacheCopy
 
                 List<String> errors = new List<string>();
 
-                readFiles(mainGUI.getSourceFolder());
+                string source = mainGUI.getSourceFolder();
+                readFiles(source);
 
                 // read data about filters from GUI and set the filters in Core
                 setFilters();
