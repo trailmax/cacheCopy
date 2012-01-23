@@ -82,6 +82,12 @@ namespace cacheCopy
 
             //%LOCALAPPDATA%\Mozilla\Firefox\Profiles\alpha-numeric.default\Cache
 
+            //TODO find out what's XP path for Firefox storage
+            //There is no localapp data defined
+            if (localAppData == String.Empty)
+                return "";
+
+
             path = Path.Combine(localAppData, @"Mozilla\Firefox\Profiles");
 
             if (!Directory.Exists(path)) return "" ;
