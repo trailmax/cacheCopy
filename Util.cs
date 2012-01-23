@@ -161,6 +161,55 @@ namespace cacheCopy
             sw.Dispose();                
         }
 
+
+        public delegate String StringProfileFinder(String s);
+
+
+        /// <summary>
+        /// With list of possible paths, we need to find first one that is not empty
+        /// 
+        /// Go through array of possible values, apply passed in function and check if the 
+        /// result of the function is not empty - return it.
+        /// 
+        /// If no result returned by any possible values, return empty string
+        /// </summary>
+        /// <param name="possiblePaths">The possible paths.</param>
+        /// <param name="function">The function to apply to the possible path</param>
+        /// <returns>first non-empty result or empty string if no value found</returns>
+        public static string GetExistingPathByString(String[] possiblePaths, StringProfileFinder function)
+        {
+            foreach (string path in possiblePaths)
+            {
+                if (function(path) != null)
+                    return path;
+            }
+            return String.Empty;
+        }
+
+        
+        public delegate Boolean BooleanProfileFinder(String s);
+
+
+        /// <summary>
+        /// With list of possible paths, we need to find first one that is not empty
+        /// 
+        /// Go through array of possible values, apply passed in function and check if the 
+        /// result of the function is not empty - return it.
+        /// 
+        /// If no result returned by any possible values, return empty string
+        /// </summary>
+        /// <param name="possiblePaths">The possible paths.</param>
+        /// <param name="function">The function to apply to the possible path</param>
+        /// <returns>first non-empty result or empty string if no value found</returns>
+        public static string GetExistingPathByBoolean(String[] possiblePaths, BooleanProfileFinder function)
+        {
+            foreach (string path in possiblePaths)
+            {
+                if (function(path))
+                    return path;
+            }
+            return String.Empty;
+        }
     }
 
 

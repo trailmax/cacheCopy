@@ -202,9 +202,9 @@
             // 
             this.kilobytes.Location = new System.Drawing.Point(195, 167);
             this.kilobytes.Margin = new System.Windows.Forms.Padding(4);
-            this.kilobytes.Minimum = new decimal(new int[] {
-            1,
-            0,
+            this.kilobytes.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
             0,
             0});
             this.kilobytes.Name = "kilobytes";
@@ -355,7 +355,6 @@
             this.ManualSelectionRadioButton.Name = "ManualSelectionRadioButton";
             this.ManualSelectionRadioButton.Size = new System.Drawing.Size(132, 20);
             this.ManualSelectionRadioButton.TabIndex = 33;
-            this.ManualSelectionRadioButton.TabStop = true;
             this.ManualSelectionRadioButton.Text = "Manual Selection ";
             this.ManualSelectionRadioButton.UseVisualStyleBackColor = true;
             this.ManualSelectionRadioButton.CheckedChanged += new System.EventHandler(this.ManualSelectionRadioButton_CheckedChanged);
@@ -363,12 +362,10 @@
             // BrowserRadioButton
             // 
             this.BrowserRadioButton.AutoSize = true;
-            this.BrowserRadioButton.Checked = true;
             this.BrowserRadioButton.Location = new System.Drawing.Point(16, 12);
             this.BrowserRadioButton.Name = "BrowserRadioButton";
             this.BrowserRadioButton.Size = new System.Drawing.Size(75, 20);
             this.BrowserRadioButton.TabIndex = 34;
-            this.BrowserRadioButton.TabStop = true;
             this.BrowserRadioButton.Text = "Browser";
             this.BrowserRadioButton.UseVisualStyleBackColor = true;
             // 
