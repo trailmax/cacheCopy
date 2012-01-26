@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace cacheCopy
 {
     public interface IBrowserHelper
     {
-        System.Collections.Generic.List<ProfilePath> getProfiles();
-        bool isBrowserInstalled();
-        string getBrowserVersion();
+        List<ProfilePath> getProfiles();
     }
 }

@@ -59,7 +59,15 @@
             this.BrowserDropDown = new System.Windows.Forms.ComboBox();
             this.ManualSelectionErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.TargetFolderErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblSourceFolderDisplay = new System.Windows.Forms.Label();
+            this.lblSourceFolderDisplay = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lblBrowserHelpTooltip = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -365,15 +373,15 @@
             this.BrowserRadioButton.AutoSize = true;
             this.BrowserRadioButton.Location = new System.Drawing.Point(16, 12);
             this.BrowserRadioButton.Name = "BrowserRadioButton";
-            this.BrowserRadioButton.Size = new System.Drawing.Size(75, 20);
+            this.BrowserRadioButton.Size = new System.Drawing.Size(135, 20);
             this.BrowserRadioButton.TabIndex = 34;
-            this.BrowserRadioButton.Text = "Browser";
+            this.BrowserRadioButton.Text = "Browser Detection";
             this.BrowserRadioButton.UseVisualStyleBackColor = true;
             // 
             // BrowserDropDown
             // 
             this.BrowserDropDown.FormattingEnabled = true;
-            this.BrowserDropDown.Location = new System.Drawing.Point(148, 10);
+            this.BrowserDropDown.Location = new System.Drawing.Point(148, 8);
             this.BrowserDropDown.Name = "BrowserDropDown";
             this.BrowserDropDown.Size = new System.Drawing.Size(273, 24);
             this.BrowserDropDown.TabIndex = 35;
@@ -389,13 +397,93 @@
             // 
             // lblSourceFolderDisplay
             // 
-            this.lblSourceFolderDisplay.AutoSize = true;
             this.lblSourceFolderDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSourceFolderDisplay.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblSourceFolderDisplay.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.lblSourceFolderDisplay.Location = new System.Drawing.Point(16, 39);
             this.lblSourceFolderDisplay.Name = "lblSourceFolderDisplay";
-            this.lblSourceFolderDisplay.Size = new System.Drawing.Size(0, 13);
+            this.lblSourceFolderDisplay.ReadOnly = true;
+            this.lblSourceFolderDisplay.Size = new System.Drawing.Size(667, 20);
             this.lblSourceFolderDisplay.TabIndex = 36;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 700;
+            this.toolTip1.AutoPopDelay = 7000;
+            this.toolTip1.InitialDelay = 700;
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ReshowDelay = 1000;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // lblBrowserHelpTooltip
+            // 
+            this.lblBrowserHelpTooltip.AutoSize = true;
+            this.lblBrowserHelpTooltip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBrowserHelpTooltip.Location = new System.Drawing.Point(427, 12);
+            this.lblBrowserHelpTooltip.Name = "lblBrowserHelpTooltip";
+            this.lblBrowserHelpTooltip.Size = new System.Drawing.Size(19, 20);
+            this.lblBrowserHelpTooltip.TabIndex = 38;
+            this.lblBrowserHelpTooltip.Text = "?";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(689, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 20);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "?";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(690, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 20);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "?";
+            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(305, 135);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 20);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "?";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(293, 167);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 20);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "?";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(293, 197);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 20);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "?";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(412, 228);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 20);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "?";
             // 
             // MainGUI
             // 
@@ -406,6 +494,13 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(721, 338);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblBrowserHelpTooltip);
             this.Controls.Add(this.lblSourceFolderDisplay);
             this.Controls.Add(this.BrowserDropDown);
             this.Controls.Add(this.BrowserRadioButton);
@@ -480,7 +575,15 @@
         private System.Windows.Forms.ComboBox BrowserDropDown;
         private System.Windows.Forms.ErrorProvider ManualSelectionErrorProvider;
         private System.Windows.Forms.ErrorProvider TargetFolderErrorProvider;
-        private System.Windows.Forms.Label lblSourceFolderDisplay;
+        private System.Windows.Forms.TextBox lblSourceFolderDisplay;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblBrowserHelpTooltip;
     }
 }
 

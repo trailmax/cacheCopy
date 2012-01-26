@@ -59,7 +59,7 @@ namespace cacheCopy
 
             ResetControls();
 
-
+            SetTooltips();
         }
 
         /// <summary>
@@ -194,12 +194,17 @@ namespace cacheCopy
 
         }
 
-
+        /// <summary>
+        /// Change label with selection path to the profile path value
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void BrowserDropDown_SelectionChanged(object sender, EventArgs e)
         {
             ProfilePath path = getSelectedProfile();
             lblSourceFolderDisplay.Text = path.FullPath;
         }
+
 
 #endregion
 
@@ -308,6 +313,35 @@ namespace cacheCopy
             lblSourceFolderDisplay.Visible = BrowserRadioButton.Checked;
             SourceFolderName.Enabled = ManualSelectionRadioButton.Checked;
             SourceFolderButton.Enabled = ManualSelectionRadioButton.Checked;
+
+        }
+
+        private void SetTooltips()
+        {
+            toolTip1.SetToolTip(this.lblBrowserHelpTooltip, "Automatic browser detection tries to find all the installed browsers in your system. ");
+
+            this.toolTip1.SetToolTip(this.label2, String.Format("This is a full path in your system where the automatic{0}"+
+                "browser detection is pointing to for browser cache.", Environment.NewLine));
+            
+            this.toolTip1.SetToolTip(this.label4, String.Format("Application will copy images from browser cache to this folder.{0}"+
+                "Best advised to use some temporary empty folder i.e. C:/tmp/images. {0}"+
+                "This will make it easier to process your results.", Environment.NewLine));
+
+            this.toolTip1.SetToolTip(this.label3, String.Format("If automated browser detection fails to find your browser, you can point to the browser cache manually.{0}"+
+                "Auto-detection usually fails when your browsers are not installed in the standard location,{0}"+
+                "or your browser is not supported yet. Also if you would like to use cacheCopy{0}"+
+                "to sort out your image collection (e.g. remove all small images), use this option{0}"+
+                "and point it to your folder with images. Subfolders are scanned as well, as the folder.", Environment.NewLine));
+
+            this.toolTip1.SetToolTip(this.label5, 
+                String.Format("This option will not copy files that are older than particular number of hours.{0}"+
+                "Useful if you would like to have only recent images and don\'t want {0}"+
+                "to copy the whole previous history of browsing.", Environment.NewLine));
+
+            this.toolTip1.SetToolTip(this.label6, "Turn this option on to include only images with file-size larger than desired");
+            
+            this.toolTip1.SetToolTip(this.label7, "Filter out images with small resolution.");
+
 
         }
 
@@ -504,59 +538,6 @@ namespace cacheCopy
 
             return isValid;
         }
-
-
-
-
-        /*
-         * Who the hell thought of validation on loosing focus? causes problems, more
-         * problems and nothing else but problems
-         * 
-        /// <summary>
-        /// Handles the Validating event of the SourceFolder control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
-        private void SourceFolder_Validating(object sender, CancelEventArgs e)
-        {
-            if (!ManualSelectionRadioButton.Checked)
-            {
-                ManualSelectionErrorProvider.SetError(SourceFolderName, "");
-                return;
-            }
-
-            String dir = SourceFolderName.Text;
-
-            if (!Directory.Exists(dir))
-            {
-                ManualSelectionErrorProvider.SetError(SourceFolderName, "Directory does not exist");
-                e.Cancel = true;
-            }
-            else
-            {
-                ManualSelectionErrorProvider.SetError(SourceFolderName, "");
-            }
-        }
-
-        /// <summary>
-        /// Handles the Validating event of the TargetFolder control:
-        /// checks if target folder exists
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
-        private void TargetFolder_Validating(object sender, CancelEventArgs e)
-        {
-            if (!Directory.Exists(targetFolderName.Text))
-            {
-                TargetFolderErrorProvider.SetError(targetFolderName, "Folder does not exist");
-                e.Cancel = true;
-            }
-            else
-            {
-                TargetFolderErrorProvider.SetError(targetFolderName, "");
-            }
-        }
-        */
 #endregion
 
 
