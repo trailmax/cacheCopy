@@ -11,24 +11,6 @@ namespace cacheCopy
     {
 
         /// <summary>
-        /// Gets the browser version.
-        /// </summary>
-        /// <returns>string with version number</returns>
-        public String getBrowserVersion()
-        {
-            string currentVersion = Util.ReadRegistryKey(@"HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\", "Version");
-
-            if (null == currentVersion)
-            {
-                return "";
-            }
-
-            return currentVersion;
-
-        }
-
-
-        /// <summary>
         /// Gets the only profile
         /// </summary>
         /// <returns></returns>
@@ -69,18 +51,5 @@ namespace cacheCopy
 
         }
 
-
-        /// <summary>
-        /// Determines whether the browser is installed.
-        /// </summary>
-        /// <returns>
-        ///   <c>true</c> if browser is installed; otherwise, <c>false</c>.
-        /// </returns>
-        public bool isBrowserInstalled()
-        {
-            if (getBrowserVersion() == "")
-                return false;
-            return true;
-        }
     }
 }
