@@ -194,6 +194,13 @@ namespace cacheCopy
 
         }
 
+
+        private void BrowserDropDown_SelectionChanged(object sender, EventArgs e)
+        {
+            ProfilePath path = getSelectedProfile();
+            lblSourceFolderDisplay.Text = path.FullPath;
+        }
+
 #endregion
 
 
@@ -298,8 +305,10 @@ namespace cacheCopy
         private void SourceSelectionChanged()
         {
             BrowserDropDown.Enabled = BrowserRadioButton.Checked;
+            lblSourceFolderDisplay.Visible = BrowserRadioButton.Checked;
             SourceFolderName.Enabled = ManualSelectionRadioButton.Checked;
             SourceFolderButton.Enabled = ManualSelectionRadioButton.Checked;
+
         }
 
 #endregion
@@ -495,6 +504,8 @@ namespace cacheCopy
 
             return isValid;
         }
+
+
 
 
         /*

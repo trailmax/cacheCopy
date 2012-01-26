@@ -59,6 +59,7 @@
             this.BrowserDropDown = new System.Windows.Forms.ComboBox();
             this.ManualSelectionErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.TargetFolderErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblSourceFolderDisplay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -70,7 +71,7 @@
             // 
             // CopyButton
             // 
-            this.CopyButton.Location = new System.Drawing.Point(583, 231);
+            this.CopyButton.Location = new System.Drawing.Point(583, 261);
             this.CopyButton.Margin = new System.Windows.Forms.Padding(4);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(100, 28);
@@ -86,7 +87,7 @@
             // 
             // targetFolderName
             // 
-            this.targetFolderName.Location = new System.Drawing.Point(16, 103);
+            this.targetFolderName.Location = new System.Drawing.Point(16, 133);
             this.targetFolderName.Margin = new System.Windows.Forms.Padding(4);
             this.targetFolderName.Name = "targetFolderName";
             this.targetFolderName.Size = new System.Drawing.Size(241, 22);
@@ -94,7 +95,7 @@
             // 
             // targetFolderButton
             // 
-            this.targetFolderButton.Location = new System.Drawing.Point(255, 103);
+            this.targetFolderButton.Location = new System.Drawing.Point(255, 133);
             this.targetFolderButton.Margin = new System.Windows.Forms.Padding(4);
             this.targetFolderButton.Name = "targetFolderButton";
             this.targetFolderButton.Size = new System.Drawing.Size(43, 22);
@@ -106,7 +107,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 83);
+            this.label1.Location = new System.Drawing.Point(13, 113);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 16);
@@ -115,7 +116,7 @@
             // 
             // SourceFolderName
             // 
-            this.SourceFolderName.Location = new System.Drawing.Point(148, 38);
+            this.SourceFolderName.Location = new System.Drawing.Point(148, 68);
             this.SourceFolderName.Margin = new System.Windows.Forms.Padding(4);
             this.SourceFolderName.Name = "SourceFolderName";
             this.SourceFolderName.Size = new System.Drawing.Size(500, 22);
@@ -123,7 +124,7 @@
             // 
             // SourceFolderButton
             // 
-            this.SourceFolderButton.Location = new System.Drawing.Point(646, 38);
+            this.SourceFolderButton.Location = new System.Drawing.Point(646, 68);
             this.SourceFolderButton.Margin = new System.Windows.Forms.Padding(4);
             this.SourceFolderButton.Name = "SourceFolderButton";
             this.SourceFolderButton.Size = new System.Drawing.Size(37, 22);
@@ -142,7 +143,7 @@
             this.hoursCheckbox.AutoSize = true;
             this.hoursCheckbox.Checked = true;
             this.hoursCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hoursCheckbox.Location = new System.Drawing.Point(16, 138);
+            this.hoursCheckbox.Location = new System.Drawing.Point(16, 168);
             this.hoursCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.hoursCheckbox.Name = "hoursCheckbox";
             this.hoursCheckbox.Size = new System.Drawing.Size(150, 20);
@@ -153,7 +154,7 @@
             // 
             // hours
             // 
-            this.hours.Location = new System.Drawing.Point(163, 137);
+            this.hours.Location = new System.Drawing.Point(163, 167);
             this.hours.Margin = new System.Windows.Forms.Padding(4);
             this.hours.Maximum = new decimal(new int[] {
             10000,
@@ -177,7 +178,7 @@
             // lblHours
             // 
             this.lblHours.AutoSize = true;
-            this.lblHours.Location = new System.Drawing.Point(223, 139);
+            this.lblHours.Location = new System.Drawing.Point(223, 169);
             this.lblHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHours.Name = "lblHours";
             this.lblHours.Size = new System.Drawing.Size(63, 16);
@@ -189,7 +190,7 @@
             this.kilobytesCheckbox.AutoSize = true;
             this.kilobytesCheckbox.Checked = true;
             this.kilobytesCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.kilobytesCheckbox.Location = new System.Drawing.Point(16, 168);
+            this.kilobytesCheckbox.Location = new System.Drawing.Point(16, 198);
             this.kilobytesCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.kilobytesCheckbox.Name = "kilobytesCheckbox";
             this.kilobytesCheckbox.Size = new System.Drawing.Size(184, 20);
@@ -200,7 +201,7 @@
             // 
             // kilobytes
             // 
-            this.kilobytes.Location = new System.Drawing.Point(195, 167);
+            this.kilobytes.Location = new System.Drawing.Point(195, 197);
             this.kilobytes.Margin = new System.Windows.Forms.Padding(4);
             this.kilobytes.Maximum = new decimal(new int[] {
             1410065407,
@@ -219,7 +220,7 @@
             // lblKilobytes
             // 
             this.lblKilobytes.AutoSize = true;
-            this.lblKilobytes.Location = new System.Drawing.Point(268, 169);
+            this.lblKilobytes.Location = new System.Drawing.Point(268, 199);
             this.lblKilobytes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKilobytes.Name = "lblKilobytes";
             this.lblKilobytes.Size = new System.Drawing.Size(24, 16);
@@ -231,7 +232,7 @@
             this.resolutionCheckbox.AutoSize = true;
             this.resolutionCheckbox.Checked = true;
             this.resolutionCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.resolutionCheckbox.Location = new System.Drawing.Point(16, 197);
+            this.resolutionCheckbox.Location = new System.Drawing.Point(16, 227);
             this.resolutionCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.resolutionCheckbox.Name = "resolutionCheckbox";
             this.resolutionCheckbox.Size = new System.Drawing.Size(187, 20);
@@ -242,7 +243,7 @@
             // 
             // minWidth
             // 
-            this.minWidth.Location = new System.Drawing.Point(195, 195);
+            this.minWidth.Location = new System.Drawing.Point(195, 225);
             this.minWidth.Margin = new System.Windows.Forms.Padding(4);
             this.minWidth.Maximum = new decimal(new int[] {
             10000,
@@ -266,7 +267,7 @@
             // lblX
             // 
             this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(271, 198);
+            this.lblX.Location = new System.Drawing.Point(271, 228);
             this.lblX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblX.Name = "lblX";
             this.lblX.Size = new System.Drawing.Size(16, 16);
@@ -275,7 +276,7 @@
             // 
             // minHeight
             // 
-            this.minHeight.Location = new System.Drawing.Point(285, 196);
+            this.minHeight.Location = new System.Drawing.Point(285, 226);
             this.minHeight.Margin = new System.Windows.Forms.Padding(4);
             this.minHeight.Maximum = new decimal(new int[] {
             10000,
@@ -299,7 +300,7 @@
             // lblPixels
             // 
             this.lblPixels.AutoSize = true;
-            this.lblPixels.Location = new System.Drawing.Point(362, 198);
+            this.lblPixels.Location = new System.Drawing.Point(362, 228);
             this.lblPixels.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPixels.Name = "lblPixels";
             this.lblPixels.Size = new System.Drawing.Size(43, 16);
@@ -318,7 +319,7 @@
             // 
             this.CancelButton.CausesValidation = false;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(484, 231);
+            this.CancelButton.Location = new System.Drawing.Point(484, 261);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(82, 28);
             this.CancelButton.TabIndex = 26;
@@ -332,7 +333,7 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressLabel,
             this.progressBar});
-            this.statusStrip.Location = new System.Drawing.Point(0, 282);
+            this.statusStrip.Location = new System.Drawing.Point(0, 316);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(721, 22);
             this.statusStrip.TabIndex = 27;
@@ -351,7 +352,7 @@
             // ManualSelectionRadioButton
             // 
             this.ManualSelectionRadioButton.AutoSize = true;
-            this.ManualSelectionRadioButton.Location = new System.Drawing.Point(16, 40);
+            this.ManualSelectionRadioButton.Location = new System.Drawing.Point(16, 70);
             this.ManualSelectionRadioButton.Name = "ManualSelectionRadioButton";
             this.ManualSelectionRadioButton.Size = new System.Drawing.Size(132, 20);
             this.ManualSelectionRadioButton.TabIndex = 33;
@@ -376,6 +377,7 @@
             this.BrowserDropDown.Name = "BrowserDropDown";
             this.BrowserDropDown.Size = new System.Drawing.Size(273, 24);
             this.BrowserDropDown.TabIndex = 35;
+            this.BrowserDropDown.SelectedIndexChanged += new System.EventHandler(this.BrowserDropDown_SelectionChanged);
             // 
             // ManualSelectionErrorProvider
             // 
@@ -385,6 +387,16 @@
             // 
             this.TargetFolderErrorProvider.ContainerControl = this;
             // 
+            // lblSourceFolderDisplay
+            // 
+            this.lblSourceFolderDisplay.AutoSize = true;
+            this.lblSourceFolderDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSourceFolderDisplay.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblSourceFolderDisplay.Location = new System.Drawing.Point(16, 39);
+            this.lblSourceFolderDisplay.Name = "lblSourceFolderDisplay";
+            this.lblSourceFolderDisplay.Size = new System.Drawing.Size(0, 13);
+            this.lblSourceFolderDisplay.TabIndex = 36;
+            // 
             // MainGUI
             // 
             this.AcceptButton = this.CopyButton;
@@ -393,7 +405,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(721, 304);
+            this.ClientSize = new System.Drawing.Size(721, 338);
+            this.Controls.Add(this.lblSourceFolderDisplay);
             this.Controls.Add(this.BrowserDropDown);
             this.Controls.Add(this.BrowserRadioButton);
             this.Controls.Add(this.ManualSelectionRadioButton);
@@ -467,6 +480,7 @@
         private System.Windows.Forms.ComboBox BrowserDropDown;
         private System.Windows.Forms.ErrorProvider ManualSelectionErrorProvider;
         private System.Windows.Forms.ErrorProvider TargetFolderErrorProvider;
+        private System.Windows.Forms.Label lblSourceFolderDisplay;
     }
 }
 
