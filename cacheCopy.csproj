@@ -95,6 +95,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Browsers\ChromeHelper.cs" />
+    <Compile Include="Browsers\ChromiumHelper.cs" />
+    <Compile Include="Browsers\DefaultBrowser.cs" />
     <Compile Include="Browsers\IBrowserHelper.cs" />
     <Compile Include="Browsers\IEHelper.cs" />
     <Compile Include="Browsers\ProfilePath.cs" />
