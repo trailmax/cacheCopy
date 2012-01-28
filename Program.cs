@@ -33,8 +33,15 @@ namespace cacheCopy
                 FirefoxHelper firefox = new FirefoxHelper();
                 gui.addProfile(firefox.getProfiles());
 
+                ChromeHelper chrome = new ChromeHelper();
+                gui.addProfile(chrome.getProfiles());
+
+                ChromiumHelper chromium = new ChromiumHelper();
+                gui.addProfile(chromium.getProfiles());
+
                 IEHelper explorer = new IEHelper();
                 gui.addProfile(explorer.getProfiles());
+
 
 
                 // provide core with reference to GUI object
