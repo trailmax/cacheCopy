@@ -227,6 +227,7 @@ namespace cacheCopy
             resolutionCheckbox.Checked = ST.Default.ResolutionCheckboxChecked;
             minWidth.Value = ST.Default.Xresolution;
             minHeight.Value = ST.Default.YResolution;
+            chbxDeleteFilesFromCache.Checked = ST.Default.RemoveImagesFromCache;
         }
 
 
@@ -246,6 +247,7 @@ namespace cacheCopy
             ST.Default.ResolutionCheckboxChecked = resolutionCheckbox.Checked;
             ST.Default.Xresolution = (int)minWidth.Value;
             ST.Default.YResolution = (int)minHeight.Value;
+            ST.Default.RemoveImagesFromCache = chbxDeleteFilesFromCache.Checked;
             ST.Default.Save();
         }
 
@@ -489,6 +491,17 @@ namespace cacheCopy
         public string getTargetFolder()
         {
             return targetFolderName.Text;
+        }
+
+        /// <summary>
+        /// Determines whether we should remove copied images from cache. 
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if [is remove images from cache]; otherwise, <c>false</c>.
+        /// </returns>
+        public bool isRemoveImagesFromCache()
+        {
+            return chbxDeleteFilesFromCache.Checked;
         }
 
 #endregion

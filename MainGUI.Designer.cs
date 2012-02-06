@@ -61,13 +61,15 @@
             this.TargetFolderErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblSourceFolderDisplay = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.lblBrowserHelpTooltip = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.chbxDeleteFilesFromCache = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -79,7 +81,7 @@
             // 
             // CopyButton
             // 
-            this.CopyButton.Location = new System.Drawing.Point(583, 261);
+            this.CopyButton.Location = new System.Drawing.Point(603, 337);
             this.CopyButton.Margin = new System.Windows.Forms.Padding(4);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(100, 28);
@@ -327,7 +329,7 @@
             // 
             this.CancelButton.CausesValidation = false;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(484, 261);
+            this.CancelButton.Location = new System.Drawing.Point(504, 337);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(82, 28);
             this.CancelButton.TabIndex = 26;
@@ -341,7 +343,7 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressLabel,
             this.progressBar});
-            this.statusStrip.Location = new System.Drawing.Point(0, 316);
+            this.statusStrip.Location = new System.Drawing.Point(0, 387);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(721, 22);
             this.statusStrip.TabIndex = 27;
@@ -414,6 +416,16 @@
             this.toolTip1.ReshowDelay = 1000;
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(690, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 20);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "?";
+            // 
             // lblBrowserHelpTooltip
             // 
             this.lblBrowserHelpTooltip.AutoSize = true;
@@ -433,17 +445,6 @@
             this.label2.Size = new System.Drawing.Size(19, 20);
             this.label2.TabIndex = 39;
             this.label2.Text = "?";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(690, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 20);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "?";
-            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // label4
             // 
@@ -485,6 +486,29 @@
             this.label7.TabIndex = 44;
             this.label7.Text = "?";
             // 
+            // chbxDeleteFilesFromCache
+            // 
+            this.chbxDeleteFilesFromCache.AutoSize = true;
+            this.chbxDeleteFilesFromCache.Location = new System.Drawing.Point(16, 279);
+            this.chbxDeleteFilesFromCache.Name = "chbxDeleteFilesFromCache";
+            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(235, 20);
+            this.chbxDeleteFilesFromCache.TabIndex = 45;
+            this.chbxDeleteFilesFromCache.Text = "Delete images from browser cache";
+            this.chbxDeleteFilesFromCache.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(257, 277);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 20);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "?";
+            this.toolTip1.SetToolTip(this.label8, "This option will remove files with images from the browser cache. This will not a" +
+        "llow to copy the same images twice. Only copied images will be removed from cach" +
+        "e.");
+            // 
             // MainGUI
             // 
             this.AcceptButton = this.CopyButton;
@@ -493,7 +517,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(721, 338);
+            this.ClientSize = new System.Drawing.Size(721, 409);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.chbxDeleteFilesFromCache);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -584,6 +610,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblBrowserHelpTooltip;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chbxDeleteFilesFromCache;
     }
 }
 

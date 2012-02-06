@@ -154,5 +154,17 @@ namespace cacheCopy.Properties {
                 this["YResolution"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RemoveImagesFromCache {
+            get {
+                return ((bool)(this["RemoveImagesFromCache"]));
+            }
+            set {
+                this["RemoveImagesFromCache"] = value;
+            }
+        }
     }
 }

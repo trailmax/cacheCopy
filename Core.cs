@@ -238,10 +238,17 @@ namespace cacheCopy
                     {
                         file.CopyTo(newPath);
                         totalFilesCopied++;
+
+                        // if user checked the box for file deletion, try to remove the file.
+                        if (mainGUI.isRemoveImagesFromCache())
+                        {
+                            file.Delete();
+                        }
+
                     }
                     catch (IOException)
                     {
-                        errors.Add("Could not copy file: " + file.Name);
+                        errors.Add("Could not copy or delete file: " + file.Name);
                     }
 
                     // update progress bar
