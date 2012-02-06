@@ -42,6 +42,8 @@ namespace cacheCopy
                 IEHelper explorer = new IEHelper();
                 gui.addProfile(explorer.getProfiles());
 
+                OperaHelper opera = new OperaHelper();
+                gui.addProfile(opera.getProfiles());
 
 
                 // provide core with reference to GUI object

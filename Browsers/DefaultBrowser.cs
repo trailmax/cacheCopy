@@ -28,6 +28,12 @@ namespace cacheCopy
             var profiles = from p in paths
                            select new ProfilePath(GetBrowserName(), p);
 
+            if (UseOnlyFirstExisting())
+            {
+                return new List<ProfilePath> { profiles.First() };
+
+            }
+
             return profiles.ToList<ProfilePath>();
         }
 
@@ -43,6 +49,14 @@ namespace cacheCopy
         /// Gets the name of the browser.
         /// </summary>
         /// <returns></returns>
-        protected abstract String GetBrowserName(); 
+        protected abstract String GetBrowserName();
+
+
+        /// <summary>
+        /// Flag to show if we want to use only first existing cache location from the list
+        /// </summary>
+        /// <returns></returns>
+        protected abstract bool UseOnlyFirstExisting();
+
     }
 }

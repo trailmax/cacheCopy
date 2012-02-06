@@ -28,5 +28,10 @@ namespace cacheCopy
             return "Chromium";
         }
 
+
+        protected override bool UseOnlyFirstExisting()
+        {
+            return true;
+        }
     }
 }
