@@ -70,6 +70,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.chbxDeleteFilesFromCache = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.chbxFileNamingPattern = new System.Windows.Forms.CheckBox();
+            this.txtFileNamingPattern = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -81,7 +84,7 @@
             // 
             // CopyButton
             // 
-            this.CopyButton.Location = new System.Drawing.Point(603, 337);
+            this.CopyButton.Location = new System.Drawing.Point(608, 387);
             this.CopyButton.Margin = new System.Windows.Forms.Padding(4);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(100, 28);
@@ -329,7 +332,7 @@
             // 
             this.CancelButton.CausesValidation = false;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(504, 337);
+            this.CancelButton.Location = new System.Drawing.Point(509, 387);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(82, 28);
             this.CancelButton.TabIndex = 26;
@@ -343,7 +346,7 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressLabel,
             this.progressBar});
-            this.statusStrip.Location = new System.Drawing.Point(0, 387);
+            this.statusStrip.Location = new System.Drawing.Point(0, 433);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(721, 22);
             this.statusStrip.TabIndex = 27;
@@ -480,7 +483,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(412, 228);
+            this.label7.Location = new System.Drawing.Point(402, 228);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 20);
             this.label7.TabIndex = 44;
@@ -500,14 +503,39 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(257, 277);
+            this.label8.Location = new System.Drawing.Point(248, 279);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(19, 20);
             this.label8.TabIndex = 46;
             this.label8.Text = "?";
-            this.toolTip1.SetToolTip(this.label8, "This option will remove files with images from the browser cache. This will not a" +
-        "llow to copy the same images twice. Only copied images will be removed from cach" +
-        "e.");
+            // 
+            // chbxFileNamingPattern
+            // 
+            this.chbxFileNamingPattern.AutoSize = true;
+            this.chbxFileNamingPattern.Location = new System.Drawing.Point(16, 306);
+            this.chbxFileNamingPattern.Name = "chbxFileNamingPattern";
+            this.chbxFileNamingPattern.Size = new System.Drawing.Size(174, 20);
+            this.chbxFileNamingPattern.TabIndex = 47;
+            this.chbxFileNamingPattern.Text = "Use pattern to name files";
+            this.chbxFileNamingPattern.UseVisualStyleBackColor = true;
+            this.chbxFileNamingPattern.CheckedChanged += new System.EventHandler(this.chbxFileNamingPattern_CheckChanged);
+            // 
+            // txtFileNamingPattern
+            // 
+            this.txtFileNamingPattern.Location = new System.Drawing.Point(195, 306);
+            this.txtFileNamingPattern.Name = "txtFileNamingPattern";
+            this.txtFileNamingPattern.Size = new System.Drawing.Size(251, 22);
+            this.txtFileNamingPattern.TabIndex = 48;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(452, 308);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 20);
+            this.label9.TabIndex = 49;
+            this.label9.Text = "?";
             // 
             // MainGUI
             // 
@@ -517,7 +545,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(721, 409);
+            this.ClientSize = new System.Drawing.Size(721, 455);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtFileNamingPattern);
+            this.Controls.Add(this.chbxFileNamingPattern);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.chbxDeleteFilesFromCache);
             this.Controls.Add(this.label7);
@@ -612,6 +643,9 @@
         private System.Windows.Forms.Label lblBrowserHelpTooltip;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox chbxDeleteFilesFromCache;
+        private System.Windows.Forms.CheckBox chbxFileNamingPattern;
+        private System.Windows.Forms.TextBox txtFileNamingPattern;
+        private System.Windows.Forms.Label label9;
     }
 }
 

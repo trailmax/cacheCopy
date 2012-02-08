@@ -166,5 +166,29 @@ namespace cacheCopy.Properties {
                 this["RemoveImagesFromCache"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseFileNamingPattern {
+            get {
+                return ((bool)(this["UseFileNamingPattern"]));
+            }
+            set {
+                this["UseFileNamingPattern"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NamingPattern {
+            get {
+                return ((string)(this["NamingPattern"]));
+            }
+            set {
+                this["NamingPattern"] = value;
+            }
+        }
     }
 }
