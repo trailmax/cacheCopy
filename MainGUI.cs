@@ -177,6 +177,17 @@ namespace cacheCopy
         }
 
         /// <summary>
+        /// Enable or disable Text field for file-naming pattern, depending if the option is 
+        /// turned on or not.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void chbxFileNamingPattern_CheckChanged(object sender, EventArgs e)
+        {
+            SourceSelectionChanged();
+        }
+
+        /// <summary>
         /// Handles the FormClosing event of the MainGUI control:
         /// here we need to disable any kind of validation, so we can close the form.
         /// Otherwise the validation would not let us close the program if one of the fields
@@ -228,8 +239,9 @@ namespace cacheCopy
             minWidth.Value = ST.Default.Xresolution;
             minHeight.Value = ST.Default.YResolution;
             chbxDeleteFilesFromCache.Checked = ST.Default.RemoveImagesFromCache;
+            chbxFileNamingPattern.Checked = ST.Default.UseFileNamingPattern;
+            txtFileNamingPattern.Text = ST.Default.NamingPattern;
         }
-
 
         /// <summary>
         /// Saves the current state of the form into properties file
@@ -248,6 +260,9 @@ namespace cacheCopy
             ST.Default.Xresolution = (int)minWidth.Value;
             ST.Default.YResolution = (int)minHeight.Value;
             ST.Default.RemoveImagesFromCache = chbxDeleteFilesFromCache.Checked;
+            ST.Default.UseFileNamingPattern = chbxFileNamingPattern.Checked;
+            ST.Default.NamingPattern = txtFileNamingPattern.Text;
+
             ST.Default.Save();
         }
 
@@ -315,7 +330,7 @@ namespace cacheCopy
             lblSourceFolderDisplay.Visible = BrowserRadioButton.Checked;
             SourceFolderName.Enabled = ManualSelectionRadioButton.Checked;
             SourceFolderButton.Enabled = ManualSelectionRadioButton.Checked;
-
+            txtFileNamingPattern.Enabled = chbxFileNamingPattern.Checked;
         }
 
         private void SetTooltips()
@@ -343,6 +358,9 @@ namespace cacheCopy
             this.toolTip1.SetToolTip(this.label6, "Turn this option on to include only images with file-size larger than desired");
             
             this.toolTip1.SetToolTip(this.label7, "Filter out images with small resolution.");
+
+            this.toolTip1.SetToolTip(this.label8, String.Format("This option will remove files with images from the browser cache.{0}"+ 
+                "This will not allow to copy the same images twice. Only copied images will be removed from cache.", Environment.NewLine));
 
 
         }
@@ -552,6 +570,7 @@ namespace cacheCopy
             return isValid;
         }
 #endregion
+
 
 
     }
