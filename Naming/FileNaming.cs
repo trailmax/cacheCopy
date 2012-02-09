@@ -30,7 +30,7 @@ namespace cacheCopy
 
 
 
-        public static string GenerateFileName(FileInfo file, String pattern, FileType fileType, bool allowOverwrite )
+        public static string GenerateFileName(FileInfo file, String pattern, FileType fileType, bool allowOverwrite, string targetPath )
         {
             String name = file.Name;
 
@@ -53,34 +53,82 @@ namespace cacheCopy
             if (!allowOverwrite)
             {
                 //create new name - add (1) at the name end
-                CorrectNameIfFileExits(file, name);
+                name = CorrectNameIfFileExits(file, name, targetPath);
             }
 
-            return name;
+            return Path.Combine(targetPath, name);
         }
 
 
 
-
-        private static void CorrectNameIfFileExits(FileInfo file, string name)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        private static bool NameIncludesCorrectExtension(string name)
-        {
-            //check that file name ends with .jpg or .jpeg or .gif or .png
-            throw new NotImplementedException();
-        }
-
-
-
-
+        /// <summary>
+        /// Replace placeholders in pattern for the information 
+        /// from file and other data
+        /// </summary>
+        /// <param name="file">The file.</param>
+        /// <param name="pattern">The pattern.</param>
+        /// <returns></returns>
         private static string ProcessPatternName(FileInfo file, string pattern)
         {
             throw new NotImplementedException();
         }
+
+
+
+        /// <summary>
+        /// Check if given file names already includes the correct extension.
+        /// Basically we need to check if the filename ends with one of the known extension
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns>true if filename already has allowed extension at the end</returns>
+        private static bool NameIncludesCorrectExtension(string name)
+        {
+            List<string> allowedExtension = new List<string> {
+                ".jpg",
+                ".jpeg",
+                ".gif",
+                ".png"
+            };
+
+            foreach (string ext in allowedExtension)
+            {
+                if (name.EndsWith(ext))
+                    return true;
+            }
+
+            return false;
+        }
+
+
+
+        /// <summary>
+        /// Check if the file with this name and path already exists and 
+        /// add (1) or (2), etc. at the end of the name, before the extension
+        /// </summary>
+        /// <param name="file">The file.</param>
+        /// <param name="name">The name.</param>
+        private static string CorrectNameIfFileExits(FileInfo file, string name, string targetPath)
+        {
+            string newFullName = Path.Combine(targetPath, name);
+
+            int i = 0;
+            while (File.Exists(newFullName))    // check if file exists
+            {
+                i++;    // if file exists, add counter
+                string nameNoExtension = Path.GetFileNameWithoutExtension(newFullName);
+                string extension = Path.GetExtension(newFullName);
+                // and add the number to the file name
+                newFullName = Path.Combine(targetPath, nameNoExtension + "(" + i.ToString() + ")" + extension);
+            }
+
+            return newFullName;
+        }
+
+
+
+
+
+
+
     }
 }
