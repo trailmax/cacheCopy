@@ -190,5 +190,17 @@ namespace cacheCopy.Properties {
                 this["NamingPattern"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AllowOverwriteFiles {
+            get {
+                return ((bool)(this["AllowOverwriteFiles"]));
+            }
+            set {
+                this["AllowOverwriteFiles"] = value;
+            }
+        }
     }
 }

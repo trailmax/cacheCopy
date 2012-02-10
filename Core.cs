@@ -30,7 +30,6 @@ namespace cacheCopy
         }
 
 
-
         /// <summary>
         /// Setter for GUI object
         /// </summary>
@@ -74,9 +73,6 @@ namespace cacheCopy
         {
             return files;
         }
-
-
-
 
 
         /// <summary>
@@ -232,16 +228,9 @@ namespace cacheCopy
                         break;
                     }
 
-                    //TODO change the logic here
-                    // possible patterns available:
-                    //  For current time/date: YYYY, MM, DD, MMM, HH,MIN,SS,TS = timestamp
-                    //  same for the file modification date/time
-                    //  image resolution X, Y, total square of the image resolution: X*Y
-                    //  current number and number with padding
-                    //  random number
-                    //  random string of letters/digits
-                    //  add correct extension if not present already
-                    string newPath = Core.generateFileName(targetFolder, file.Name, ".jpg");
+                    //string newPath = Core.generateFileName(targetFolder, file.Name, ".jpg");
+                    string paddedNumber = Util.PadNumberToMaximum(i, files.Count);
+                    string newPath = FileNaming.GenerateFileName(file, mainGUI.getFileNamingPattern(), mainGUI.isAllowOverwriteFiles(), targetFolder, paddedNumber);
 
                     try
                     {
