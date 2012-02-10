@@ -73,6 +73,8 @@
             this.chbxFileNamingPattern = new System.Windows.Forms.CheckBox();
             this.txtFileNamingPattern = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.chbxAllowOverwriteFiles = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -537,6 +539,27 @@
             this.label9.TabIndex = 49;
             this.label9.Text = "?";
             // 
+            // chbxAllowOverwriteFiles
+            // 
+            this.chbxAllowOverwriteFiles.AutoSize = true;
+            this.chbxAllowOverwriteFiles.Location = new System.Drawing.Point(16, 333);
+            this.chbxAllowOverwriteFiles.Name = "chbxAllowOverwriteFiles";
+            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(230, 20);
+            this.chbxAllowOverwriteFiles.TabIndex = 50;
+            this.chbxAllowOverwriteFiles.Text = "Allow overwrite files in target folder";
+            this.chbxAllowOverwriteFiles.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(244, 333);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 20);
+            this.label10.TabIndex = 51;
+            this.label10.Text = "?";
+            
+            // 
             // MainGUI
             // 
             this.AcceptButton = this.CopyButton;
@@ -546,6 +569,8 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(721, 455);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.chbxAllowOverwriteFiles);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtFileNamingPattern);
             this.Controls.Add(this.chbxFileNamingPattern);
@@ -646,6 +671,8 @@
         private System.Windows.Forms.CheckBox chbxFileNamingPattern;
         private System.Windows.Forms.TextBox txtFileNamingPattern;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox chbxAllowOverwriteFiles;
+        private System.Windows.Forms.Label label10;
     }
 }
 

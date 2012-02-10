@@ -11,33 +11,30 @@ namespace cacheCopy
 
 
 
-        // overwrite file ? 
-        // pattern
-        // extension - detect if there is an extension there already (1 to 4 symbols after the dot at the end)
-        // If no extension provided - get the extension by the file type.
-
-
-        // possible patterns available:
-        //  For current time/date: YYYY, MM, DD, MMM, HH,MIN,SS,TS = timestamp
-        //  same for the file modification date/time
-        //  image resolution X, Y, total square of the image resolution: X*Y
-        //  current number and number with padding
-        //  random number
-        //  random string of letters/digits
-        //  add correct extension if not present already
-        // * (asterisk for pattern)
-        
 
 
 
-        public static string GenerateFileName(FileInfo file, String pattern, FileType fileType, bool allowOverwrite, string targetPath )
+
+        /// <summary>
+        /// Generates the name of the file taking into account all the settings provided by user in GUI:
+        ///  * pattern
+        ///  * Overwrite existing files or not
+        ///  * adds extension to the file if not already there
+        /// </summary>
+        /// <param name="file">The file.</param>
+        /// <param name="pattern">The pattern.</param>
+        /// <param name="allowOverwrite">if set to <c>true</c> [allow overwrite].</param>
+        /// <param name="targetPath">The target path.</param>
+        /// <param name="Number">The number.</param>
+        /// <returns></returns>
+        public static string GenerateFileName(FileInfo file, String pattern, bool allowOverwrite, string targetPath, string Number = "" )
         {
             String name = file.Name;
 
             // if pattern is set, process the pattern
             if (pattern != null && pattern != String.Empty)
             {
-                name = ProcessPatternName(file, pattern);
+                name = ProcessPatternName(file, pattern, Number);
             }
 
             // check for file extension in the pattern
@@ -46,7 +43,7 @@ namespace cacheCopy
             {
                 // if there is no extension, take it from fileType
                 // add extension to the end of the fileName
-                name += '.' + fileType.extension;
+                name += '.' + file.GetFileType().extension;
             }
 
             // then check if the filename with this name already exists
@@ -68,8 +65,47 @@ namespace cacheCopy
         /// <param name="file">The file.</param>
         /// <param name="pattern">The pattern.</param>
         /// <returns></returns>
-        private static string ProcessPatternName(FileInfo file, string pattern)
+        private static string ProcessPatternName(FileInfo file, string pattern, string Number)
         {
+            DateTime FileCreatedTime = file.CreationTime;
+
+            // possible patterns available:
+            Dictionary<string, string> replacements = new Dictionary<string, string>()
+            {
+                //current computer time
+                {"*yyyy*", DateTime.Now.ToString("yyyy")},
+                {"*yy*", DateTime.Now.ToString("yyyy")},
+                {"*MM*", DateTime.Now.ToString("MM")},
+                {"*MMM*", DateTime.Now.ToString("MMM")},
+                {"*HH*", DateTime.Now.ToString("HH")},
+                {"*mm*", DateTime.Now.ToString("mm")},
+                {"*ss*", DateTime.Now.ToString("ss")},
+                {"*ffff*", DateTime.Now.ToString("ffff")},
+                {"*fffffff*", DateTime.Now.ToString("fffffff")},
+
+                //Timestamp for file creation time
+                {"*CFyyyy*", FileCreatedTime.ToString("yyyy")},
+                {"*CFyy*", FileCreatedTime.ToString("yyyy")},
+                {"*CFMM*", FileCreatedTime.ToString("MM")},
+                {"*CFMMM*", FileCreatedTime.ToString("MMM")},
+                {"*CFHH*", FileCreatedTime.ToString("HH")},
+                {"*CFmm*", FileCreatedTime.ToString("mm")},
+                {"*CFss*", FileCreatedTime.ToString("ss")},
+                {"*CFff*", FileCreatedTime.ToString("ff")},
+            
+                // random string of letters/digits
+                {"*RAND3*", Util.GenerateRandomString(3)},
+                {"*RAND4*", Util.GenerateRandomString(4)},
+                {"*RAND5*", Util.GenerateRandomString(5)},
+                {"*RAND6*", Util.GenerateRandomString(6)},
+
+                // number of the file in the queue with padding
+                {"*NUM*", Number}
+
+            };
+
+            //TODO complete
+
             throw new NotImplementedException();
         }
 

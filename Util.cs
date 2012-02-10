@@ -10,6 +10,8 @@ namespace cacheCopy
 {
     static class Util
     {
+        //Generate new random every time used. Must sit outside of the function, as static, otherwise there would be no randomness.
+        private static Random random = new Random((int)DateTime.Now.Ticks);
 
         /// <summary>
         /// Get list of all the files in the directory. 
@@ -210,6 +212,61 @@ namespace cacheCopy
             }
             return String.Empty;
         }
+
+
+
+        /// <summary>
+        /// Generates the random string of given length.
+        /// String consists of uppercase letters only.
+        /// </summary>
+        /// <param name="size">The required length of the string.</param>
+        /// <returns>String</returns>
+        public static string GenerateRandomString(int size)
+        {
+            StringBuilder builder = new StringBuilder();
+            char ch;
+            for (int i = 0; i < size; i++)
+            {
+                ch = Convert.ToChar(CreateRandomIntForString());
+                builder.Append(ch);
+            }
+            return builder.ToString();
+        }
+
+        /// <summary>
+        /// Create a random number corresponding to ASCII uppercase or a digit
+        /// </summary>
+        /// <returns>Integer between 48-57 or between 65-90</returns>
+        private static int CreateRandomIntForString()
+        {
+            //ASCII codes
+            //48-57 = digits
+            //65-90 = Uppercase letters
+            //97-122 = lowercase letters
+
+            int i;
+            do
+            {
+                i = Convert.ToInt32(random.Next(48, 90));
+            } while (i > 57 && i < 65);
+
+            return i;
+        }
+
+
+        /// <summary>
+        /// Pads the given number to a maximum number it can go.
+        /// i.e. for given number 45 and maximum count as 7784, result would be 0045
+        /// </summary>
+        /// <param name="number">The number.</param>
+        /// <param name="maxNumber">The max number.</param>
+        /// <returns></returns>
+        public static string PadNumberToMaximum(int number, int maxNumber)
+        {
+            int maxLen = maxNumber.ToString().Length;
+            return number.ToString().PadLeft(maxLen, '0');
+        }
+
     }
 
 

@@ -241,6 +241,7 @@ namespace cacheCopy
             chbxDeleteFilesFromCache.Checked = ST.Default.RemoveImagesFromCache;
             chbxFileNamingPattern.Checked = ST.Default.UseFileNamingPattern;
             txtFileNamingPattern.Text = ST.Default.NamingPattern;
+            chbxAllowOverwriteFiles.Checked = ST.Default.AllowOverwriteFiles;
         }
 
         /// <summary>
@@ -262,6 +263,7 @@ namespace cacheCopy
             ST.Default.RemoveImagesFromCache = chbxDeleteFilesFromCache.Checked;
             ST.Default.UseFileNamingPattern = chbxFileNamingPattern.Checked;
             ST.Default.NamingPattern = txtFileNamingPattern.Text;
+            ST.Default.AllowOverwriteFiles = chbxAllowOverwriteFiles.Checked;
 
             ST.Default.Save();
         }
@@ -362,6 +364,8 @@ namespace cacheCopy
             this.toolTip1.SetToolTip(this.label8, String.Format("This option will remove files with images from the browser cache.{0}"+ 
                 "This will not allow to copy the same images twice. Only copied images will be removed from cache.", Environment.NewLine));
 
+            this.toolTip1.SetToolTip(this.label10, String.Format("If in target folder file with the same name exists, overwrite this file.{0}" +
+                "If this option is turned off, to the name of the new file \"(1)\" will be added", Environment.NewLine));
 
         }
 
@@ -520,6 +524,23 @@ namespace cacheCopy
         public bool isRemoveImagesFromCache()
         {
             return chbxDeleteFilesFromCache.Checked;
+        }
+
+        /// <summary>
+        /// Gets the file naming pattern.
+        /// </summary>
+        /// <returns>If the option is switched off, this returns empty string, otherwise naming pattern entered by user</returns>
+        public string getFileNamingPattern()
+        {
+            if (chbxFileNamingPattern.Checked)
+                return txtFileNamingPattern.Text;
+            else
+                return "";
+                
+        }
+
+        public bool isAllowOverwriteFiles(){
+            return chbxAllowOverwriteFiles.Checked;
         }
 
 #endregion
