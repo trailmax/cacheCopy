@@ -104,9 +104,13 @@ namespace cacheCopy
 
             };
 
-            //TODO complete
+            foreach (var pair in replacements)
+            {
+                pattern = pattern.Replace(pair.Key, pair.Value);
+            }
 
-            throw new NotImplementedException();
+            return pattern;
+
         }
 
 
