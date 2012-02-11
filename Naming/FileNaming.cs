@@ -6,14 +6,8 @@ using System.IO;
 
 namespace cacheCopy
 {
-    class FileNaming
+    public class FileNaming
     {
-
-
-
-
-
-
 
         /// <summary>
         /// Generates the name of the file taking into account all the settings provided by user in GUI:
@@ -74,7 +68,7 @@ namespace cacheCopy
             {
                 //current computer time
                 {"*yyyy*", DateTime.Now.ToString("yyyy")},
-                {"*yy*", DateTime.Now.ToString("yyyy")},
+                {"*yy*", DateTime.Now.ToString("yy")},
                 {"*MM*", DateTime.Now.ToString("MM")},
                 {"*MMM*", DateTime.Now.ToString("MMM")},
                 {"*HH*", DateTime.Now.ToString("HH")},
