@@ -64,7 +64,6 @@ namespace cacheCopy
         }
 
 
-
         /// <summary>
         /// Getter for list of files.
         /// </summary>
@@ -159,39 +158,6 @@ namespace cacheCopy
         }
 
 
-
-        /// <summary>
-        /// Generates the name of the file, checks if the file
-        /// already exists and appends (%number%) at the end of the name.
-        /// </summary>
-        /// <param name="dirName">Name of the directory</param>
-        /// <param name="fileName">Name of the file</param>
-        /// <param name="extension">The extension</param>
-        /// <returns>String with full path of the file</returns>
-        public static string generateFileName(string dirName, string fileName, string extension)
-        {
-            // if the filename already has the extension, we just remove it.
-            if (fileName.ToLower().EndsWith(extension.ToLower()))
-            {
-                fileName = fileName.Remove(fileName.Length - extension.Length);
-            }
-            // create file name, as if there no file with that name
-            string newName = Path.Combine(dirName, fileName + extension);
-            int i = 0;
-            while (File.Exists(newName))    // check if file exists
-            {
-                i++;    // if file exists, add counter
-                // and add the number to the file name
-                newName = Path.Combine(dirName, fileName + "(" + i.ToString() + ")" + extension);
-            }
-
-            return newName;
-        }
-
-
-
-
-
         /// <summary>
         /// Executes the main routine: reads information from form
         /// and accordingly to the settings copies the files from one place to another
@@ -228,7 +194,7 @@ namespace cacheCopy
                         break;
                     }
 
-                    //string newPath = Core.generateFileName(targetFolder, file.Name, ".jpg");
+                    // now make a new filename, according to the parameters provided by user
                     string paddedNumber = Util.PadNumberToMaximum(i, files.Count);
                     string newPath = FileNaming.GenerateFileName(file, mainGUI.getFileNamingPattern(), mainGUI.isAllowOverwriteFiles(), targetFolder, paddedNumber);
 
