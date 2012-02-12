@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace cacheCopy
 {
@@ -51,7 +52,6 @@ namespace cacheCopy
         }
 
 
-
         /// <summary>
         /// Replace placeholders in pattern for the information 
         /// from file and other data
@@ -63,40 +63,7 @@ namespace cacheCopy
         {
             DateTime FileCreatedTime = file.CreationTime;
 
-            // possible patterns available:
-            Dictionary<string, string> replacements = new Dictionary<string, string>()
-            {
-                //current computer time
-                {"*yyyy*", DateTime.Now.ToString("yyyy")},
-                {"*yy*", DateTime.Now.ToString("yy")},
-                {"*MM*", DateTime.Now.ToString("MM")},
-                {"*MMM*", DateTime.Now.ToString("MMM")},
-                {"*HH*", DateTime.Now.ToString("HH")},
-                {"*mm*", DateTime.Now.ToString("mm")},
-                {"*ss*", DateTime.Now.ToString("ss")},
-                {"*ffff*", DateTime.Now.ToString("ffff")},
-                {"*fffffff*", DateTime.Now.ToString("fffffff")},
-
-                //Timestamp for file creation time
-                {"*CFyyyy*", FileCreatedTime.ToString("yyyy")},
-                {"*CFyy*", FileCreatedTime.ToString("yyyy")},
-                {"*CFMM*", FileCreatedTime.ToString("MM")},
-                {"*CFMMM*", FileCreatedTime.ToString("MMM")},
-                {"*CFHH*", FileCreatedTime.ToString("HH")},
-                {"*CFmm*", FileCreatedTime.ToString("mm")},
-                {"*CFss*", FileCreatedTime.ToString("ss")},
-                {"*CFff*", FileCreatedTime.ToString("ff")},
-            
-                // random string of letters/digits
-                {"*RAND3*", Util.GenerateRandomString(3)},
-                {"*RAND4*", Util.GenerateRandomString(4)},
-                {"*RAND5*", Util.GenerateRandomString(5)},
-                {"*RAND6*", Util.GenerateRandomString(6)},
-
-                // number of the file in the queue with padding
-                {"*NUM*", Number}
-
-            };
+            Dictionary<string, string> replacements = GetReplacementPattern(FileCreatedTime, Number);
 
             foreach (var pair in replacements)
             {
@@ -106,7 +73,6 @@ namespace cacheCopy
             return pattern;
 
         }
-
 
 
         /// <summary>
@@ -134,7 +100,6 @@ namespace cacheCopy
         }
 
 
-
         /// <summary>
         /// Check if the file with this name and path already exists and 
         /// add (1) or (2), etc. at the end of the name, before the extension
@@ -159,6 +124,74 @@ namespace cacheCopy
         }
 
 
+
+        /// <summary>
+        /// Build a dictionary of replacement strings
+        /// </summary>
+        /// <param name="FileCreatedTime">The file created time.</param>
+        /// <param name="Number">The string with current file number - with zeros as padding.</param>
+        /// <returns>dictionary with strings</returns>
+        private static Dictionary<string, string> GetReplacementPattern(DateTime FileCreatedTime, string Number)
+        {
+            // for more date string formats go here:
+            //http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx
+
+            Dictionary<string, string> replacements = new Dictionary<string, string>()
+            {
+                //current computer time
+                {"*yyyy*", DateTime.Now.ToString("yyyy")},  // 1999
+                {"*yy*", DateTime.Now.ToString("yy")},      // 99
+                {"*MM*", DateTime.Now.ToString("MM")},      // 02 (for February)
+                {"*MMM*", DateTime.Now.ToString("MMM")},    // Feb (for February)
+                {"*dd*", DateTime.Now.ToString("dd")},      // 05 for fifth
+                {"*HH*", DateTime.Now.ToString("HH")},      // 07 - hours
+                {"*mm*", DateTime.Now.ToString("mm")},      // minutes
+                {"*ss*", DateTime.Now.ToString("ss")},      // seconds
+                {"*ffff*", DateTime.Now.ToString("ffff")},  //	The hundredths of a second
+                {"*fffffff*", DateTime.Now.ToString("fffffff")}, //The ten millionths of a second
+
+                //Timestamp for file creation time
+                {"*CFyyyy*", FileCreatedTime.ToString("yyyy")},
+                {"*CFyy*", FileCreatedTime.ToString("yy")},
+                {"*CFMM*", FileCreatedTime.ToString("MM")},
+                {"*CFMMM*", FileCreatedTime.ToString("MMM")},
+                {"*CFdd*", FileCreatedTime.ToString("dd")},
+                {"*CFHH*", FileCreatedTime.ToString("HH")},
+                {"*CFmm*", FileCreatedTime.ToString("mm")},
+                {"*CFss*", FileCreatedTime.ToString("ss")},
+                {"*CFff*", FileCreatedTime.ToString("ff")},
+            
+                // random string of letters/digits
+                {"*RAND3*", Util.GenerateRandomString(3)},
+                {"*RAND4*", Util.GenerateRandomString(4)},
+                {"*RAND5*", Util.GenerateRandomString(5)},
+                {"*RAND6*", Util.GenerateRandomString(6)},
+
+                // number of the file in the queue with padding
+                {"*NUM*", Number}
+            };
+            return replacements;
+        }
+
+
+
+        public static bool isPatternValid(string pattern)
+        {
+            // avoid assigning to the parameter
+            String name = pattern;
+            
+            // get all the possible replacements
+            Dictionary<string, string> replacements = GetReplacementPattern(DateTime.Now, "");
+
+            // replace every wildcard with value
+            foreach (var pair in replacements)
+            {
+                name = name.Replace(pair.Key, pair.Value);
+            }
+
+            return Util.IsValidFileName(name);
+
+        }
 
 
 

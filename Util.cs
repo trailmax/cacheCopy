@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.ComponentModel;
 using Microsoft.Win32;
+using System.Text.RegularExpressions;
 
 namespace cacheCopy
 {
@@ -265,6 +266,23 @@ namespace cacheCopy
         {
             int maxLen = maxNumber.ToString().Length;
             return number.ToString().PadLeft(maxLen, '0');
+        }
+
+
+        /// <summary>
+        /// Determines whether the filename is valid.
+        /// 
+        /// Thanks to Scott Dorman for the solution: 
+        /// http://stackoverflow.com/a/63235/809357
+        /// </summary>
+        /// <param name="expression">The filename.</param>
+        /// <returns>
+        ///   <c>true</c> if the provided filename is valid; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsValidFileName(this string expression)
+        {
+            string sPattern = @"^(?!^(PRN|AUX|CLOCK\$|NUL|CON|COM\d|LPT\d|\..*)(\..+)?$)[^\x00-\x1f\\?*:\"";|/]+$";
+            return (Regex.IsMatch(expression, sPattern, RegexOptions.CultureInvariant));
         }
 
     }

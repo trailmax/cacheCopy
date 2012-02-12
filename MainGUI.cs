@@ -372,7 +372,6 @@ namespace cacheCopy
 #endregion
 
 
-
 #region Checkboxes 
 
         /// <summary>
@@ -414,6 +413,7 @@ namespace cacheCopy
         }
 
 #endregion
+
 
 #region Getters
 
@@ -539,11 +539,18 @@ namespace cacheCopy
                 
         }
 
+        /// <summary>
+        /// Determines whether it is allowed to overwrite existing files in target
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if [is allow overwrite files]; otherwise, <c>false</c>.
+        /// </returns>
         public bool isAllowOverwriteFiles(){
             return chbxAllowOverwriteFiles.Checked;
         }
 
 #endregion
+
 
 #region Validators
 
@@ -587,11 +594,20 @@ namespace cacheCopy
                 ManualSelectionErrorProvider.SetError(SourceFolderName, "");
             }
 
+            if (chbxFileNamingPattern.Checked && !FileNaming.isPatternValid(getFileNamingPattern()))
+            {
+                FilePatternErrorProvider.SetError(txtFileNamingPattern, "Pattern contains invalid characters or not valid");
+                messages.Add("File naming pattern contains invalid characters or not valid");
+            }
+            else
+            {
+                FilePatternErrorProvider.SetError(txtFileNamingPattern, "");
+            }
+
 
             return isValid;
         }
 #endregion
-
 
 
     }

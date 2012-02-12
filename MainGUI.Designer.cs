@@ -75,6 +75,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.chbxAllowOverwriteFiles = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.FilePatternErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -82,6 +83,7 @@
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ManualSelectionErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TargetFolderErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FilePatternErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // CopyButton
@@ -558,7 +560,10 @@
             this.label10.Size = new System.Drawing.Size(19, 20);
             this.label10.TabIndex = 51;
             this.label10.Text = "?";
-            
+            // 
+            // FilePatternErrorProvider
+            // 
+            this.FilePatternErrorProvider.ContainerControl = this;
             // 
             // MainGUI
             // 
@@ -621,6 +626,7 @@
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ManualSelectionErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TargetFolderErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FilePatternErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -673,6 +679,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox chbxAllowOverwriteFiles;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ErrorProvider FilePatternErrorProvider;
     }
 }
 
