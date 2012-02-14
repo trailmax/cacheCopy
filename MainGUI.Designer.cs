@@ -76,6 +76,9 @@
             this.chbxAllowOverwriteFiles = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.FilePatternErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -84,11 +87,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.ManualSelectionErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TargetFolderErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FilePatternErrorProvider)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // CopyButton
             // 
-            this.CopyButton.Location = new System.Drawing.Point(608, 387);
+            this.CopyButton.Location = new System.Drawing.Point(605, 294);
             this.CopyButton.Margin = new System.Windows.Forms.Padding(4);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(100, 28);
@@ -104,18 +110,18 @@
             // 
             // targetFolderName
             // 
-            this.targetFolderName.Location = new System.Drawing.Point(16, 133);
+            this.targetFolderName.Location = new System.Drawing.Point(148, 110);
             this.targetFolderName.Margin = new System.Windows.Forms.Padding(4);
             this.targetFolderName.Name = "targetFolderName";
-            this.targetFolderName.Size = new System.Drawing.Size(241, 22);
+            this.targetFolderName.Size = new System.Drawing.Size(500, 22);
             this.targetFolderName.TabIndex = 6;
             // 
             // targetFolderButton
             // 
-            this.targetFolderButton.Location = new System.Drawing.Point(255, 133);
+            this.targetFolderButton.Location = new System.Drawing.Point(646, 109);
             this.targetFolderButton.Margin = new System.Windows.Forms.Padding(4);
             this.targetFolderButton.Name = "targetFolderButton";
-            this.targetFolderButton.Size = new System.Drawing.Size(43, 22);
+            this.targetFolderButton.Size = new System.Drawing.Size(37, 22);
             this.targetFolderButton.TabIndex = 8;
             this.targetFolderButton.Text = "...";
             this.targetFolderButton.UseVisualStyleBackColor = true;
@@ -124,7 +130,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 113);
+            this.label1.Location = new System.Drawing.Point(50, 112);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 16);
@@ -160,7 +166,7 @@
             this.hoursCheckbox.AutoSize = true;
             this.hoursCheckbox.Checked = true;
             this.hoursCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hoursCheckbox.Location = new System.Drawing.Point(16, 168);
+            this.hoursCheckbox.Location = new System.Drawing.Point(7, 7);
             this.hoursCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.hoursCheckbox.Name = "hoursCheckbox";
             this.hoursCheckbox.Size = new System.Drawing.Size(150, 20);
@@ -171,7 +177,7 @@
             // 
             // hours
             // 
-            this.hours.Location = new System.Drawing.Point(163, 167);
+            this.hours.Location = new System.Drawing.Point(165, 6);
             this.hours.Margin = new System.Windows.Forms.Padding(4);
             this.hours.Maximum = new decimal(new int[] {
             10000,
@@ -195,7 +201,7 @@
             // lblHours
             // 
             this.lblHours.AutoSize = true;
-            this.lblHours.Location = new System.Drawing.Point(223, 169);
+            this.lblHours.Location = new System.Drawing.Point(220, 8);
             this.lblHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHours.Name = "lblHours";
             this.lblHours.Size = new System.Drawing.Size(63, 16);
@@ -207,7 +213,7 @@
             this.kilobytesCheckbox.AutoSize = true;
             this.kilobytesCheckbox.Checked = true;
             this.kilobytesCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.kilobytesCheckbox.Location = new System.Drawing.Point(16, 198);
+            this.kilobytesCheckbox.Location = new System.Drawing.Point(7, 37);
             this.kilobytesCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.kilobytesCheckbox.Name = "kilobytesCheckbox";
             this.kilobytesCheckbox.Size = new System.Drawing.Size(184, 20);
@@ -218,7 +224,7 @@
             // 
             // kilobytes
             // 
-            this.kilobytes.Location = new System.Drawing.Point(195, 197);
+            this.kilobytes.Location = new System.Drawing.Point(199, 37);
             this.kilobytes.Margin = new System.Windows.Forms.Padding(4);
             this.kilobytes.Maximum = new decimal(new int[] {
             1410065407,
@@ -237,7 +243,7 @@
             // lblKilobytes
             // 
             this.lblKilobytes.AutoSize = true;
-            this.lblKilobytes.Location = new System.Drawing.Point(268, 199);
+            this.lblKilobytes.Location = new System.Drawing.Point(272, 39);
             this.lblKilobytes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKilobytes.Name = "lblKilobytes";
             this.lblKilobytes.Size = new System.Drawing.Size(24, 16);
@@ -249,7 +255,7 @@
             this.resolutionCheckbox.AutoSize = true;
             this.resolutionCheckbox.Checked = true;
             this.resolutionCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.resolutionCheckbox.Location = new System.Drawing.Point(16, 227);
+            this.resolutionCheckbox.Location = new System.Drawing.Point(7, 66);
             this.resolutionCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.resolutionCheckbox.Name = "resolutionCheckbox";
             this.resolutionCheckbox.Size = new System.Drawing.Size(187, 20);
@@ -260,7 +266,7 @@
             // 
             // minWidth
             // 
-            this.minWidth.Location = new System.Drawing.Point(195, 225);
+            this.minWidth.Location = new System.Drawing.Point(199, 65);
             this.minWidth.Margin = new System.Windows.Forms.Padding(4);
             this.minWidth.Maximum = new decimal(new int[] {
             10000,
@@ -284,7 +290,7 @@
             // lblX
             // 
             this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(271, 228);
+            this.lblX.Location = new System.Drawing.Point(275, 68);
             this.lblX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblX.Name = "lblX";
             this.lblX.Size = new System.Drawing.Size(16, 16);
@@ -293,7 +299,7 @@
             // 
             // minHeight
             // 
-            this.minHeight.Location = new System.Drawing.Point(285, 226);
+            this.minHeight.Location = new System.Drawing.Point(293, 65);
             this.minHeight.Margin = new System.Windows.Forms.Padding(4);
             this.minHeight.Maximum = new decimal(new int[] {
             10000,
@@ -317,7 +323,7 @@
             // lblPixels
             // 
             this.lblPixels.AutoSize = true;
-            this.lblPixels.Location = new System.Drawing.Point(362, 228);
+            this.lblPixels.Location = new System.Drawing.Point(362, 67);
             this.lblPixels.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPixels.Name = "lblPixels";
             this.lblPixels.Size = new System.Drawing.Size(43, 16);
@@ -336,7 +342,7 @@
             // 
             this.CancelButton.CausesValidation = false;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(509, 387);
+            this.CancelButton.Location = new System.Drawing.Point(506, 294);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(82, 28);
             this.CancelButton.TabIndex = 26;
@@ -350,9 +356,9 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressLabel,
             this.progressBar});
-            this.statusStrip.Location = new System.Drawing.Point(0, 433);
+            this.statusStrip.Location = new System.Drawing.Point(0, 334);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(721, 22);
+            this.statusStrip.Size = new System.Drawing.Size(717, 22);
             this.statusStrip.TabIndex = 27;
             // 
             // progressLabel
@@ -392,7 +398,7 @@
             this.BrowserDropDown.FormattingEnabled = true;
             this.BrowserDropDown.Location = new System.Drawing.Point(148, 8);
             this.BrowserDropDown.Name = "BrowserDropDown";
-            this.BrowserDropDown.Size = new System.Drawing.Size(273, 24);
+            this.BrowserDropDown.Size = new System.Drawing.Size(535, 24);
             this.BrowserDropDown.TabIndex = 35;
             this.BrowserDropDown.SelectedIndexChanged += new System.EventHandler(this.BrowserDropDown_SelectionChanged);
             // 
@@ -437,7 +443,7 @@
             // 
             this.lblBrowserHelpTooltip.AutoSize = true;
             this.lblBrowserHelpTooltip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBrowserHelpTooltip.Location = new System.Drawing.Point(427, 12);
+            this.lblBrowserHelpTooltip.Location = new System.Drawing.Point(689, 8);
             this.lblBrowserHelpTooltip.Name = "lblBrowserHelpTooltip";
             this.lblBrowserHelpTooltip.Size = new System.Drawing.Size(19, 20);
             this.lblBrowserHelpTooltip.TabIndex = 38;
@@ -457,7 +463,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(305, 135);
+            this.label4.Location = new System.Drawing.Point(689, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(19, 20);
             this.label4.TabIndex = 41;
@@ -467,7 +473,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(293, 167);
+            this.label5.Location = new System.Drawing.Point(280, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 20);
             this.label5.TabIndex = 42;
@@ -477,7 +483,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(293, 197);
+            this.label6.Location = new System.Drawing.Point(291, 37);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 20);
             this.label6.TabIndex = 43;
@@ -487,7 +493,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(402, 228);
+            this.label7.Location = new System.Drawing.Point(402, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 20);
             this.label7.TabIndex = 44;
@@ -496,9 +502,9 @@
             // chbxDeleteFilesFromCache
             // 
             this.chbxDeleteFilesFromCache.AutoSize = true;
-            this.chbxDeleteFilesFromCache.Location = new System.Drawing.Point(16, 279);
+            this.chbxDeleteFilesFromCache.Location = new System.Drawing.Point(6, 31);
             this.chbxDeleteFilesFromCache.Name = "chbxDeleteFilesFromCache";
-            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(235, 20);
+            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(189, 17);
             this.chbxDeleteFilesFromCache.TabIndex = 45;
             this.chbxDeleteFilesFromCache.Text = "Delete images from browser cache";
             this.chbxDeleteFilesFromCache.UseVisualStyleBackColor = true;
@@ -507,7 +513,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(248, 279);
+            this.label8.Location = new System.Drawing.Point(238, 31);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(19, 20);
             this.label8.TabIndex = 46;
@@ -516,9 +522,9 @@
             // chbxFileNamingPattern
             // 
             this.chbxFileNamingPattern.AutoSize = true;
-            this.chbxFileNamingPattern.Location = new System.Drawing.Point(16, 306);
+            this.chbxFileNamingPattern.Location = new System.Drawing.Point(6, 58);
             this.chbxFileNamingPattern.Name = "chbxFileNamingPattern";
-            this.chbxFileNamingPattern.Size = new System.Drawing.Size(174, 20);
+            this.chbxFileNamingPattern.Size = new System.Drawing.Size(143, 17);
             this.chbxFileNamingPattern.TabIndex = 47;
             this.chbxFileNamingPattern.Text = "Use pattern to name files";
             this.chbxFileNamingPattern.UseVisualStyleBackColor = true;
@@ -526,7 +532,7 @@
             // 
             // txtFileNamingPattern
             // 
-            this.txtFileNamingPattern.Location = new System.Drawing.Point(195, 306);
+            this.txtFileNamingPattern.Location = new System.Drawing.Point(185, 58);
             this.txtFileNamingPattern.Name = "txtFileNamingPattern";
             this.txtFileNamingPattern.Size = new System.Drawing.Size(251, 22);
             this.txtFileNamingPattern.TabIndex = 48;
@@ -535,7 +541,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(452, 308);
+            this.label9.Location = new System.Drawing.Point(442, 60);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(19, 20);
             this.label9.TabIndex = 49;
@@ -544,9 +550,9 @@
             // chbxAllowOverwriteFiles
             // 
             this.chbxAllowOverwriteFiles.AutoSize = true;
-            this.chbxAllowOverwriteFiles.Location = new System.Drawing.Point(16, 333);
+            this.chbxAllowOverwriteFiles.Location = new System.Drawing.Point(6, 6);
             this.chbxAllowOverwriteFiles.Name = "chbxAllowOverwriteFiles";
-            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(230, 20);
+            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(188, 17);
             this.chbxAllowOverwriteFiles.TabIndex = 50;
             this.chbxAllowOverwriteFiles.Text = "Allow overwrite files in target folder";
             this.chbxAllowOverwriteFiles.UseVisualStyleBackColor = true;
@@ -555,7 +561,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(244, 333);
+            this.label10.Location = new System.Drawing.Point(230, 6);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(19, 20);
             this.label10.TabIndex = 51;
@@ -565,6 +571,57 @@
             // 
             this.FilePatternErrorProvider.ContainerControl = this;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 139);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(697, 148);
+            this.tabControl1.TabIndex = 52;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.hoursCheckbox);
+            this.tabPage1.Controls.Add(this.hours);
+            this.tabPage1.Controls.Add(this.lblHours);
+            this.tabPage1.Controls.Add(this.kilobytesCheckbox);
+            this.tabPage1.Controls.Add(this.kilobytes);
+            this.tabPage1.Controls.Add(this.lblKilobytes);
+            this.tabPage1.Controls.Add(this.resolutionCheckbox);
+            this.tabPage1.Controls.Add(this.minWidth);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.lblX);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.minHeight);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.lblPixels);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(689, 119);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Filters";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.chbxAllowOverwriteFiles);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.chbxDeleteFilesFromCache);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.chbxFileNamingPattern);
+            this.tabPage2.Controls.Add(this.txtFileNamingPattern);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(689, 119);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "File Options";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // MainGUI
             // 
             this.AcceptButton = this.CopyButton;
@@ -573,17 +630,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(721, 455);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.chbxAllowOverwriteFiles);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtFileNamingPattern);
-            this.Controls.Add(this.chbxFileNamingPattern);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.chbxDeleteFilesFromCache);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(717, 356);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -594,17 +642,6 @@
             this.Controls.Add(this.ManualSelectionRadioButton);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.lblPixels);
-            this.Controls.Add(this.minHeight);
-            this.Controls.Add(this.lblX);
-            this.Controls.Add(this.minWidth);
-            this.Controls.Add(this.resolutionCheckbox);
-            this.Controls.Add(this.lblKilobytes);
-            this.Controls.Add(this.kilobytes);
-            this.Controls.Add(this.kilobytesCheckbox);
-            this.Controls.Add(this.lblHours);
-            this.Controls.Add(this.hours);
-            this.Controls.Add(this.hoursCheckbox);
             this.Controls.Add(this.SourceFolderButton);
             this.Controls.Add(this.SourceFolderName);
             this.Controls.Add(this.label1);
@@ -627,6 +664,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.ManualSelectionErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TargetFolderErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FilePatternErrorProvider)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -680,6 +722,9 @@
         private System.Windows.Forms.CheckBox chbxAllowOverwriteFiles;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ErrorProvider FilePatternErrorProvider;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

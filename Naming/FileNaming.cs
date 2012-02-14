@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace cacheCopy
 {
@@ -29,7 +26,7 @@ namespace cacheCopy
             // if pattern is set, process the pattern
             if (pattern != null && pattern != String.Empty)
             {
-                name = ProcessPatternName(file, pattern, Number);
+                name = HandlePatternName(file, pattern, Number);
             }
 
             // check for file extension in the pattern
@@ -59,7 +56,7 @@ namespace cacheCopy
         /// <param name="file">The file.</param>
         /// <param name="pattern">The pattern.</param>
         /// <returns></returns>
-        private static string ProcessPatternName(FileInfo file, string pattern, string Number)
+        private static string HandlePatternName(FileInfo file, string pattern, string Number)
         {
             DateTime FileCreatedTime = file.CreationTime;
 

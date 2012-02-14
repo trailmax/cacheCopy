@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
 using ST = cacheCopy.Properties.Settings;
 
 namespace cacheCopy
@@ -598,6 +595,7 @@ namespace cacheCopy
             {
                 FilePatternErrorProvider.SetError(txtFileNamingPattern, "Pattern contains invalid characters or not valid");
                 messages.Add("File naming pattern contains invalid characters or not valid");
+                isValid = false;
             }
             else
             {
