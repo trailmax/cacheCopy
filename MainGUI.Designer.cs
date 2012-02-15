@@ -98,7 +98,7 @@
             this.CopyButton.Margin = new System.Windows.Forms.Padding(4);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(100, 28);
-            this.CopyButton.TabIndex = 24;
+            this.CopyButton.TabIndex = 120;
             this.CopyButton.Text = "Copy!";
             this.CopyButton.UseVisualStyleBackColor = true;
             this.CopyButton.Click += new System.EventHandler(this.CopyButton_Click);
@@ -114,7 +114,7 @@
             this.targetFolderName.Margin = new System.Windows.Forms.Padding(4);
             this.targetFolderName.Name = "targetFolderName";
             this.targetFolderName.Size = new System.Drawing.Size(500, 22);
-            this.targetFolderName.TabIndex = 6;
+            this.targetFolderName.TabIndex = 35;
             // 
             // targetFolderButton
             // 
@@ -122,7 +122,7 @@
             this.targetFolderButton.Margin = new System.Windows.Forms.Padding(4);
             this.targetFolderButton.Name = "targetFolderButton";
             this.targetFolderButton.Size = new System.Drawing.Size(37, 22);
-            this.targetFolderButton.TabIndex = 8;
+            this.targetFolderButton.TabIndex = 40;
             this.targetFolderButton.Text = "...";
             this.targetFolderButton.UseVisualStyleBackColor = true;
             this.targetFolderButton.Click += new System.EventHandler(this.targetFolderButton_Click);
@@ -143,7 +143,7 @@
             this.SourceFolderName.Margin = new System.Windows.Forms.Padding(4);
             this.SourceFolderName.Name = "SourceFolderName";
             this.SourceFolderName.Size = new System.Drawing.Size(500, 22);
-            this.SourceFolderName.TabIndex = 2;
+            this.SourceFolderName.TabIndex = 25;
             // 
             // SourceFolderButton
             // 
@@ -151,7 +151,7 @@
             this.SourceFolderButton.Margin = new System.Windows.Forms.Padding(4);
             this.SourceFolderButton.Name = "SourceFolderButton";
             this.SourceFolderButton.Size = new System.Drawing.Size(37, 22);
-            this.SourceFolderButton.TabIndex = 4;
+            this.SourceFolderButton.TabIndex = 30;
             this.SourceFolderButton.Text = "...";
             this.SourceFolderButton.UseVisualStyleBackColor = true;
             this.SourceFolderButton.Click += new System.EventHandler(this.SourceFolderButton_Click);
@@ -170,7 +170,7 @@
             this.hoursCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.hoursCheckbox.Name = "hoursCheckbox";
             this.hoursCheckbox.Size = new System.Drawing.Size(150, 20);
-            this.hoursCheckbox.TabIndex = 10;
+            this.hoursCheckbox.TabIndex = 45;
             this.hoursCheckbox.Text = "Include images up to";
             this.hoursCheckbox.UseVisualStyleBackColor = true;
             this.hoursCheckbox.CheckedChanged += new System.EventHandler(this.hoursCheckbox_CheckedChanged);
@@ -191,7 +191,7 @@
             0});
             this.hours.Name = "hours";
             this.hours.Size = new System.Drawing.Size(55, 22);
-            this.hours.TabIndex = 12;
+            this.hours.TabIndex = 50;
             this.hours.Value = new decimal(new int[] {
             2,
             0,
@@ -217,7 +217,7 @@
             this.kilobytesCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.kilobytesCheckbox.Name = "kilobytesCheckbox";
             this.kilobytesCheckbox.Size = new System.Drawing.Size(184, 20);
-            this.kilobytesCheckbox.TabIndex = 14;
+            this.kilobytesCheckbox.TabIndex = 55;
             this.kilobytesCheckbox.Text = "include images larger than";
             this.kilobytesCheckbox.UseVisualStyleBackColor = true;
             this.kilobytesCheckbox.CheckedChanged += new System.EventHandler(this.kilobytesCheckbox_CheckedChanged);
@@ -233,7 +233,7 @@
             0});
             this.kilobytes.Name = "kilobytes";
             this.kilobytes.Size = new System.Drawing.Size(72, 22);
-            this.kilobytes.TabIndex = 16;
+            this.kilobytes.TabIndex = 60;
             this.kilobytes.Value = new decimal(new int[] {
             70,
             0,
@@ -259,7 +259,7 @@
             this.resolutionCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.resolutionCheckbox.Name = "resolutionCheckbox";
             this.resolutionCheckbox.Size = new System.Drawing.Size(187, 20);
-            this.resolutionCheckbox.TabIndex = 18;
+            this.resolutionCheckbox.TabIndex = 80;
             this.resolutionCheckbox.Text = "include images larger than ";
             this.resolutionCheckbox.UseVisualStyleBackColor = true;
             this.resolutionCheckbox.CheckedChanged += new System.EventHandler(this.resolutionCheckbox_CheckedChanged);
@@ -280,7 +280,7 @@
             0});
             this.minWidth.Name = "minWidth";
             this.minWidth.Size = new System.Drawing.Size(72, 22);
-            this.minWidth.TabIndex = 20;
+            this.minWidth.TabIndex = 85;
             this.minWidth.Value = new decimal(new int[] {
             500,
             0,
@@ -313,7 +313,7 @@
             0});
             this.minHeight.Name = "minHeight";
             this.minHeight.Size = new System.Drawing.Size(69, 22);
-            this.minHeight.TabIndex = 22;
+            this.minHeight.TabIndex = 90;
             this.minHeight.Value = new decimal(new int[] {
             500,
             0,
@@ -345,7 +345,7 @@
             this.CancelButton.Location = new System.Drawing.Point(506, 294);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(82, 28);
-            this.CancelButton.TabIndex = 26;
+            this.CancelButton.TabIndex = 125;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Visible = false;
@@ -378,7 +378,7 @@
             this.ManualSelectionRadioButton.Location = new System.Drawing.Point(16, 70);
             this.ManualSelectionRadioButton.Name = "ManualSelectionRadioButton";
             this.ManualSelectionRadioButton.Size = new System.Drawing.Size(132, 20);
-            this.ManualSelectionRadioButton.TabIndex = 33;
+            this.ManualSelectionRadioButton.TabIndex = 20;
             this.ManualSelectionRadioButton.Text = "Manual Selection ";
             this.ManualSelectionRadioButton.UseVisualStyleBackColor = true;
             this.ManualSelectionRadioButton.CheckedChanged += new System.EventHandler(this.ManualSelectionRadioButton_CheckedChanged);
@@ -386,10 +386,12 @@
             // BrowserRadioButton
             // 
             this.BrowserRadioButton.AutoSize = true;
+            this.BrowserRadioButton.Checked = true;
             this.BrowserRadioButton.Location = new System.Drawing.Point(16, 12);
             this.BrowserRadioButton.Name = "BrowserRadioButton";
             this.BrowserRadioButton.Size = new System.Drawing.Size(135, 20);
-            this.BrowserRadioButton.TabIndex = 34;
+            this.BrowserRadioButton.TabIndex = 10;
+            this.BrowserRadioButton.TabStop = true;
             this.BrowserRadioButton.Text = "Browser Detection";
             this.BrowserRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -399,7 +401,7 @@
             this.BrowserDropDown.Location = new System.Drawing.Point(148, 8);
             this.BrowserDropDown.Name = "BrowserDropDown";
             this.BrowserDropDown.Size = new System.Drawing.Size(535, 24);
-            this.BrowserDropDown.TabIndex = 35;
+            this.BrowserDropDown.TabIndex = 15;
             this.BrowserDropDown.SelectedIndexChanged += new System.EventHandler(this.BrowserDropDown_SelectionChanged);
             // 
             // ManualSelectionErrorProvider
@@ -418,7 +420,7 @@
             this.lblSourceFolderDisplay.Name = "lblSourceFolderDisplay";
             this.lblSourceFolderDisplay.ReadOnly = true;
             this.lblSourceFolderDisplay.Size = new System.Drawing.Size(667, 20);
-            this.lblSourceFolderDisplay.TabIndex = 36;
+            this.lblSourceFolderDisplay.TabIndex = 17;
             // 
             // toolTip1
             // 
@@ -504,8 +506,8 @@
             this.chbxDeleteFilesFromCache.AutoSize = true;
             this.chbxDeleteFilesFromCache.Location = new System.Drawing.Point(6, 31);
             this.chbxDeleteFilesFromCache.Name = "chbxDeleteFilesFromCache";
-            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(189, 17);
-            this.chbxDeleteFilesFromCache.TabIndex = 45;
+            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(235, 20);
+            this.chbxDeleteFilesFromCache.TabIndex = 100;
             this.chbxDeleteFilesFromCache.Text = "Delete images from browser cache";
             this.chbxDeleteFilesFromCache.UseVisualStyleBackColor = true;
             // 
@@ -524,8 +526,8 @@
             this.chbxFileNamingPattern.AutoSize = true;
             this.chbxFileNamingPattern.Location = new System.Drawing.Point(6, 58);
             this.chbxFileNamingPattern.Name = "chbxFileNamingPattern";
-            this.chbxFileNamingPattern.Size = new System.Drawing.Size(143, 17);
-            this.chbxFileNamingPattern.TabIndex = 47;
+            this.chbxFileNamingPattern.Size = new System.Drawing.Size(174, 20);
+            this.chbxFileNamingPattern.TabIndex = 110;
             this.chbxFileNamingPattern.Text = "Use pattern to name files";
             this.chbxFileNamingPattern.UseVisualStyleBackColor = true;
             this.chbxFileNamingPattern.CheckedChanged += new System.EventHandler(this.chbxFileNamingPattern_CheckChanged);
@@ -535,7 +537,7 @@
             this.txtFileNamingPattern.Location = new System.Drawing.Point(185, 58);
             this.txtFileNamingPattern.Name = "txtFileNamingPattern";
             this.txtFileNamingPattern.Size = new System.Drawing.Size(251, 22);
-            this.txtFileNamingPattern.TabIndex = 48;
+            this.txtFileNamingPattern.TabIndex = 115;
             // 
             // label9
             // 
@@ -552,8 +554,8 @@
             this.chbxAllowOverwriteFiles.AutoSize = true;
             this.chbxAllowOverwriteFiles.Location = new System.Drawing.Point(6, 6);
             this.chbxAllowOverwriteFiles.Name = "chbxAllowOverwriteFiles";
-            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(188, 17);
-            this.chbxAllowOverwriteFiles.TabIndex = 50;
+            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(230, 20);
+            this.chbxAllowOverwriteFiles.TabIndex = 95;
             this.chbxAllowOverwriteFiles.Text = "Allow overwrite files in target folder";
             this.chbxAllowOverwriteFiles.UseVisualStyleBackColor = true;
             // 
