@@ -596,6 +596,9 @@ namespace cacheCopy
                 FilePatternErrorProvider.SetError(txtFileNamingPattern, "Pattern contains invalid characters or not valid");
                 messages.Add("File naming pattern contains invalid characters or not valid");
                 isValid = false;
+                //switch to second tab and focus on text field for file pattern
+                tabControl1.SelectTab(1);
+                txtFileNamingPattern.Focus();
             }
             else
             {
