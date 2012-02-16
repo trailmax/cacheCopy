@@ -56,6 +56,8 @@ namespace cacheCopy
 
             ResetControls();
 
+            DisplaySamplePattern();
+
             SetTooltips();
         }
 
@@ -181,6 +183,7 @@ namespace cacheCopy
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void chbxFileNamingPattern_CheckChanged(object sender, EventArgs e)
         {
+            DisplaySamplePattern();
             SourceSelectionChanged();
         }
 
@@ -212,6 +215,19 @@ namespace cacheCopy
             ProfilePath path = getSelectedProfile();
             lblSourceFolderDisplay.Text = path.FullPath;
         }
+
+
+        /// <summary>
+        /// Every time the pattern changes, we want to update label, for user to see the result
+        /// of translation of the pattern to the name
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.KeyEventArgs"/> instance containing the event data.</param>
+        private void txtFileNamingPattern_TextChanged(object sender, EventArgs e)
+        {
+            DisplaySamplePattern();
+        }
+
 
 
 #endregion
@@ -366,6 +382,30 @@ namespace cacheCopy
 
         }
 
+        /// <summary>
+        /// Replaces placeholders in file naming pattern and displays the sample below the pattern field
+        /// </summary>
+        private void DisplaySamplePattern()
+        {
+            string pattern = getFileNamingPattern();
+            
+            if ( pattern == String.Empty)
+            {
+                lblPatternTranslationSample.Text = "";
+                return;
+            }
+
+
+
+            if (FileNaming.isPatternValid(pattern))
+            {
+                lblPatternTranslationSample.Text = FileNaming.GenerateSampleFileName(pattern);
+            }
+            else
+            {
+                lblPatternTranslationSample.Text = "Pattern is not valid";
+            }
+        }
 #endregion
 
 
@@ -609,6 +649,8 @@ namespace cacheCopy
             return isValid;
         }
 #endregion
+
+
 
 
     }
