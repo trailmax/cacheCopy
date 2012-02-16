@@ -60,14 +60,7 @@ namespace cacheCopy
         {
             DateTime FileCreatedTime = file.CreationTime;
 
-            Dictionary<string, string> replacements = GetReplacementPattern(FileCreatedTime, Number);
-
-            foreach (var pair in replacements)
-            {
-                pattern = pattern.Replace(pair.Key, pair.Value);
-            }
-
-            return pattern;
+            return ReplacePlaceholders(pattern, FileCreatedTime, Number);
 
         }
 
@@ -172,13 +165,39 @@ namespace cacheCopy
 
 
 
+        /// <summary>
+        /// Determines whether the provided pattern is valid in terms of the file naming conventions,
+        /// allowed symbols and all the possible replacements.
+        /// </summary>
+        /// <param name="pattern">The string with pattern.</param>
+        /// <returns>
+        ///   <c>true</c> if pattern is valid; otherwise, <c>false</c>.
+        /// </returns>
         public static bool isPatternValid(string pattern)
         {
             // avoid assigning to the parameter
-            String name = pattern;
+            String name = ReplacePlaceholders(pattern, DateTime.Now, "");
             
+            return Util.IsValidFileName(name);
+
+        }
+
+
+
+        /// <summary>
+        /// Replaces the placeholders in pattern to a values
+        /// </summary>
+        /// <param name="pattern">The pattern.</param>
+        /// <param name="FileCreatedTime">File creation time.</param>
+        /// <param name="Number">String with number of the file in the process line.</param>
+        /// <returns>string with replaced placeholders</returns>
+        private static string ReplacePlaceholders(String pattern, DateTime FileCreatedTime, string Number)
+        {
+            // avoid assigning to the parameter
+            String name = pattern;
+
             // get all the possible replacements
-            Dictionary<string, string> replacements = GetReplacementPattern(DateTime.Now, "");
+            Dictionary<string, string> replacements = GetReplacementPattern(FileCreatedTime, Number);
 
             // replace every wildcard with value
             foreach (var pair in replacements)
@@ -186,11 +205,43 @@ namespace cacheCopy
                 name = name.Replace(pair.Key, pair.Value);
             }
 
-            return Util.IsValidFileName(name);
-
+            return name;
         }
 
 
+
+        /// <summary>
+        /// Produces sample file name based on the pattern provided 
+        /// by user - just for an example, to see the resulting file name.
+        /// </summary>
+        /// <param name="pattern">The pattern.</param>
+        /// <returns>Pattern with replaced placeholders</returns>
+        public static string GenerateSampleFileName(string pattern)
+        {
+            String result = "";
+
+            // if pattern is set, process the pattern
+            if (pattern != null && pattern != String.Empty)
+            {
+                result = ReplacePlaceholders(pattern, DateTime.Now, "001");
+            }
+            else
+            {
+                return "";
+            }
+
+            // check for file extension in the pattern
+            // if the extension exists in pattern, do nothing
+            if (!NameIncludesCorrectExtension(result))
+            {
+                // if there is no extension, take it from fileType
+                // add extension to the end of the fileName
+                result += ".jpg";
+            }
+
+            return result;
+            
+        }
 
 
 

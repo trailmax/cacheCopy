@@ -79,6 +79,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblPatternTranslationSample = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -536,14 +537,15 @@
             // 
             this.txtFileNamingPattern.Location = new System.Drawing.Point(185, 58);
             this.txtFileNamingPattern.Name = "txtFileNamingPattern";
-            this.txtFileNamingPattern.Size = new System.Drawing.Size(251, 22);
+            this.txtFileNamingPattern.Size = new System.Drawing.Size(447, 22);
             this.txtFileNamingPattern.TabIndex = 115;
+            this.txtFileNamingPattern.TextChanged += new System.EventHandler(this.txtFileNamingPattern_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(442, 60);
+            this.label9.Location = new System.Drawing.Point(633, 58);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(19, 20);
             this.label9.TabIndex = 49;
@@ -609,6 +611,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblPatternTranslationSample);
             this.tabPage2.Controls.Add(this.chbxAllowOverwriteFiles);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.chbxDeleteFilesFromCache);
@@ -623,6 +626,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "File Options";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblPatternTranslationSample
+            // 
+            this.lblPatternTranslationSample.AutoSize = true;
+            this.lblPatternTranslationSample.Location = new System.Drawing.Point(185, 87);
+            this.lblPatternTranslationSample.Name = "lblPatternTranslationSample";
+            this.lblPatternTranslationSample.Size = new System.Drawing.Size(0, 16);
+            this.lblPatternTranslationSample.TabIndex = 116;
             // 
             // MainGUI
             // 
@@ -727,6 +738,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label lblPatternTranslationSample;
     }
 }
 
