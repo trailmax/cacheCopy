@@ -140,11 +140,20 @@
     </Compile>
     <Compile Include="filters\IFilter.cs" />
     <Compile Include="Naming\FileType.cs" />
+    <Compile Include="PatternHelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatternHelpDialog.Designer.cs">
+      <DependentUpon>PatternHelpDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatternHelpDialog.resx">
+      <DependentUpon>PatternHelpDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
