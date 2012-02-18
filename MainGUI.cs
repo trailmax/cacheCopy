@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using ST = cacheCopy.Properties.Settings;
+using System.Drawing;
 
 namespace cacheCopy
 {
@@ -228,6 +229,22 @@ namespace cacheCopy
             DisplaySamplePattern();
         }
 
+        private void btnPatternHelp_Click(object sender, EventArgs e)
+        {
+            // create help dialog
+            PatternHelpDialog help = new PatternHelpDialog();
+
+            // set manual positioning
+            help.StartPosition = FormStartPosition.Manual;
+
+            // place the dialog to the right from the main window
+            int x = this.Location.X + this.Width;
+            int y = this.Location.Y;
+            help.Location = new Point(x, y); 
+
+            // actually show the dialog
+            help.Show();
+        }
 
 
 #endregion
@@ -649,9 +666,6 @@ namespace cacheCopy
             return isValid;
         }
 #endregion
-
-
-
 
     }
 }
