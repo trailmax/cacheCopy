@@ -11,7 +11,7 @@ namespace cacheCopy
 {
     public partial class PatternHelpDialog : Form
     {
-        private String[,] result = new String[,]
+        private String[,] information = new String[,]
             {
                 {"*yyyy*", "Current year: 2012"},  // 1999
                 {"*yy*", "Current year: 12"},      // 99
@@ -39,7 +39,9 @@ namespace cacheCopy
                 {"*NUM*", "Current number of file during copying: 079"}
             };
 
+        private DataTable data;
         
+
         public PatternHelpDialog()
         {
             InitializeComponent();
@@ -50,9 +52,29 @@ namespace cacheCopy
 
         }
 
+        private void PatternHelpDialog_Load(object sender, EventArgs e)
+        {
+            FillDataTable();
+
+            dataRepeater1.DataSource = data;
+            
+
+            //Button b = new Button();
+            //b.Text = "hello";
+            //b.Location = new Point(5, 5);
+            //b.Size = new Size(50, 50);
+            //this.Controls.Add(b);
+        }
 
 
-        // close dialog on ESC button
+        #region Closeing dialog events
+        
+        
+        /// <summary>
+        /// Close the dialog on ESC key
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
         private void PatternHelpDialog_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -61,6 +83,12 @@ namespace cacheCopy
             }
         }
 
+
+        /// <summary>
+        /// Close the dialog on ESC key
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
         private void PatternHelpDialog_KeyUp(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)27)
@@ -69,21 +97,37 @@ namespace cacheCopy
             }
         }
 
+
+        /// <summary>
+        /// Close dialog when close button is clicked.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        #endregion
 
 
-
-        private void PopulateDataGrid()
+        /// <summary>
+        /// Create DataTable structure and fill the information from the array
+        /// </summary>
+        private void FillDataTable()
         {
-        //dataGrid
+            data = new DataTable();
+            data.Columns.Add(new DataColumn("Wildcard", "".GetType()));
+            data.Columns.Add(new DataColumn("Explanation", "".GetType()));
 
+            for (int i = 0; i < information.GetUpperBound(0); i++)
+            {
+                DataRow row = data.NewRow();
+                row["Wildcard"] = information[i, 0];
+                row["Explanation"] = information[i, 1];
+                data.Rows.Add(row);
+            }
         }
-
-
 
     }
 }

@@ -507,7 +507,7 @@
             this.chbxDeleteFilesFromCache.AutoSize = true;
             this.chbxDeleteFilesFromCache.Location = new System.Drawing.Point(6, 31);
             this.chbxDeleteFilesFromCache.Name = "chbxDeleteFilesFromCache";
-            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(235, 20);
+            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(189, 17);
             this.chbxDeleteFilesFromCache.TabIndex = 100;
             this.chbxDeleteFilesFromCache.Text = "Delete images from browser cache";
             this.chbxDeleteFilesFromCache.UseVisualStyleBackColor = true;
@@ -527,7 +527,7 @@
             this.chbxFileNamingPattern.AutoSize = true;
             this.chbxFileNamingPattern.Location = new System.Drawing.Point(6, 58);
             this.chbxFileNamingPattern.Name = "chbxFileNamingPattern";
-            this.chbxFileNamingPattern.Size = new System.Drawing.Size(174, 20);
+            this.chbxFileNamingPattern.Size = new System.Drawing.Size(143, 17);
             this.chbxFileNamingPattern.TabIndex = 110;
             this.chbxFileNamingPattern.Text = "Use pattern to name files";
             this.chbxFileNamingPattern.UseVisualStyleBackColor = true;
@@ -546,7 +546,7 @@
             this.chbxAllowOverwriteFiles.AutoSize = true;
             this.chbxAllowOverwriteFiles.Location = new System.Drawing.Point(6, 6);
             this.chbxAllowOverwriteFiles.Name = "chbxAllowOverwriteFiles";
-            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(230, 20);
+            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(188, 17);
             this.chbxAllowOverwriteFiles.TabIndex = 95;
             this.chbxAllowOverwriteFiles.Text = "Allow overwrite files in target folder";
             this.chbxAllowOverwriteFiles.UseVisualStyleBackColor = true;

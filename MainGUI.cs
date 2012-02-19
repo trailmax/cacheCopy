@@ -13,6 +13,7 @@ namespace cacheCopy
     {
         Core core;
         List<ProfilePath> Profiles = new List<ProfilePath>();
+        PatternHelpDialog helpDialog = new PatternHelpDialog();
 
         public MainGUI(ref Core core)
         {
@@ -60,6 +61,9 @@ namespace cacheCopy
             DisplaySamplePattern();
 
             SetTooltips();
+
+            //TODO remove from production
+            ShowHelpDialog();
         }
 
         /// <summary>
@@ -229,21 +233,15 @@ namespace cacheCopy
             DisplaySamplePattern();
         }
 
+
+        /// <summary>
+        /// Click on help button next to file pattern opens up a help dialog.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btnPatternHelp_Click(object sender, EventArgs e)
         {
-            // create help dialog
-            PatternHelpDialog help = new PatternHelpDialog();
-
-            // set manual positioning
-            help.StartPosition = FormStartPosition.Manual;
-
-            // place the dialog to the right from the main window
-            int x = this.Location.X + this.Width;
-            int y = this.Location.Y;
-            help.Location = new Point(x, y); 
-
-            // actually show the dialog
-            help.Show();
+            ShowHelpDialog();
         }
 
 
@@ -274,6 +272,7 @@ namespace cacheCopy
             chbxAllowOverwriteFiles.Checked = ST.Default.AllowOverwriteFiles;
         }
 
+        
         /// <summary>
         /// Saves the current state of the form into properties file
         /// </summary>
@@ -298,6 +297,7 @@ namespace cacheCopy
             ST.Default.Save();
         }
 
+        
         /// <summary>
         /// Resets the controls to the original state.
         /// When the form start this should be called.
@@ -313,6 +313,7 @@ namespace cacheCopy
 
         }
 
+        
         /// <summary>
         /// Shows the message box.
         /// </summary>
@@ -322,6 +323,7 @@ namespace cacheCopy
             MessageBox.Show(message);
         }
 
+        
         /// <summary>
         /// Shows all the messages in the list of string as a message box.
         /// </summary>
@@ -336,6 +338,7 @@ namespace cacheCopy
             showMessageBox(msg.ToString());
         }
 
+        
         /// <summary>
         /// Sets the progress label in the status bar
         /// </summary>
@@ -351,6 +354,7 @@ namespace cacheCopy
             this.progressLabel.Text = message;
         }
 
+
         /// <summary>
         /// When user changes selection in radio-buttons, this should
         /// update the state of controls: activate the control related 
@@ -365,6 +369,12 @@ namespace cacheCopy
             txtFileNamingPattern.Enabled = chbxFileNamingPattern.Checked;
         }
 
+
+        /// <summary>
+        /// Sets the text for tooltips. Moved it here, 
+        /// because the tips are sometimes too long and need to have line breaks
+        /// It's easier to maintain them here, than in auto-generated file
+        /// </summary>
         private void SetTooltips()
         {
             toolTip1.SetToolTip(this.lblBrowserHelpTooltip, "Automatic browser detection tries to find all the installed browsers in your system. ");
@@ -399,6 +409,7 @@ namespace cacheCopy
 
         }
 
+
         /// <summary>
         /// Replaces placeholders in file naming pattern and displays the sample below the pattern field
         /// </summary>
@@ -423,6 +434,25 @@ namespace cacheCopy
                 lblPatternTranslationSample.Text = "Pattern is not valid";
             }
         }
+
+
+        /// <summary>
+        /// Shows the dialog with information for file naming pattern
+        /// </summary>
+        private void ShowHelpDialog()
+        {
+            // set manual positioning
+            helpDialog.StartPosition = FormStartPosition.Manual;
+
+            // place the dialog to the right from the main window
+            int x = this.Location.X + this.Width;
+            int y = this.Location.Y;
+            helpDialog.Location = new Point(x, y);
+
+            // actually show the dialog
+            helpDialog.Show();
+        }
+
 #endregion
 
 
