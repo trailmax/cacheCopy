@@ -31,21 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatternHelpDialog));
             this.txtHelpDescription = new System.Windows.Forms.RichTextBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.dataRepeater1 = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
-            this.txtExplanation = new System.Windows.Forms.TextBox();
-            this.txtPattern = new System.Windows.Forms.TextBox();
-            this.btnCopyPattern = new System.Windows.Forms.Button();
-            this.dataRepeater1.SuspendLayout();
+            this.TemplateTxtExplanation = new System.Windows.Forms.TextBox();
+            this.TemplateTxtPattern = new System.Windows.Forms.TextBox();
+            this.TemplateBtnCopyPattern = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtHelpDescription
             // 
             this.txtHelpDescription.BackColor = System.Drawing.SystemColors.Window;
-            this.txtHelpDescription.Location = new System.Drawing.Point(12, 12);
+            this.txtHelpDescription.Location = new System.Drawing.Point(1, 3);
             this.txtHelpDescription.Name = "txtHelpDescription";
             this.txtHelpDescription.ReadOnly = true;
             this.txtHelpDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtHelpDescription.Size = new System.Drawing.Size(356, 96);
+            this.txtHelpDescription.Size = new System.Drawing.Size(378, 105);
             this.txtHelpDescription.TabIndex = 0;
             this.txtHelpDescription.Text = "";
             this.txtHelpDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PatternHelpDialog_KeyUp);
@@ -53,7 +53,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(293, 410);
+            this.btnClose.Location = new System.Drawing.Point(301, 419);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 1;
@@ -61,42 +61,41 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // dataRepeater1
+            // TemplateTxtExplanation
             // 
+            this.TemplateTxtExplanation.Location = new System.Drawing.Point(110, 6);
+            this.TemplateTxtExplanation.Name = "TemplateTxtExplanation";
+            this.TemplateTxtExplanation.ReadOnly = true;
+            this.TemplateTxtExplanation.Size = new System.Drawing.Size(245, 20);
+            this.TemplateTxtExplanation.TabIndex = 2;
             // 
-            // dataRepeater1.ItemTemplate
+            // TemplateTxtPattern
             // 
-            this.dataRepeater1.ItemTemplate.Size = new System.Drawing.Size(348, 33);
-            this.dataRepeater1.Location = new System.Drawing.Point(12, 184);
-            this.dataRepeater1.Name = "dataRepeater1";
-            this.dataRepeater1.Size = new System.Drawing.Size(356, 220);
-            this.dataRepeater1.TabIndex = 2;
-            this.dataRepeater1.Text = "dataRepeater1";
+            this.TemplateTxtPattern.Location = new System.Drawing.Point(51, 6);
+            this.TemplateTxtPattern.Name = "TemplateTxtPattern";
+            this.TemplateTxtPattern.ReadOnly = true;
+            this.TemplateTxtPattern.Size = new System.Drawing.Size(53, 20);
+            this.TemplateTxtPattern.TabIndex = 1;
             // 
-            // txtExplanation
+            // TemplateBtnCopyPattern
             // 
-            this.txtExplanation.Location = new System.Drawing.Point(145, 114);
-            this.txtExplanation.Name = "txtExplanation";
-            this.txtExplanation.ReadOnly = true;
-            this.txtExplanation.Size = new System.Drawing.Size(209, 20);
-            this.txtExplanation.TabIndex = 2;
+            this.TemplateBtnCopyPattern.Location = new System.Drawing.Point(3, 3);
+            this.TemplateBtnCopyPattern.Name = "TemplateBtnCopyPattern";
+            this.TemplateBtnCopyPattern.Size = new System.Drawing.Size(42, 23);
+            this.TemplateBtnCopyPattern.TabIndex = 0;
+            this.TemplateBtnCopyPattern.Text = "Copy";
+            this.TemplateBtnCopyPattern.UseVisualStyleBackColor = true;
             // 
-            // txtPattern
+            // panel1
             // 
-            this.txtPattern.Location = new System.Drawing.Point(72, 116);
-            this.txtPattern.Name = "txtPattern";
-            this.txtPattern.ReadOnly = true;
-            this.txtPattern.Size = new System.Drawing.Size(67, 20);
-            this.txtPattern.TabIndex = 1;
-            // 
-            // btnCopyPattern
-            // 
-            this.btnCopyPattern.Location = new System.Drawing.Point(12, 114);
-            this.btnCopyPattern.Name = "btnCopyPattern";
-            this.btnCopyPattern.Size = new System.Drawing.Size(54, 23);
-            this.btnCopyPattern.TabIndex = 0;
-            this.btnCopyPattern.Text = "Copy";
-            this.btnCopyPattern.UseVisualStyleBackColor = true;
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.TemplateBtnCopyPattern);
+            this.panel1.Controls.Add(this.TemplateTxtExplanation);
+            this.panel1.Controls.Add(this.TemplateTxtPattern);
+            this.panel1.Location = new System.Drawing.Point(1, 114);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(378, 299);
+            this.panel1.TabIndex = 3;
             // 
             // PatternHelpDialog
             // 
@@ -104,11 +103,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(380, 445);
-            this.Controls.Add(this.txtExplanation);
-            this.Controls.Add(this.dataRepeater1);
-            this.Controls.Add(this.txtPattern);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnCopyPattern);
             this.Controls.Add(this.txtHelpDescription);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PatternHelpDialog";
@@ -116,9 +112,9 @@
             this.Load += new System.EventHandler(this.PatternHelpDialog_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PatternHelpDialog_KeyUp);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PatternHelpDialog_KeyUp);
-            this.dataRepeater1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -126,9 +122,9 @@
 
         private System.Windows.Forms.RichTextBox txtHelpDescription;
         private System.Windows.Forms.Button btnClose;
-        private Microsoft.VisualBasic.PowerPacks.DataRepeater dataRepeater1;
-        private System.Windows.Forms.TextBox txtExplanation;
-        private System.Windows.Forms.TextBox txtPattern;
-        private System.Windows.Forms.Button btnCopyPattern;
+        private System.Windows.Forms.TextBox TemplateTxtExplanation;
+        private System.Windows.Forms.TextBox TemplateTxtPattern;
+        private System.Windows.Forms.Button TemplateBtnCopyPattern;
+        private System.Windows.Forms.Panel panel1;
     }
 }

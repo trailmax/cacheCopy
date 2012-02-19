@@ -39,35 +39,33 @@ namespace cacheCopy
                 {"*NUM*", "Current number of file during copying: 079"}
             };
 
-        private DataTable data;
+        // reference to the main screen
+        MainGUI mainGui;
         
 
-        public PatternHelpDialog()
+        public PatternHelpDialog(MainGUI main)
         {
             InitializeComponent();
             txtHelpDescription.Text = String.Format("* File Naming Pattern option provides you a way to control the way copied files are named. {0}{0}"+
                 "* In the pattern you can use any of the symbols allowed in a filename and a set of the wildcard replacements listed below. {0}{0}" +
                 "* The file extension can be amended - if it is not set in the pattern string, then it will be added automatically, based on the type " +
                 "of file copied.", Environment.NewLine);
+            
+            // save the reference to the main screen
+            mainGui = main;
 
         }
 
         private void PatternHelpDialog_Load(object sender, EventArgs e)
         {
-            FillDataTable();
+            HideTemplateControls();
 
-            dataRepeater1.DataSource = data;
-            
+            CreateControlsTable();
 
-            //Button b = new Button();
-            //b.Text = "hello";
-            //b.Location = new Point(5, 5);
-            //b.Size = new Size(50, 50);
-            //this.Controls.Add(b);
         }
 
 
-        #region Closeing dialog events
+        #region Closing dialog events
         
         
         /// <summary>
@@ -114,20 +112,95 @@ namespace cacheCopy
         /// <summary>
         /// Create DataTable structure and fill the information from the array
         /// </summary>
-        private void FillDataTable()
+        private void CreateControlsTable()
         {
-            data = new DataTable();
-            data.Columns.Add(new DataColumn("Wildcard", "".GetType()));
-            data.Columns.Add(new DataColumn("Explanation", "".GetType()));
-
+            int Y_padding = 3;
+            int X_padding = 2;
             for (int i = 0; i < information.GetUpperBound(0); i++)
             {
-                DataRow row = data.NewRow();
-                row["Wildcard"] = information[i, 0];
-                row["Explanation"] = information[i, 1];
-                data.Rows.Add(row);
+                // tabs are special here!
+                int tabCount = 10*i;
+
+                // Button
+                int Y = TemplateBtnCopyPattern.Location.Y + i * (TemplateBtnCopyPattern.Height + Y_padding);
+                int X = TemplateTxtPattern.Location.X;
+                
+                // First Text Box
+                TextBox pattern = CreateTextBox(X, Y, information[i, 0], TemplateTxtPattern, tabCount + 1);
+                panel1.Controls.Add(pattern);
+
+                // Copy button
+                X = TemplateBtnCopyPattern.Location.X;
+                Button copy = new Button();
+                copy.Location = new Point(X, Y);
+                copy.Text = TemplateBtnCopyPattern.Text;
+                copy.Size = new Size(TemplateBtnCopyPattern.Width, TemplateBtnCopyPattern.Height);
+                copy.Click += new System.EventHandler(this.CopyButton_Click);
+                copy.Tag = pattern;
+                copy.TabIndex = tabCount;
+                panel1.Controls.Add(copy);
+
+
+                //Second text Box
+                X = TemplateTxtExplanation.Location.X;
+                TextBox expl = CreateTextBox(X, Y, information[i,1], TemplateTxtExplanation, tabCount+2);
+                panel1.Controls.Add(expl);
             }
+
         }
 
+
+        /// <summary>
+        /// Creates the text box with the size and shape of the pattern-TextBox
+        /// Give it new location and text
+        /// </summary>
+        /// <param name="X">The X.</param>
+        /// <param name="Y">The Y.</param>
+        /// <param name="text">The text.</param>
+        /// <param name="pattern">The pattern.</param>
+        /// <returns></returns>
+        private TextBox CreateTextBox(int X, int Y, string text, TextBox pattern, int tabIndex)
+        {
+            TextBox box = new TextBox();
+            box.Location = new Point(X, Y);
+            box.Text = text;
+            box.Size = new Size(pattern.Width, pattern.Height);
+            box.ReadOnly = true;
+            box.TabIndex = tabIndex;
+            return box;
+        }
+
+        
+        /// <summary>
+        /// There are template controls on the panel. We want to remove them,
+        /// but still available to take their properties.
+        /// So just hide them.
+        /// </summary>
+        private void HideTemplateControls()
+        {
+            TemplateBtnCopyPattern.Visible = false;
+            TemplateTxtPattern.Visible = false;
+            TemplateTxtExplanation.Visible = false;
+        }
+
+
+        /// <summary>
+        /// Pass on a text value from pattern text-box into the main form, so this can be inserted into the
+        /// File Naming Pattern Textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            // get the button that sent the event
+            Button btn = (Button)sender;
+
+            // every button is associated via tag with TextBox containing a pattern
+            TextBox pattern = (TextBox)btn.Tag;
+
+            // and now get the text from the TextBox and pass it on to the main screen
+            mainGui.AddToNamingPattern(pattern.Text);
+
+        }
     }
 }
