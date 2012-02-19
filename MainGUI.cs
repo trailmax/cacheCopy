@@ -13,13 +13,15 @@ namespace cacheCopy
     {
         Core core;
         List<ProfilePath> Profiles = new List<ProfilePath>();
-        PatternHelpDialog helpDialog = new PatternHelpDialog();
+        PatternHelpDialog helpDialog;
 
         public MainGUI(ref Core core)
         {
             this.core = core;
             InitializeComponent();
 
+            // create help dialog and pass in a reference to this object
+            helpDialog = new PatternHelpDialog(this);
         }
 
         public void addProfile(ProfilePath profile)
@@ -61,9 +63,6 @@ namespace cacheCopy
             DisplaySamplePattern();
 
             SetTooltips();
-
-            //TODO remove from production
-            ShowHelpDialog();
         }
 
         /// <summary>
@@ -451,6 +450,30 @@ namespace cacheCopy
 
             // actually show the dialog
             helpDialog.Show();
+        }
+
+
+        /// <summary>
+        /// Adds a string to the File Naming Pattern
+        /// Inserts a string into a current cursor position.
+        /// Does not work if the pattern naming is disabled
+        /// </summary>
+        /// <param name="pattern">The pattern.</param>
+        public void AddToNamingPattern(String pattern)
+        {
+            // if File Naming Pattern option is disabled, don't bother with any insertion
+            if (chbxFileNamingPattern.Checked == false)
+                return;
+
+            // insert the text into the current cursor position
+            var selectionIndex = txtFileNamingPattern.SelectionStart;
+            txtFileNamingPattern.Text = txtFileNamingPattern.Text.Insert(selectionIndex, pattern);
+
+            // move cursor to the end of the inserted text
+            txtFileNamingPattern.SelectionStart = selectionIndex + pattern.Length;
+
+            // set the focus in the field. If user wants to type further - cursor is already there.
+            txtFileNamingPattern.Focus();
         }
 
 #endregion
