@@ -1,5 +1,4 @@
-﻿#define DEBUG
-// for release - remove the debug
+﻿// for release - remove the debug
 using System;
 using System.Windows.Forms;
 
