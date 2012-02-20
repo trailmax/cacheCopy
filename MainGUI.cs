@@ -244,6 +244,31 @@ namespace cacheCopy
         }
 
 
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Control.KeyDown"/> event.
+        /// Monitor all the keystrokes. If that is ESC key, we want to close the application.
+        /// If HelpDialog is open, we want to close it. If no dialog is open, close the form.
+        /// </summary>
+        /// <param name="e">A <see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains the event data.</param>
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (null != helpDialog && helpDialog.Visible)
+                {
+                    helpDialog.Hide();
+                }
+                else
+                {
+                    this.Close();
+                }
+
+            }
+        }
+
+
+
 #endregion
 
 
@@ -440,6 +465,11 @@ namespace cacheCopy
         /// </summary>
         private void ShowHelpDialog()
         {
+            if (null == helpDialog )
+            {
+                helpDialog = new PatternHelpDialog(this);
+            }
+
             // set manual positioning
             helpDialog.StartPosition = FormStartPosition.Manual;
 

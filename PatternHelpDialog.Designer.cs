@@ -48,8 +48,6 @@
             this.txtHelpDescription.Size = new System.Drawing.Size(378, 105);
             this.txtHelpDescription.TabIndex = 0;
             this.txtHelpDescription.Text = "";
-            this.txtHelpDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PatternHelpDialog_KeyUp);
-            this.txtHelpDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PatternHelpDialog_KeyUp);
             // 
             // btnClose
             // 
@@ -83,7 +81,7 @@
             this.TemplateBtnCopyPattern.Name = "TemplateBtnCopyPattern";
             this.TemplateBtnCopyPattern.Size = new System.Drawing.Size(42, 23);
             this.TemplateBtnCopyPattern.TabIndex = 0;
-            this.TemplateBtnCopyPattern.Text = "Copy";
+            this.TemplateBtnCopyPattern.Text = "Insert";
             this.TemplateBtnCopyPattern.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -107,11 +105,9 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtHelpDescription);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "PatternHelpDialog";
             this.Text = "File Naming Pattern Help";
-            this.Load += new System.EventHandler(this.PatternHelpDialog_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PatternHelpDialog_KeyUp);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PatternHelpDialog_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
