@@ -506,6 +506,27 @@ namespace cacheCopy
             txtFileNamingPattern.Focus();
         }
 
+
+        public bool ConfirmAndCreateFolder(String fullPath)
+        {
+            if (MessageBox.Show("Target folder does not exist. Create?", "Create target folder?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                try
+                {
+                    Directory.CreateDirectory(fullPath);
+                    return true;
+                }
+                catch (IOException e)
+                {
+                    MessageBox.Show("Can't create a folder. Check your permissions");
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
 #endregion
 
 
@@ -707,8 +728,14 @@ namespace cacheCopy
         {
             bool isValid = true;
 
-            // validate for TargetFolder
+            // if target folder does not exist, ask user if need to create it
             if (!Directory.Exists(targetFolderName.Text))
+            {
+                ConfirmAndCreateFolder(targetFolderName.Text);
+            }
+
+            // validate for TargetFolder
+            if (!Directory.Exists(targetFolderName.Text) )
             {
                 TargetFolderErrorProvider.SetError(targetFolderName, "Folder does not exist");
                 isValid = false;
@@ -749,6 +776,7 @@ namespace cacheCopy
             return isValid;
         }
 #endregion
+
 
     }
 }
