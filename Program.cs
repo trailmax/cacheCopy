@@ -1,8 +1,13 @@
-﻿using System;
+﻿#define DEBUG
+// for release - remove the debug
+using System;
 using System.Windows.Forms;
+
 
 namespace cacheCopy
 {
+
+    
     /// <summary>
     /// 
     /// </summary>
@@ -19,9 +24,10 @@ namespace cacheCopy
             // auto-generated
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+#if !DEBUG
             try
             {
+#endif
                  //create the core of the application
                 Core core = new Core();
 
@@ -48,11 +54,13 @@ namespace cacheCopy
                 core.setMainGUI(ref gui);
 
                 Application.Run(gui);
+#if !DEBUG
             }
             catch (Exception e)
             {
                 Util.WriteToLogFile(e);
             }
+#endif
 
         }
 

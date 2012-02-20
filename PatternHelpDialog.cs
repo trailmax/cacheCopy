@@ -54,48 +54,28 @@ namespace cacheCopy
             // save the reference to the main screen
             mainGui = main;
 
-        }
-
-        private void PatternHelpDialog_Load(object sender, EventArgs e)
-        {
             HideTemplateControls();
 
             CreateControlsTable();
 
         }
 
-
         #region Closing dialog events
-        
-        
+
+
         /// <summary>
-        /// Close the dialog on ESC key
+        /// Hide the dialog on ESC key
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
-        private void PatternHelpDialog_KeyUp(object sender, KeyEventArgs e)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
+            base.OnKeyDown(e);
             if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
+                this.Hide();
         }
 
-
-        /// <summary>
-        /// Close the dialog on ESC key
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
-        private void PatternHelpDialog_KeyUp(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)27)
-            {
-                this.Close();
-            }
-        }
-
-
+        
         /// <summary>
         /// Close dialog when close button is clicked.
         /// </summary>
@@ -103,7 +83,7 @@ namespace cacheCopy
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         #endregion
@@ -111,18 +91,24 @@ namespace cacheCopy
 
         /// <summary>
         /// Create DataTable structure and fill the information from the array
+        /// 
+        /// Not the best solution to create a grid with a button and 2 textboxes. 
+        /// But DataGrid proven to be a pain in the neck, so is DataRepeater.
+        /// So this is a quick and dirty way of doing what I need. 
+        /// this is only a freaking help screen after all, no over-engineering here please!
         /// </summary>
         private void CreateControlsTable()
         {
             int Y_padding = 3;
-            int X_padding = 2;
             for (int i = 0; i < information.GetUpperBound(0); i++)
             {
                 // tabs are special here!
                 int tabCount = 10*i;
 
-                // Button
+                // say what location we want. 
+                // Y-location is computed based on the number of buttons already on the screen and by vertical padding
                 int Y = TemplateBtnCopyPattern.Location.Y + i * (TemplateBtnCopyPattern.Height + Y_padding);
+                // X location is copied from the template controls
                 int X = TemplateTxtPattern.Location.X;
                 
                 // First Text Box
@@ -136,10 +122,9 @@ namespace cacheCopy
                 copy.Text = TemplateBtnCopyPattern.Text;
                 copy.Size = new Size(TemplateBtnCopyPattern.Width, TemplateBtnCopyPattern.Height);
                 copy.Click += new System.EventHandler(this.CopyButton_Click);
-                copy.Tag = pattern;
+                copy.Tag = pattern;     // we need to associate a button with pattern textbox, so we can reference it later
                 copy.TabIndex = tabCount;
                 panel1.Controls.Add(copy);
-
 
                 //Second text Box
                 X = TemplateTxtExplanation.Location.X;
