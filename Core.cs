@@ -250,20 +250,18 @@ namespace cacheCopy
                 IFilter dateFilter = new DateFilter(
                     DateTime.Now.AddHours(-1* (int)mainGUI.getHours()));
                 addFilter(dateFilter);
-                    
             }
 
             if (mainGUI.getKilobytes() != null)
             {
                 IFilter sizeFilter = new SizeFilter((int)mainGUI.getKilobytes() * 1000);
                 addFilter(sizeFilter);
-                
             }
 
 
              // always add jpeg filter before filter with image size.
-            IFilter jpegFilter = new JpegFilter();
-            addFilter(jpegFilter);
+            IFilter imageFilter = new ImageTypeFilter();
+            addFilter(imageFilter);
 
 
             // we only need to check if one of the dimensions is set,

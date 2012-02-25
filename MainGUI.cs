@@ -294,6 +294,9 @@ namespace cacheCopy
             chbxFileNamingPattern.Checked = ST.Default.UseFileNamingPattern;
             txtFileNamingPattern.Text = ST.Default.NamingPattern;
             chbxAllowOverwriteFiles.Checked = ST.Default.AllowOverwriteFiles;
+            chbxJpg.Checked = ST.Default.JPG;
+            chbxPNG.Checked = ST.Default.PNG;
+            chbxGif.Checked = ST.Default.GIF;
         }
 
         
@@ -317,6 +320,10 @@ namespace cacheCopy
             ST.Default.UseFileNamingPattern = chbxFileNamingPattern.Checked;
             ST.Default.NamingPattern = txtFileNamingPattern.Text;
             ST.Default.AllowOverwriteFiles = chbxAllowOverwriteFiles.Checked;
+            ST.Default.JPG = chbxJpg.Checked;
+            ST.Default.PNG = chbxPNG.Checked;
+            ST.Default.GIF = chbxGif.Checked;
+
 
             ST.Default.Save();
         }
@@ -683,7 +690,7 @@ namespace cacheCopy
         {
             return chbxDeleteFilesFromCache.Checked;
         }
-
+        
         /// <summary>
         /// Gets the file naming pattern.
         /// </summary>
@@ -705,6 +712,39 @@ namespace cacheCopy
         /// </returns>
         public bool isAllowOverwriteFiles(){
             return chbxAllowOverwriteFiles.Checked;
+        }
+
+        /// <summary>
+        /// Returns true if JPG checkbox is checked
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if JPG checkbox is checked; otherwise, <c>false</c>.
+        /// </returns>
+        public bool isJPG()
+        {
+            return chbxJpg.Checked;
+        }
+
+        /// <summary>
+        /// Returns true if GIF checkbox is checked
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if GIF checkbox is checked; otherwise, <c>false</c>.
+        /// </returns>
+        public bool isGIF()
+        {
+            return chbxGif.Checked;
+        }
+        
+        /// <summary>
+        /// Returns true if PNG checkbox is checked
+        /// </summary>
+        /// <returns>
+        ///   <c>true</c> if PNG checkbox is checked; otherwise, <c>false</c>.
+        /// </returns>
+        public bool isPNG()
+        {
+            return chbxPNG.Checked;
         }
 
 #endregion
@@ -740,6 +780,7 @@ namespace cacheCopy
                 TargetFolderErrorProvider.SetError(targetFolderName, "Folder does not exist");
                 isValid = false;
                 messages.Add("Target folder does not exist");
+                tabControl1.SelectTab(0);
             }
             else
             {
@@ -752,6 +793,7 @@ namespace cacheCopy
                 ManualSelectionErrorProvider.SetError(SourceFolderName, "Directory does not exist");
                 isValid = false;
                 messages.Add("Source folder does not exists");
+                tabControl1.SelectTab(0);
             }
             else
             {
@@ -772,9 +814,23 @@ namespace cacheCopy
                 FilePatternErrorProvider.SetError(txtFileNamingPattern, "");
             }
 
+            // at least one file type must be enabled
+            if (!isJPG() && !isPNG() && !isGIF())
+            {
+                ImageTypeErrorProvider.SetError(chbxGif, "At least one file type must be checked");
+                messages.Add("At least one file type must be checked, otherwise nothing will be copied");
+                isValid = false;
+                tabControl1.SelectTab(0);
+            }
+            else
+            {
+                ImageTypeErrorProvider.SetError(chbxGif, "");
+            }
+
 
             return isValid;
         }
+
 #endregion
 
 

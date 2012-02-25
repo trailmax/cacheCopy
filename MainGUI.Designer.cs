@@ -77,9 +77,13 @@
             this.FilePatternErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chbxGif = new System.Windows.Forms.CheckBox();
+            this.chbxPNG = new System.Windows.Forms.CheckBox();
+            this.chbxJpg = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnPatternHelp = new System.Windows.Forms.Button();
             this.lblPatternTranslationSample = new System.Windows.Forms.Label();
+            this.ImageTypeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -91,11 +95,12 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // CopyButton
             // 
-            this.CopyButton.Location = new System.Drawing.Point(605, 294);
+            this.CopyButton.Location = new System.Drawing.Point(605, 313);
             this.CopyButton.Margin = new System.Windows.Forms.Padding(4);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(100, 28);
@@ -343,7 +348,7 @@
             // 
             this.CancelButton.CausesValidation = false;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(506, 294);
+            this.CancelButton.Location = new System.Drawing.Point(506, 313);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(82, 28);
             this.CancelButton.TabIndex = 125;
@@ -357,7 +362,7 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressLabel,
             this.progressBar});
-            this.statusStrip.Location = new System.Drawing.Point(0, 334);
+            this.statusStrip.Location = new System.Drawing.Point(0, 348);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(717, 22);
             this.statusStrip.TabIndex = 27;
@@ -573,11 +578,14 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 139);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(697, 148);
+            this.tabControl1.Size = new System.Drawing.Size(697, 167);
             this.tabControl1.TabIndex = 52;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.chbxGif);
+            this.tabPage1.Controls.Add(this.chbxPNG);
+            this.tabPage1.Controls.Add(this.chbxJpg);
             this.tabPage1.Controls.Add(this.hoursCheckbox);
             this.tabPage1.Controls.Add(this.hours);
             this.tabPage1.Controls.Add(this.lblHours);
@@ -595,10 +603,40 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(689, 119);
+            this.tabPage1.Size = new System.Drawing.Size(689, 138);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filters";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chbxGif
+            // 
+            this.chbxGif.AutoSize = true;
+            this.chbxGif.Location = new System.Drawing.Point(132, 94);
+            this.chbxGif.Name = "chbxGif";
+            this.chbxGif.Size = new System.Drawing.Size(48, 20);
+            this.chbxGif.TabIndex = 93;
+            this.chbxGif.Text = "GIF";
+            this.chbxGif.UseVisualStyleBackColor = true;
+            // 
+            // chbxPNG
+            // 
+            this.chbxPNG.AutoSize = true;
+            this.chbxPNG.Location = new System.Drawing.Point(68, 93);
+            this.chbxPNG.Name = "chbxPNG";
+            this.chbxPNG.Size = new System.Drawing.Size(56, 20);
+            this.chbxPNG.TabIndex = 92;
+            this.chbxPNG.Text = "PNG";
+            this.chbxPNG.UseVisualStyleBackColor = true;
+            // 
+            // chbxJpg
+            // 
+            this.chbxJpg.AutoSize = true;
+            this.chbxJpg.Location = new System.Drawing.Point(7, 94);
+            this.chbxJpg.Name = "chbxJpg";
+            this.chbxJpg.Size = new System.Drawing.Size(53, 20);
+            this.chbxJpg.TabIndex = 91;
+            this.chbxJpg.Text = "JPG";
+            this.chbxJpg.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -613,7 +651,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(689, 119);
+            this.tabPage2.Size = new System.Drawing.Size(689, 138);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "File Options";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -637,6 +675,10 @@
             this.lblPatternTranslationSample.Size = new System.Drawing.Size(0, 16);
             this.lblPatternTranslationSample.TabIndex = 116;
             // 
+            // ImageTypeErrorProvider
+            // 
+            this.ImageTypeErrorProvider.ContainerControl = this;
+            // 
             // MainGUI
             // 
             this.AcceptButton = this.CopyButton;
@@ -645,7 +687,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(717, 356);
+            this.ClientSize = new System.Drawing.Size(717, 370);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -685,6 +727,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -742,6 +785,10 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label lblPatternTranslationSample;
         private System.Windows.Forms.Button btnPatternHelp;
+        private System.Windows.Forms.CheckBox chbxGif;
+        private System.Windows.Forms.CheckBox chbxPNG;
+        private System.Windows.Forms.CheckBox chbxJpg;
+        private System.Windows.Forms.ErrorProvider ImageTypeErrorProvider;
     }
 }
 
