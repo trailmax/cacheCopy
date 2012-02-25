@@ -202,5 +202,41 @@ namespace cacheCopy.Properties {
                 this["AllowOverwriteFiles"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool GIF {
+            get {
+                return ((bool)(this["GIF"]));
+            }
+            set {
+                this["GIF"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool JPG {
+            get {
+                return ((bool)(this["JPG"]));
+            }
+            set {
+                this["JPG"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PNG {
+            get {
+                return ((bool)(this["PNG"]));
+            }
+            set {
+                this["PNG"] = value;
+            }
+        }
     }
 }
