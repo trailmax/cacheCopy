@@ -6,12 +6,12 @@ namespace cacheCopy.filters
     /// <summary>
     /// Filter file size
     /// </summary>
-    class SizeFilter : IFilter
+    class FileSizeFilter : IFilter
     {
         private Int32 minSize { get; set; }
         private Int32 maxSize { get; set; }
 
-        public SizeFilter(Int32 minSize)
+        public FileSizeFilter(Int32 minSize)
         {
             this.minSize = minSize;
         }

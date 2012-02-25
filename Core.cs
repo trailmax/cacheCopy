@@ -254,13 +254,13 @@ namespace cacheCopy
 
             if (mainGUI.getKilobytes() != null)
             {
-                IFilter sizeFilter = new SizeFilter((int)mainGUI.getKilobytes() * 1000);
-                addFilter(sizeFilter);
+                IFilter FileSizeFilter = new FileSizeFilter((int)mainGUI.getKilobytes() * 1000);
+                addFilter(FileSizeFilter);
             }
 
 
              // always add jpeg filter before filter with image size.
-            IFilter imageFilter = new ImageTypeFilter();
+            IFilter imageFilter = new ImageTypeFilter(mainGUI.isJPG(), mainGUI.isPNG(), mainGUI.isGIF());
             addFilter(imageFilter);
 
 
