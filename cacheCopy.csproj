@@ -126,12 +126,12 @@
     <Compile Include="Browsers\OperaHelper.cs" />
     <Compile Include="Browsers\ProfilePath.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="filters\FileSizeFilter.cs" />
     <Compile Include="Naming\Detective.cs" />
     <Compile Include="Naming\FileNaming.cs" />
     <Compile Include="filters\DateFilter.cs" />
     <Compile Include="filters\ImageSizeFilter.cs" />
-    <Compile Include="filters\JpegFilter.cs" />
-    <Compile Include="filters\SizeFilter.cs" />
+    <Compile Include="filters\ImageTypeFilter.cs" />
     <Compile Include="Browsers\FirefoxHelper.cs" />
     <Compile Include="MainGUI.cs">
       <SubType>Form</SubType>

@@ -95,7 +95,7 @@ namespace cacheCopy
         private void CreateControlsTable()
         {
             int Y_padding = 3;
-            for (int i = 0; i < information.GetUpperBound(0); i++)
+            for (int i = 0; i < information.GetUpperBound(0)+1; i++)
             {
                 // tabs are special here!
                 int tabCount = 10*i;
