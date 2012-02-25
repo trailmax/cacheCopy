@@ -123,7 +123,7 @@
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
                 "FrameworkVersion" = "8:.NETFramework,Version=v4.0,Profile=Client"
-                "AllowLaterVersions" = "11:FALSE"
+                "AllowLaterVersions" = "11:TRUE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=131000"
                 }
             }
@@ -139,7 +139,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_3687C2C64BD942DCBC2B731CFCBBC31F"
             {
             "Name" = "8:#1916"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
@@ -151,7 +151,7 @@
             {
             "DefaultLocation" = "8:[ProgramFilesFolder]\\[ProductName]"
             "Name" = "8:#1925"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:TARGETDIR"
@@ -162,7 +162,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_EEF599DDEA284277BDB5D6C61EE4C5C6"
             {
             "Name" = "8:#1919"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:ProgramMenuFolder"
@@ -191,9 +191,9 @@
         "UpgradeCode" = "8:{A1B300C2-5D9C-4CC1-832C-E9CA9FFD5F2C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
+        "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:AMV Software"
         "ARPHELPTELEPHONE" = "8:"
@@ -224,7 +224,7 @@
                     "Name" = "8:Software"
                     "Condition" = "8:"
                     "AlwaysCreate" = "11:FALSE"
-                    "DeleteAtUninstall" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:TRUE"
                     "Transitive" = "11:FALSE"
                         "Keys"
                         {
@@ -233,7 +233,7 @@
                             "Name" = "8:[Manufacturer]"
                             "Condition" = "8:"
                             "AlwaysCreate" = "11:FALSE"
-                            "DeleteAtUninstall" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:TRUE"
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
@@ -258,7 +258,7 @@
                     "Name" = "8:Software"
                     "Condition" = "8:"
                     "AlwaysCreate" = "11:FALSE"
-                    "DeleteAtUninstall" = "11:FALSE"
+                    "DeleteAtUninstall" = "11:TRUE"
                     "Transitive" = "11:FALSE"
                         "Keys"
                         {
@@ -307,32 +307,32 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_12BB6BF90662481E849AB195E5E5E52F"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_22D7CD82422E40D184D350055C241DB3"
             {
             "Name" = "8:cacheCopy"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_E6504D0389F047D2B94C51D0205B333B"
-            "Folder" = "8:_3687C2C64BD942DCBC2B731CFCBBC31F"
-            "WorkingFolder" = "8:_914E949F733B40E9B6B728A10ED7BECF"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9BC7E5450C5D4E7091B6A700D7154021"
-            {
-            "Name" = "8:cacheCopy"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
             "Target" = "8:_E6504D0389F047D2B94C51D0205B333B"
             "Folder" = "8:_EEF599DDEA284277BDB5D6C61EE4C5C6"
             "WorkingFolder" = "8:_914E949F733B40E9B6B728A10ED7BECF"
-            "Icon" = "8:"
+            "Icon" = "8:_E6504D0389F047D2B94C51D0205B333B"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C824A6BC78C0486BA567FEDA07F3E44F"
+            {
+            "Name" = "8:cacheCopy"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:32512"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_E6504D0389F047D2B94C51D0205B333B"
+            "Folder" = "8:_3687C2C64BD942DCBC2B731CFCBBC31F"
+            "WorkingFolder" = "8:_914E949F733B40E9B6B728A10ED7BECF"
+            "Icon" = "8:_E6504D0389F047D2B94C51D0205B333B"
             "Feature" = "8:"
             }
         }
