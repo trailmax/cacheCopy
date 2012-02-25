@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cacheCopyTests", "cacheCopy
 		{C6B0DD4C-5906-46F0-AAAD-C13033B91547} = {C6B0DD4C-5906-46F0-AAAD-C13033B91547}
 	EndProjectSection
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "cacheCopyInstallShield", "cacheCopyInstallShield\cacheCopyInstallShield.isproj", "{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C6B0DD4C-5906-46F0-AAAD-C13033B91547} = {C6B0DD4C-5906-46F0-AAAD-C13033B91547}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +54,17 @@ Global
 		{B8864C3C-7FFF-4AB4-A415-1CF1918507A9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B8864C3C-7FFF-4AB4-A415-1CF1918507A9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B8864C3C-7FFF-4AB4-A415-1CF1918507A9}.Release|x86.ActiveCfg = Release|Any CPU
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Debug|Any CPU.ActiveCfg = SingleImage
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Debug|Mixed Platforms.ActiveCfg = DVD-5
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Debug|Mixed Platforms.Build.0 = DVD-5
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Debug|x86.ActiveCfg = DVD-5
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Debug|x86.Build.0 = DVD-5
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Release|Any CPU.ActiveCfg = SingleImage
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Release|Any CPU.Build.0 = SingleImage
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Release|Mixed Platforms.ActiveCfg = SingleImage
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Release|Mixed Platforms.Build.0 = SingleImage
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Release|x86.ActiveCfg = SingleImage
+		{80F8F9A3-AD83-4A37-B49D-E6D9DC79D5EC}.Release|x86.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
