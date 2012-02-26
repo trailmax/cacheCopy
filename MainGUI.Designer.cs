@@ -61,7 +61,6 @@
             this.TargetFolderErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblSourceFolderDisplay = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lnkEmail = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblBrowserHelpTooltip = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -85,12 +84,16 @@
             this.btnPatternHelp = new System.Windows.Forms.Button();
             this.lblPatternTranslationSample = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblTrailmax = new System.Windows.Forms.Label();
+            this.lblCoffeeDonations = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblCoffeeCupDonation = new System.Windows.Forms.Label();
             this.lnkHomePage = new System.Windows.Forms.LinkLabel();
             this.lblCopyright = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.ImageTypeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.emailToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.JumpingTigraGif = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -103,8 +106,9 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).BeginInit();
             this.SuspendLayout();
             // 
             // CopyButton
@@ -447,18 +451,6 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
-            // lnkEmail
-            // 
-            this.lnkEmail.AutoSize = true;
-            this.lnkEmail.Location = new System.Drawing.Point(144, 25);
-            this.lnkEmail.Name = "lnkEmail";
-            this.lnkEmail.Size = new System.Drawing.Size(54, 16);
-            this.lnkEmail.TabIndex = 3;
-            this.lnkEmail.TabStop = true;
-            this.lnkEmail.Text = "trailmax";
-            this.toolTip1.SetToolTip(this.lnkEmail, "trailmax1@gmail.com");
-            this.lnkEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEmail_LinkClicked);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -597,7 +589,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 139);
+            this.tabControl1.Location = new System.Drawing.Point(9, 139);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(697, 167);
@@ -699,9 +691,11 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.JumpingTigraGif);
+            this.tabPage3.Controls.Add(this.lblTrailmax);
+            this.tabPage3.Controls.Add(this.lblCoffeeDonations);
             this.tabPage3.Controls.Add(this.pictureBox1);
-            this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.lnkEmail);
+            this.tabPage3.Controls.Add(this.lblCoffeeCupDonation);
             this.tabPage3.Controls.Add(this.lnkHomePage);
             this.tabPage3.Controls.Add(this.lblCopyright);
             this.tabPage3.Controls.Add(this.lblVersion);
@@ -713,20 +707,54 @@
             this.tabPage3.Text = "About";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // lblTrailmax
             // 
-            this.label9.Location = new System.Drawing.Point(7, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(261, 69);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "cacheCopy is a free software. It was made while being on caffeine, during sleeple" +
-    "ss nights. I would appreciate if you help me out with coffee beans. ";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTrailmax.AutoSize = true;
+            this.lblTrailmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrailmax.Location = new System.Drawing.Point(3, 50);
+            this.lblTrailmax.Name = "lblTrailmax";
+            this.lblTrailmax.Size = new System.Drawing.Size(54, 16);
+            this.lblTrailmax.TabIndex = 7;
+            this.lblTrailmax.Text = "trailmax";
+            this.emailToolTip.SetToolTip(this.lblTrailmax, "trailmax1@gmail.com");
+            this.lblTrailmax.Click += new System.EventHandler(this.lblTrailmax_Click);
+            // 
+            // lblCoffeeDonations
+            // 
+            this.lblCoffeeDonations.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCoffeeDonations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoffeeDonations.Location = new System.Drawing.Point(243, 95);
+            this.lblCoffeeDonations.Name = "lblCoffeeDonations";
+            this.lblCoffeeDonations.Size = new System.Drawing.Size(264, 29);
+            this.lblCoffeeDonations.TabIndex = 6;
+            this.lblCoffeeDonations.Text = "Coffee Donations are welcome!";
+            this.lblCoffeeDonations.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(340, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(71, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // lblCoffeeCupDonation
+            // 
+            this.lblCoffeeCupDonation.Location = new System.Drawing.Point(212, 7);
+            this.lblCoffeeCupDonation.Name = "lblCoffeeCupDonation";
+            this.lblCoffeeCupDonation.Size = new System.Drawing.Size(326, 38);
+            this.lblCoffeeCupDonation.TabIndex = 4;
+            this.lblCoffeeCupDonation.Text = "Every feature done was supported by a cup of coffee. I would appreciate if you he" +
+    "lp me out with coffee beans. ";
+            this.lblCoffeeCupDonation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lnkHomePage
             // 
             this.lnkHomePage.AutoSize = true;
-            this.lnkHomePage.Location = new System.Drawing.Point(3, 46);
+            this.lnkHomePage.Location = new System.Drawing.Point(3, 73);
             this.lnkHomePage.Name = "lnkHomePage";
             this.lnkHomePage.Size = new System.Drawing.Size(197, 16);
             this.lnkHomePage.TabIndex = 2;
@@ -737,7 +765,7 @@
             // lblCopyright
             // 
             this.lblCopyright.AutoSize = true;
-            this.lblCopyright.Location = new System.Drawing.Point(3, 26);
+            this.lblCopyright.Location = new System.Drawing.Point(3, 27);
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(148, 16);
             this.lblCopyright.TabIndex = 1;
@@ -746,7 +774,7 @@
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(3, 7);
+            this.lblVersion.Location = new System.Drawing.Point(3, 4);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(124, 16);
             this.lblVersion.TabIndex = 0;
@@ -756,15 +784,16 @@
             // 
             this.ImageTypeErrorProvider.ContainerControl = this;
             // 
-            // pictureBox1
+            // JumpingTigraGif
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(288, 66);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.JumpingTigraGif.Image = ((System.Drawing.Image)(resources.GetObject("JumpingTigraGif.Image")));
+            this.JumpingTigraGif.Location = new System.Drawing.Point(642, 0);
+            this.JumpingTigraGif.Name = "JumpingTigraGif";
+            this.JumpingTigraGif.Size = new System.Drawing.Size(47, 138);
+            this.JumpingTigraGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.JumpingTigraGif.TabIndex = 8;
+            this.JumpingTigraGif.TabStop = false;
+            this.JumpingTigraGif.Visible = false;
             // 
             // MainGUI
             // 
@@ -816,8 +845,9 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -883,9 +913,12 @@
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label lblCopyright;
         private System.Windows.Forms.LinkLabel lnkHomePage;
-        private System.Windows.Forms.LinkLabel lnkEmail;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblCoffeeCupDonation;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblCoffeeDonations;
+        private System.Windows.Forms.Label lblTrailmax;
+        private System.Windows.Forms.ToolTip emailToolTip;
+        private System.Windows.Forms.PictureBox JumpingTigraGif;
     }
 }
 

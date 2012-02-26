@@ -293,6 +293,16 @@ namespace cacheCopy
             Process.Start(e.Link.LinkData as string);
         }
 
+        /// <summary>
+        /// Start an email when clicked on "trailmax"
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void lblTrailmax_Click(object sender, EventArgs e)
+        {
+            Process.Start("mailto:trailmax1@gmail.com");
+        }
+
 
 #endregion
 
@@ -568,10 +578,8 @@ namespace cacheCopy
             link.LinkData = lnkHomePage.Text;
             lnkHomePage.Links.Add(link);
 
-            LinkLabel.Link email = new LinkLabel.Link();
-            email.LinkData = "mailto:trailmax1@gmail.com";
-            lnkEmail.Links.Add(email);
-
+            lblCoffeeCupDonation.Text = String.Format("Every feature done was supported by a cup of coffee.{0}"+
+                "I would appreciate if you help me out with coffee beans.",Environment.NewLine) ;
         }
 
 #endregion
@@ -873,6 +881,10 @@ namespace cacheCopy
 
 #endregion
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            JumpingTigraGif.Visible = !JumpingTigraGif.Visible;
+        }
 
 
 
