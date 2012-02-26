@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using ST = cacheCopy.Properties.Settings;
+using System.Diagnostics;
 
 namespace cacheCopy
 {
@@ -54,15 +55,22 @@ namespace cacheCopy
             kilobytesCheckbox_CheckedChanged(null, null);
             resolutionCheckbox_CheckedChanged(null, null);
 
+            //Populate Profile dropdown
             BrowserDropDown.DataSource = Profiles;
             BrowserDropDown.DisplayMember = "Name";
             BrowserDropDown.ValueMember = "FullPath";
 
+            // make sure the controls are in the proper state
             ResetControls();
 
+            // make sure the pattern is displayed on load
             DisplaySamplePattern();
 
+            // Sort text on tooltips
             SetTooltips();
+
+            // get text sorted on About tab
+            PopulateAboutLabels();
         }
 
         /// <summary>
@@ -220,7 +228,6 @@ namespace cacheCopy
             lblSourceFolderDisplay.Text = path.FullPath;
         }
 
-
         /// <summary>
         /// Every time the pattern changes, we want to update label, for user to see the result
         /// of translation of the pattern to the name
@@ -232,7 +239,6 @@ namespace cacheCopy
             DisplaySamplePattern();
         }
 
-
         /// <summary>
         /// Click on help button next to file pattern opens up a help dialog.
         /// </summary>
@@ -242,7 +248,6 @@ namespace cacheCopy
         {
             ShowHelpDialog();
         }
-
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Control.KeyDown"/> event.
@@ -267,6 +272,26 @@ namespace cacheCopy
             }
         }
 
+        /// <summary>
+        /// Open a webpage on click of the link on About Tab
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.LinkLabelLinkClickedEventArgs"/> instance containing the event data.</param>
+        private void lnkHomePage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Send the URL to the operating system.
+            Process.Start(e.Link.LinkData as string);
+        }
+
+        /// <summary>
+        /// Send email when name on About tab is clicked
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.LinkLabelLinkClickedEventArgs"/> instance containing the event data.</param>
+        private void lnkEmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(e.Link.LinkData as string);
+        }
 
 
 #endregion
@@ -532,6 +557,21 @@ namespace cacheCopy
             }
 
             return false;
+        }
+
+        private void PopulateAboutLabels() 
+        {
+            lblVersion.Text = "cacheCopy version " + Application.ProductVersion.ToString();
+            lblCopyright.Text = "Copyright " + '\u00A9'.ToString() + " 2012-2100";
+
+            LinkLabel.Link link = new LinkLabel.Link();
+            link.LinkData = lnkHomePage.Text;
+            lnkHomePage.Links.Add(link);
+
+            LinkLabel.Link email = new LinkLabel.Link();
+            email.LinkData = "mailto:trailmax1@gmail.com";
+            lnkEmail.Links.Add(email);
+
         }
 
 #endregion
@@ -832,6 +872,8 @@ namespace cacheCopy
         }
 
 #endregion
+
+
 
 
     }

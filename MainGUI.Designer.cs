@@ -61,6 +61,7 @@
             this.TargetFolderErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblSourceFolderDisplay = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lnkEmail = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblBrowserHelpTooltip = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -83,7 +84,13 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnPatternHelp = new System.Windows.Forms.Button();
             this.lblPatternTranslationSample = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lnkHomePage = new System.Windows.Forms.LinkLabel();
+            this.lblCopyright = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.ImageTypeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -95,7 +102,9 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // CopyButton
@@ -438,6 +447,18 @@
             this.toolTip1.UseAnimation = false;
             this.toolTip1.UseFading = false;
             // 
+            // lnkEmail
+            // 
+            this.lnkEmail.AutoSize = true;
+            this.lnkEmail.Location = new System.Drawing.Point(144, 25);
+            this.lnkEmail.Name = "lnkEmail";
+            this.lnkEmail.Size = new System.Drawing.Size(54, 16);
+            this.lnkEmail.TabIndex = 3;
+            this.lnkEmail.TabStop = true;
+            this.lnkEmail.Text = "trailmax";
+            this.toolTip1.SetToolTip(this.lnkEmail, "trailmax1@gmail.com");
+            this.lnkEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEmail_LinkClicked);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -575,6 +596,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 139);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -675,9 +697,74 @@
             this.lblPatternTranslationSample.Size = new System.Drawing.Size(0, 16);
             this.lblPatternTranslationSample.TabIndex = 116;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.pictureBox1);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.lnkEmail);
+            this.tabPage3.Controls.Add(this.lnkHomePage);
+            this.tabPage3.Controls.Add(this.lblCopyright);
+            this.tabPage3.Controls.Add(this.lblVersion);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(689, 138);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "About";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(7, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(261, 69);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "cacheCopy is a free software. It was made while being on caffeine, during sleeple" +
+    "ss nights. I would appreciate if you help me out with coffee beans. ";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lnkHomePage
+            // 
+            this.lnkHomePage.AutoSize = true;
+            this.lnkHomePage.Location = new System.Drawing.Point(3, 46);
+            this.lnkHomePage.Name = "lnkHomePage";
+            this.lnkHomePage.Size = new System.Drawing.Size(197, 16);
+            this.lnkHomePage.TabIndex = 2;
+            this.lnkHomePage.TabStop = true;
+            this.lnkHomePage.Text = "http://cacheCopy.codeplex.com";
+            this.lnkHomePage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkHomePage_LinkClicked);
+            // 
+            // lblCopyright
+            // 
+            this.lblCopyright.AutoSize = true;
+            this.lblCopyright.Location = new System.Drawing.Point(3, 26);
+            this.lblCopyright.Name = "lblCopyright";
+            this.lblCopyright.Size = new System.Drawing.Size(148, 16);
+            this.lblCopyright.TabIndex = 1;
+            this.lblCopyright.Text = "Copyright (C) 2012-2100";
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(3, 7);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(124, 16);
+            this.lblVersion.TabIndex = 0;
+            this.lblVersion.Text = "cacheCopy version";
+            // 
             // ImageTypeErrorProvider
             // 
             this.ImageTypeErrorProvider.ContainerControl = this;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(288, 66);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(71, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // MainGUI
             // 
@@ -727,7 +814,10 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -789,6 +879,13 @@
         private System.Windows.Forms.CheckBox chbxPNG;
         private System.Windows.Forms.CheckBox chbxJpg;
         private System.Windows.Forms.ErrorProvider ImageTypeErrorProvider;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Label lblCopyright;
+        private System.Windows.Forms.LinkLabel lnkHomePage;
+        private System.Windows.Forms.LinkLabel lnkEmail;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
