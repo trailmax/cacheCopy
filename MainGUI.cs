@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using ST = cacheCopy.Properties.Settings;
-using System.Diagnostics;
 
 namespace cacheCopy
 {
@@ -15,6 +15,9 @@ namespace cacheCopy
         Core core;
         List<ProfilePath> Profiles = new List<ProfilePath>();
         PatternHelpDialog helpDialog;
+        private Timer TigraTimer;
+        private Timer StopTimer;
+        private bool TigraDisplayed = false;
 
         public MainGUI(ref Core core)
         {
@@ -303,6 +306,15 @@ namespace cacheCopy
             Process.Start("mailto:trailmax1@gmail.com");
         }
 
+        /// <summary>
+        /// When coffee cup is clicked, make the Tigra jump!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            showTigra();
+        }
 
 #endregion
 
@@ -549,11 +561,15 @@ namespace cacheCopy
         }
 
 
+        /// <summary>
+        /// Dialog box asking user if we need to create a target folder that does not exist.
+        /// </summary>
+        /// <param name="fullPath"></param>
+        /// <returns></returns>
         public bool ConfirmAndCreateFolder(String fullPath)
         {
             if (MessageBox.Show("Target folder does not exist. Create?", "Create target folder?", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-
                 try
                 {
                     Directory.CreateDirectory(fullPath);
@@ -565,9 +581,9 @@ namespace cacheCopy
                     return false;
                 }
             }
-
             return false;
         }
+
 
         private void PopulateAboutLabels() 
         {
@@ -795,6 +811,7 @@ namespace cacheCopy
             return chbxPNG.Checked;
         }
 
+
 #endregion
 
 
@@ -881,11 +898,97 @@ namespace cacheCopy
 
 #endregion
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+#region Tigra
+
+
+        /// <summary>
+        /// Gets the location-point for Tigra
+        /// </summary>
+        /// <returns>Selected ProfilePath object</returns>
+        public Point getTigraLocation()
         {
-            JumpingTigraGif.Visible = !JumpingTigraGif.Visible;
+            Point location = JumpingTigraGif.Location;
+            JumpingTigraGif.InvokeEx(f => location = JumpingTigraGif.Location);
+            return location;
         }
 
+        public void setTigraLocation(Point newLocation)
+        {
+            JumpingTigraGif.InvokeEx(f => JumpingTigraGif.Location = newLocation);
+        }
+
+        public void setTigraVisibility(bool visib)
+        {
+            JumpingTigraGif.InvokeEx(f => JumpingTigraGif.Visible = visib);
+        }
+
+        private void showTigra()
+        {
+            // if the animation already displayed, do nothing.
+            if (TigraDisplayed == true)
+                return;
+            
+            // don't show the animation second time.
+            TigraDisplayed = true;
+
+
+            setTigraVisibility(true);
+
+            // place Tigra outside of the frame
+            Point currLocation = getTigraLocation();
+            setTigraLocation(new Point(tabPage1.Size.Width,currLocation.Y));
+
+            TigraTimer = new Timer();
+            TigraTimer.Interval = 135;
+            TigraTimer.Tick += new EventHandler(TigraTimer_Tick);
+            TigraTimer.Start();
+
+            StopTimer = new Timer();
+            StopTimer.Interval = 10000;
+            StopTimer.Tick += new EventHandler(StopTimer_Tick);
+
+        }
+
+
+        /// <summary>
+        /// Move tigra on the screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void TigraTimer_Tick(object sender, EventArgs e)
+        {
+            Point currLocation = getTigraLocation();
+
+            if (currLocation.X > lblCoffeeCupDonation.Location.X+lblCoffeeCupDonation.Size.Width)     // 34 - width of Tigra image
+            {
+                // update the location
+                int X = currLocation.X - 5;    // 5 = jumping step
+                setTigraLocation(new Point(X, currLocation.Y));
+            }
+            else
+            {
+                // when we reached the destination, stop moving
+                TigraTimer.Stop();
+
+                // and start stop-timer - hide Tigra soon.
+                StopTimer.Start();
+            }
+        
+        }
+
+        /// <summary>
+        /// Hide tigra after 10 seconds
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void StopTimer_Tick(object sender, EventArgs e)
+        {
+            JumpingTigraGif.Visible = false;
+            JumpingTigraGif.Enabled = false;
+            StopTimer.Stop();
+        }
+
+#endregion
 
 
     }
