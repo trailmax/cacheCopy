@@ -84,6 +84,7 @@
             this.btnPatternHelp = new System.Windows.Forms.Button();
             this.lblPatternTranslationSample = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.JumpingTigraGif = new System.Windows.Forms.PictureBox();
             this.lblTrailmax = new System.Windows.Forms.Label();
             this.lblCoffeeDonations = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -93,7 +94,6 @@
             this.lblVersion = new System.Windows.Forms.Label();
             this.ImageTypeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.emailToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.JumpingTigraGif = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.hours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilobytes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minWidth)).BeginInit();
@@ -106,9 +106,9 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).BeginInit();
             this.SuspendLayout();
             // 
             // CopyButton
@@ -526,7 +526,7 @@
             this.chbxDeleteFilesFromCache.AutoSize = true;
             this.chbxDeleteFilesFromCache.Location = new System.Drawing.Point(6, 31);
             this.chbxDeleteFilesFromCache.Name = "chbxDeleteFilesFromCache";
-            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(189, 17);
+            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(235, 20);
             this.chbxDeleteFilesFromCache.TabIndex = 100;
             this.chbxDeleteFilesFromCache.Text = "Delete images from browser cache";
             this.chbxDeleteFilesFromCache.UseVisualStyleBackColor = true;
@@ -546,7 +546,7 @@
             this.chbxFileNamingPattern.AutoSize = true;
             this.chbxFileNamingPattern.Location = new System.Drawing.Point(6, 58);
             this.chbxFileNamingPattern.Name = "chbxFileNamingPattern";
-            this.chbxFileNamingPattern.Size = new System.Drawing.Size(143, 17);
+            this.chbxFileNamingPattern.Size = new System.Drawing.Size(174, 20);
             this.chbxFileNamingPattern.TabIndex = 110;
             this.chbxFileNamingPattern.Text = "Use pattern to name files";
             this.chbxFileNamingPattern.UseVisualStyleBackColor = true;
@@ -565,7 +565,7 @@
             this.chbxAllowOverwriteFiles.AutoSize = true;
             this.chbxAllowOverwriteFiles.Location = new System.Drawing.Point(6, 6);
             this.chbxAllowOverwriteFiles.Name = "chbxAllowOverwriteFiles";
-            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(188, 17);
+            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(230, 20);
             this.chbxAllowOverwriteFiles.TabIndex = 95;
             this.chbxAllowOverwriteFiles.Text = "Allow overwrite files in target folder";
             this.chbxAllowOverwriteFiles.UseVisualStyleBackColor = true;
@@ -707,6 +707,18 @@
             this.tabPage3.Text = "About";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // JumpingTigraGif
+            // 
+            this.JumpingTigraGif.Image = ((System.Drawing.Image)(resources.GetObject("JumpingTigraGif.Image")));
+            this.JumpingTigraGif.Location = new System.Drawing.Point(642, 0);
+            this.JumpingTigraGif.Name = "JumpingTigraGif";
+            this.JumpingTigraGif.Size = new System.Drawing.Size(47, 138);
+            this.JumpingTigraGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.JumpingTigraGif.TabIndex = 8;
+            this.JumpingTigraGif.TabStop = false;
+            this.emailToolTip.SetToolTip(this.JumpingTigraGif, "Tiggra says WO-HOO-HOO!!!");
+            this.JumpingTigraGif.Visible = false;
+            // 
             // lblTrailmax
             // 
             this.lblTrailmax.AutoSize = true;
@@ -743,12 +755,12 @@
             // 
             // lblCoffeeCupDonation
             // 
-            this.lblCoffeeCupDonation.Location = new System.Drawing.Point(212, 7);
+            this.lblCoffeeCupDonation.Location = new System.Drawing.Point(202, 7);
             this.lblCoffeeCupDonation.Name = "lblCoffeeCupDonation";
-            this.lblCoffeeCupDonation.Size = new System.Drawing.Size(326, 38);
+            this.lblCoffeeCupDonation.Size = new System.Drawing.Size(346, 38);
             this.lblCoffeeCupDonation.TabIndex = 4;
-            this.lblCoffeeCupDonation.Text = "Every feature done was supported by a cup of coffee. I would appreciate if you he" +
-    "lp me out with coffee beans. ";
+            this.lblCoffeeCupDonation.Text = "A fresh cup of good coffee inspired me to work on new features. I would appreciat" +
+    "e if you help me out with coffee beans. ";
             this.lblCoffeeCupDonation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lnkHomePage
@@ -783,17 +795,6 @@
             // ImageTypeErrorProvider
             // 
             this.ImageTypeErrorProvider.ContainerControl = this;
-            // 
-            // JumpingTigraGif
-            // 
-            this.JumpingTigraGif.Image = ((System.Drawing.Image)(resources.GetObject("JumpingTigraGif.Image")));
-            this.JumpingTigraGif.Location = new System.Drawing.Point(642, 0);
-            this.JumpingTigraGif.Name = "JumpingTigraGif";
-            this.JumpingTigraGif.Size = new System.Drawing.Size(47, 138);
-            this.JumpingTigraGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.JumpingTigraGif.TabIndex = 8;
-            this.JumpingTigraGif.TabStop = false;
-            this.JumpingTigraGif.Visible = false;
             // 
             // MainGUI
             // 
@@ -845,9 +846,9 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
