@@ -311,9 +311,9 @@ namespace cacheCopy
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void donate_Click(object sender, EventArgs e)
         {
-            showTigra();
+            GoDonate();
         }
 
 #endregion
@@ -585,6 +585,9 @@ namespace cacheCopy
         }
 
 
+        /// <summary>
+        /// Put some text in tooltips next to question marks
+        /// </summary>
         private void PopulateAboutLabels() 
         {
             lblVersion.Text = "cacheCopy version " + Application.ProductVersion.ToString();
@@ -596,6 +599,17 @@ namespace cacheCopy
 
             lblCoffeeCupDonation.Text = String.Format("Every feature done was supported by a cup of coffee.{0}"+
                 "I would appreciate if you help me out with coffee beans.",Environment.NewLine) ;
+        }
+
+
+        /// <summary>
+        /// Opens a browser with donation page
+        /// </summary>
+        private void GoDonate()
+        {
+            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=trailmax1%40gmail%2ecom&lc=GB&item_name=trailmax&item_number=cacheCopy&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted");
+            showTigra();
+
         }
 
 #endregion
@@ -912,16 +926,28 @@ namespace cacheCopy
             return location;
         }
 
+        /// <summary>
+        /// Set TigraGif location. Taylored for multi-tread
+        /// </summary>
+        /// <param name="newLocation"></param>
         public void setTigraLocation(Point newLocation)
         {
             JumpingTigraGif.InvokeEx(f => JumpingTigraGif.Location = newLocation);
         }
 
+        /// <summary>
+        /// Toggle tigra to be visible or not.
+        /// Works in multi-tread invironment
+        /// </summary>
+        /// <param name="visib"></param>
         public void setTigraVisibility(bool visib)
         {
             JumpingTigraGif.InvokeEx(f => JumpingTigraGif.Visible = visib);
         }
 
+        /// <summary>
+        /// Makes the tigra jump out
+        /// </summary>
         private void showTigra()
         {
             // if the animation already displayed, do nothing.
@@ -931,7 +957,7 @@ namespace cacheCopy
             // don't show the animation second time.
             TigraDisplayed = true;
 
-
+            // show tigra
             setTigraVisibility(true);
 
             // place Tigra outside of the frame
@@ -948,7 +974,6 @@ namespace cacheCopy
             StopTimer.Tick += new EventHandler(StopTimer_Tick);
 
         }
-
 
         /// <summary>
         /// Move tigra on the screen
@@ -990,6 +1015,9 @@ namespace cacheCopy
 
 #endregion
 
+
+
+//
 
     }
 }

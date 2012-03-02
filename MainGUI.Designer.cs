@@ -84,6 +84,7 @@
             this.btnPatternHelp = new System.Windows.Forms.Button();
             this.lblPatternTranslationSample = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.JumpingTigraGif = new System.Windows.Forms.PictureBox();
             this.lblTrailmax = new System.Windows.Forms.Label();
             this.lblCoffeeDonations = new System.Windows.Forms.Label();
@@ -106,6 +107,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).BeginInit();
@@ -444,7 +446,7 @@
             // toolTip1
             // 
             this.toolTip1.AutomaticDelay = 700;
-            this.toolTip1.AutoPopDelay = 7000;
+            this.toolTip1.AutoPopDelay = 20000;
             this.toolTip1.InitialDelay = 700;
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ReshowDelay = 1000;
@@ -691,6 +693,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.pictureBox2);
             this.tabPage3.Controls.Add(this.JumpingTigraGif);
             this.tabPage3.Controls.Add(this.lblTrailmax);
             this.tabPage3.Controls.Add(this.lblCoffeeDonations);
@@ -707,6 +710,18 @@
             this.tabPage3.Text = "About";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(218, 89);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.donate_Click);
+            // 
             // JumpingTigraGif
             // 
             this.JumpingTigraGif.Image = ((System.Drawing.Image)(resources.GetObject("JumpingTigraGif.Image")));
@@ -716,12 +731,13 @@
             this.JumpingTigraGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.JumpingTigraGif.TabIndex = 8;
             this.JumpingTigraGif.TabStop = false;
-            this.emailToolTip.SetToolTip(this.JumpingTigraGif, "Tiggra says WO-HOO-HOO!!!");
+            this.emailToolTip.SetToolTip(this.JumpingTigraGif, "Tiggra says WO-HOO-HOO!!! RRRRRRRRR!!!");
             this.JumpingTigraGif.Visible = false;
             // 
             // lblTrailmax
             // 
             this.lblTrailmax.AutoSize = true;
+            this.lblTrailmax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblTrailmax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTrailmax.Location = new System.Drawing.Point(3, 50);
             this.lblTrailmax.Name = "lblTrailmax";
@@ -735,15 +751,17 @@
             // 
             this.lblCoffeeDonations.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCoffeeDonations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoffeeDonations.Location = new System.Drawing.Point(243, 95);
+            this.lblCoffeeDonations.Location = new System.Drawing.Point(259, 95);
             this.lblCoffeeDonations.Name = "lblCoffeeDonations";
             this.lblCoffeeDonations.Size = new System.Drawing.Size(264, 29);
             this.lblCoffeeDonations.TabIndex = 6;
             this.lblCoffeeDonations.Text = "Coffee Donations are welcome!";
             this.lblCoffeeDonations.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCoffeeDonations.Click += new System.EventHandler(this.donate_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(340, 45);
             this.pictureBox1.Name = "pictureBox1";
@@ -751,7 +769,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.donate_Click);
             // 
             // lblCoffeeCupDonation
             // 
@@ -846,6 +864,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).EndInit();
@@ -920,6 +939,7 @@
         private System.Windows.Forms.Label lblTrailmax;
         private System.Windows.Forms.ToolTip emailToolTip;
         private System.Windows.Forms.PictureBox JumpingTigraGif;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
