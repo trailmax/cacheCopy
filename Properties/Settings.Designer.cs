@@ -61,7 +61,7 @@ namespace cacheCopy.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\tmp")]
         public string TargetFolderPath {
             get {
                 return ((string)(this["TargetFolderPath"]));
@@ -236,6 +236,18 @@ namespace cacheCopy.Properties {
             }
             set {
                 this["PNG"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2012-03-01")]
+        public global::System.DateTime LastCheckForUpdate {
+            get {
+                return ((global::System.DateTime)(this["LastCheckForUpdate"]));
+            }
+            set {
+                this["LastCheckForUpdate"] = value;
             }
         }
     }

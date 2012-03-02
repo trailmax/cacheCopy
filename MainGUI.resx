@@ -221,6 +221,53 @@
   <metadata name="FilePatternErrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1037, 17</value>
   </metadata>
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <metadata name="emailToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
   <data name="JumpingTigraGif.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhQQDAAPcAAAAAADMzM2ZmZpmZmczMzP///5lmZmYzM8yZmZkzM8xmZswzMxAAADMAAGYAAJkA
@@ -534,5 +581,8 @@
   </data>
   <metadata name="ImageTypeErrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1207, 17</value>
+  </metadata>
+  <metadata name="emailToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
   </metadata>
 </root>
