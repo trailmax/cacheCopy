@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="FileNamingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdaterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
