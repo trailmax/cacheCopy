@@ -18,6 +18,7 @@ namespace cacheCopy
         private Timer TigraTimer;
         private Timer StopTimer;
         private bool TigraDisplayed = false;
+        public Updater updater { get; set; }
 
         public MainGUI(ref Core core)
         {
@@ -313,7 +314,7 @@ namespace cacheCopy
         /// <param name="e"></param>
         private void donate_Click(object sender, EventArgs e)
         {
-            GoDonate();
+            showTigra();
         }
 
 #endregion
@@ -601,16 +602,6 @@ namespace cacheCopy
                 "I would appreciate if you help me out with coffee beans.",Environment.NewLine) ;
         }
 
-
-        /// <summary>
-        /// Opens a browser with donation page
-        /// </summary>
-        private void GoDonate()
-        {
-            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=trailmax1%40gmail%2ecom&lc=GB&item_name=trailmax&item_number=cacheCopy&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted");
-            showTigra();
-
-        }
 
 #endregion
 
@@ -995,6 +986,9 @@ namespace cacheCopy
                 // when we reached the destination, stop moving
                 TigraTimer.Stop();
 
+                // forward to the donation page
+                Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=trailmax1%40gmail%2ecom&lc=GB&item_name=trailmax&item_number=cacheCopy&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted");
+
                 // and start stop-timer - hide Tigra soon.
                 StopTimer.Start();
             }
@@ -1015,9 +1009,6 @@ namespace cacheCopy
 
 #endregion
 
-
-
-//
 
     }
 }
