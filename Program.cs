@@ -1,6 +1,7 @@
 ﻿// for release - remove the debug
 using System;
 using System.Windows.Forms;
+using Homegrown.Updater;
 
 
 namespace cacheCopy
@@ -52,10 +53,15 @@ namespace cacheCopy
                 // provide core with reference to GUI object
                 core.setMainGUI(ref gui);
 
-                Updater updated = new Updater(ref gui);
-                gui.updater = updated;
+                // create the application bridge for the upater - decoupling layer
+                IApplicationUpdaterBridge application = new cacheCopyUpdaterBridge();
+
+                // new updater, pass references for gui and application.
+                IUpdater updater = new Updater((IMessagingGui)gui, application);
+                gui.setUpdater(ref updater);
                 
                 Application.Run(gui);
+
 #if !DEBUG
             }
             catch (Exception e)

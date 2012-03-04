@@ -19,7 +19,7 @@ namespace cacheCopyTests
         public void testUpdater()
         {
             
-            Updater updater = new Updater(null);
+            //Updater updater = new Updater(null);
 
         }
     }
