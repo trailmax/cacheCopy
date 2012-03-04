@@ -12,7 +12,7 @@ namespace cacheCopy.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -239,12 +239,15 @@ namespace cacheCopy.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2012-03-01")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2012-01-01")]
         public global::System.DateTime LastCheckedForUpdateDate {
             get {
                 return ((global::System.DateTime)(this["LastCheckedForUpdateDate"]));
+            }
+            set {
+                this["LastCheckedForUpdateDate"] = value;
             }
         }
     }

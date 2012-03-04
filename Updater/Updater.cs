@@ -1,34 +1,36 @@
 ﻿using System;
 using System.Xml;
-using ST = cacheCopy.Properties.Settings;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Reflection;
 
-namespace cacheCopy
+namespace Homegrown.Updater
 {
     /// <summary>
     /// Object to deal with updates: checking for a new versions available, 
     /// downloading installation files, installing new versions.
     /// </summary>
-    public class Updater
+    public class Updater : IUpdater
     {
-        public bool isNewVersionAvailable = false;
-        public Version onlineVersion;
-        public string onlineDownloadUrl;
-        public MainGUI gui;
-        public BackgroundWorker bgdWorker;
-        public const string xmlURL = "http://trailmax.info/cachecopy/version.xml"; // url where to go for XML file with update info
-
+        private bool isNewVersionAvailable = false;
+        private Version onlineVersion;
+        private string onlineDownloadUrl;
+        private IMessagingGui gui;
+        private IApplicationUpdaterBridge application;
+        private BackgroundWorker bgdWorker;
+        private const string xmlURL = "http://trailmax.info/cachecopy/version.xml"; // url where to go for XML file with update info
+        //private 
 
         /// <summary>
         /// Create Updater object and send the GUI reference
         /// </summary>
         /// <param name="gui"></param>
-        public Updater(ref MainGUI gui)
+        public Updater(IMessagingGui gui, IApplicationUpdaterBridge applicatoin)
         {
             this.gui = gui;
+            this.application = application;
         }
+
 
         /// <summary>
         /// Public method to work out if we need to update or not.
@@ -37,14 +39,17 @@ namespace cacheCopy
         /// </summary>
         public void CheckUpdates()
         {
-            // get todays date, compare with lastCheckedForUpdateDate
-            // if have not checked for the update for long enough - go online
-            // and check for the update
-            // when checked for update - either update the software,
-            // or write to settings file, set the lastCheckedForUpdateDate for today.
+            // if no application, or no gui, don't bother checking for update
+            if (null == gui || null== application)
+                return;
 
+            // check every 30 days
             int checkingFrequency = 30;
-            DateTime lastChecked = ST.Default.LastCheckedForUpdateDate;
+
+            // get the stored date of the last check.
+            DateTime lastChecked = application.GetLastCheckedForUpdateDate();
+
+            // do check if it is time to check
             if (lastChecked.AddDays(checkingFrequency) <= DateTime.Now)
             {
                 gui.setProgressLabel("Checking for updates...");
@@ -64,7 +69,7 @@ namespace cacheCopy
 
         /// <summary>
         /// What happens when the update is finished: 
-        /// updaet status bar. show user a message if there is a new version. 
+        /// update status bar. show user a message if there is a new version. 
         /// Show a confirmation dialog if user would like to download.
         /// </summary>
         /// <param name="sender"></param>
@@ -75,6 +80,9 @@ namespace cacheCopy
             if (isNewVersionAvailable == false)
             {
                 gui.setProgressLabel("No updates available");
+                application.SetLastCheckedForUpdateDate(DateTime.Now);
+
+                //TODO set last checked for updates date
                 return;
             }
 
@@ -84,6 +92,7 @@ namespace cacheCopy
             if (MessageBox.Show(question, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 //TODO download and install new file.
+                MessageBox.Show("downloading new version");
             }
         }
 
@@ -144,7 +153,6 @@ namespace cacheCopy
             {
                 isNewVersionAvailable = false;
                 gui.setProgressLabel(ex.Message);
-                Util.WriteToLogFile(ex);
             }
             finally
             {

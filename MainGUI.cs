@@ -7,18 +7,19 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using ST = cacheCopy.Properties.Settings;
+using Homegrown.Updater;
 
 namespace cacheCopy
 {
-    public partial class MainGUI : Form
+    public partial class MainGUI : Form, IMessagingGui
     {
-        Core core;
-        List<ProfilePath> Profiles = new List<ProfilePath>();
-        PatternHelpDialog helpDialog;
+        private Core core;
+        private List<ProfilePath> Profiles = new List<ProfilePath>();
+        private PatternHelpDialog helpDialog;
         private Timer TigraTimer;
         private Timer StopTimer;
         private bool TigraDisplayed = false;
-        public Updater updater { get; set; }
+        private IUpdater updater;
 
         public MainGUI(ref Core core)
         {
@@ -29,6 +30,8 @@ namespace cacheCopy
             helpDialog = new PatternHelpDialog(this);
         }
 
+#region Setters
+
         public void addProfile(ProfilePath profile)
         {
             Profiles.Add(profile);
@@ -38,6 +41,13 @@ namespace cacheCopy
         {
             Profiles.AddRange(profile);
         }
+
+        public void setUpdater(ref IUpdater updater)
+        {
+            this.updater = updater;
+        }
+
+#endregion
 
 
 #region Events
@@ -75,6 +85,12 @@ namespace cacheCopy
 
             // get text sorted on About tab
             PopulateAboutLabels();
+
+            // if we have set the updater, do check for updates
+            if (updater != null)
+            {
+                updater.CheckUpdates();
+            }
         }
 
         /// <summary>
