@@ -52,6 +52,9 @@ namespace cacheCopy
                 // provide core with reference to GUI object
                 core.setMainGUI(ref gui);
 
+                Updater updated = new Updater(ref gui);
+                gui.updater = updated;
+                
                 Application.Run(gui);
 #if !DEBUG
             }

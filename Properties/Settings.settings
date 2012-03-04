@@ -56,7 +56,7 @@
     <Setting Name="PNG" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="LastCheckForUpdate" Type="System.DateTime" Scope="User">
+    <Setting Name="LastCheckedForUpdateDate" Type="System.DateTime" Scope="Application">
       <Value Profile="(Default)">2012-03-01</Value>
     </Setting>
   </Settings>
