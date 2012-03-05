@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace cacheCopy
+namespace FileTypeDetective
 {
     /// <summary>
     /// Helper class to identify file type by the file header, not file extension.
@@ -35,11 +35,12 @@ namespace cacheCopy
         
         public readonly static FileType ZIP = new FileType(new byte?[] { 0x50, 0x4B, 0x03, 0x04 }, "zip", "application/x-compressed");
         public readonly static FileType RAR = new FileType(new byte?[] { 0x52, 0x61, 0x72, 0x21 }, "rar", "application/x-compressed");
-        
+        public readonly static FileType EXE = new FileType(new byte?[] { 0x4D, 0x5A }, "exe", "application/octet-stream");
+        public readonly static FileType MSDOC = new FileType(new byte?[] { 0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1 }, "", "application/octet-stream");
         
         // all the file types to be put into one list
         private readonly static List<FileType> types = new List<FileType> { 
-            PDF, WORD, EXCEL, JPEG, ZIP, RAR, RTF, PNG, PPT, GIF};
+            PDF, WORD, EXCEL, JPEG, ZIP, RAR, RTF, PNG, PPT, GIF, EXE, MSDOC};
 
         // number of bytes we read from a file
         private const int MaxHeaderSize = 560;  // some file formats have headers offset to 512 bytes
@@ -316,7 +317,32 @@ namespace cacheCopy
         {
             return fileInfo.isType(GIF);
         }
-        
+
+
+        /// <summary>
+        /// Checks if the file is executable
+        /// </summary>
+        /// <param name="fileInfo"></param>
+        /// <returns></returns>
+        public static bool isExe(this FileInfo fileInfo)
+        {
+            return fileInfo.isType(EXE);
+        }
+
+
+        /// <summary>
+        /// Check if the file is Microsoft Installer.
+        /// Beware, many microsoft file types are starting with the same header. 
+        /// So use this one with caution. If you think the file is MSI, just need to confirm, use this method. 
+        /// But it could be MSWord or MSExcel, or Powerpoint... 
+        /// </summary>
+        /// <param name="fileInfo"></param>
+        /// <returns></returns>
+        public static bool isMsi(this FileInfo fileInfo)
+        {
+            // MSI has a generic DOCFILE header. Also it matches PPT files
+            return fileInfo.isType(PPT) || fileInfo.isType(MSDOC);
+        }
         #endregion
     }
 
