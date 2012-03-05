@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Windows.Forms;
 using Homegrown.Updater;
 using ST = cacheCopy.Properties.Settings;
 
@@ -28,6 +29,16 @@ namespace cacheCopy
         public void SetLastCheckedForUpdateDate(DateTime date)
         {
             ST.Default.LastCheckedForUpdateDate = date;
+        }
+
+        public void LogException(Exception e)
+        {
+            Util.WriteToLogFile(e);
+        }
+
+        public void Exit()
+        {
+            Application.Exit();
         }
     }
 }

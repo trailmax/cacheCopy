@@ -1,5 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace Homegrown.Updater
@@ -17,7 +21,7 @@ namespace Homegrown.Updater
         private IApplicationUpdaterBridge application;
         private BackgroundWorker bgdWorker;
         private const string xmlURL = "http://trailmax.info/cachecopy/version.xml"; // url where to go for XML file with update info
-        //private 
+        private String fullTempPath;
 
         /// <summary>
         /// Create Updater object and send the GUI reference
@@ -65,34 +69,6 @@ namespace Homegrown.Updater
 
         }
 
-
-
-        /// <summary>
-        /// What happens when the update is finished: 
-        /// update status bar. show user a message if there is a new version. 
-        /// Show a confirmation dialog if user would like to download.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CheckingFinished(object sender, RunWorkerCompletedEventArgs e)
-        {
-            // if nothing is available, just quit the process
-            if (isNewVersionAvailable == false)
-            {
-                gui.setProgressLabel("No updates available");
-                application.SetLastCheckedForUpdateDate(DateTime.Now);
-                return;
-            }
-
-            // but if something is available do offer user a dialog.
-            string title = "Download new version?";
-            string question = "New version of cacheCopy is available. Download?";
-            if (gui.showConfirmationDialog(question, title))
-            {
-                //TODO download and install new file.
-                gui.showMessageBox("downloading new version");
-            }
-        }
 
 
         /// <summary>
@@ -149,7 +125,12 @@ namespace Homegrown.Updater
             catch (Exception ex) 
             {
                 isNewVersionAvailable = false;
-                gui.setProgressLabel(ex.Message);
+                if (ex is ApplicationException)
+                    gui.setProgressLabel(ex.Message);
+                else
+                    gui.setProgressLabel("Can not reach update server");
+                
+                application.LogException(ex);
             }
             finally
             {
@@ -168,13 +149,94 @@ namespace Homegrown.Updater
 
 
 
+
+
         /// <summary>
-        /// After the update we know if there are updates available.
+        /// What happens when the update is finished: 
+        /// update status bar. show user a message if there is a new version. 
+        /// Show a confirmation dialog if user would like to download.
         /// </summary>
-        /// <returns></returns>
-        public bool isUpdateAvailable()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CheckingFinished(object sender, RunWorkerCompletedEventArgs e)
         {
-            return isNewVersionAvailable;
+            // if nothing is available, just quit the process
+            if (isNewVersionAvailable == false)
+            {
+                gui.setProgressLabel("No updates available");
+                application.SetLastCheckedForUpdateDate(DateTime.Now);
+                return;
+            }
+
+            gui.setProgressLabel("New version is available");
+
+            // but if something is available do offer user a dialog.
+            string title = "Download new version?";
+            string question = "New version of cacheCopy is available. Download?";
+            if (gui.showConfirmationDialog(question, title))
+            {
+                DownloadFile(onlineDownloadUrl);
+            }
+        }
+
+
+
+        /// <summary>
+        /// Download a file from url, store it in temp dir and store the path to the file
+        /// </summary>
+        /// <param name="url"></param>
+        private void DownloadFile(String url)
+        {
+            gui.setProgressLabel("Downloading update");
+            try
+            {
+                String tempPath = Path.GetTempPath();
+
+                // get the file extension from the URL
+                string extension = url.Substring(url.Length - 3, 3);
+
+                // make up a new name for the download
+                String filename = "cacheCopy_update_" + Guid.NewGuid()+"."+extension;
+                fullTempPath = Path.Combine(tempPath, filename);
+
+                // download the file in separate thread, save into the temp location
+                WebClient client = new WebClient();
+                Uri uri = new Uri(url);
+                // when download complete execute DownloadFileComplete function
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCompleted);
+                client.DownloadFileAsync(uri, fullTempPath);
+            }
+            catch (Exception e)
+            {
+                gui.setProgressLabel("Can't download update");
+                application.LogException(e);
+            }
+        }
+
+
+        /// <summary>
+        /// This gets executed when the download is finished.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)    
+        {
+            try
+            {
+                if (gui.showConfirmationDialog("Download of update is complete. Install?", "Install Update?"))
+                {
+                    // start the installer
+                    Process.Start(fullTempPath);
+
+                    // exit the application, so we remove file locks.
+                    application.Exit();
+                }
+            }
+            catch (Exception ex)
+            {
+                gui.setProgressLabel("Can not start update installer");
+                application.LogException(ex);
+            }
         }
 
     }

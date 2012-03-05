@@ -1,4 +1,4 @@
-﻿namespace cacheCopy
+﻿namespace FileTypeDetective
 {
 
 

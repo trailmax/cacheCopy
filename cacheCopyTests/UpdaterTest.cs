@@ -9,7 +9,7 @@ using Homegrown.Updater;
 
 namespace cacheCopyTests
 {
-    [TestFixture]
+/*    [TestFixture]
     class UpdaterTest
     {
 
@@ -25,7 +25,7 @@ namespace cacheCopyTests
 // so sod this unit testing for multi-threaded class!!
 		
 		
-/*
+
         [SetUp]
         public void Init()
         {
