@@ -12,6 +12,7 @@ namespace cacheCopyTests
         public FileInfo file;
         public String dir;
         public FileInfo png_file;
+
         [SetUp]
         public void SetUp()
         {
@@ -21,8 +22,6 @@ namespace cacheCopyTests
             png_file = new FileInfo("files/example.png");
         }
 
-
-//GenerateFileName(FileInfo file, String pattern, bool allowOverwrite, string targetPath, string Number = "" )
 
         [Test]
         public void FileExists()

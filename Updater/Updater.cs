@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Xml;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Reflection;
+using System.Xml;
 
 namespace Homegrown.Updater
 {
@@ -25,10 +23,10 @@ namespace Homegrown.Updater
         /// Create Updater object and send the GUI reference
         /// </summary>
         /// <param name="gui"></param>
-        public Updater(IMessagingGui gui, IApplicationUpdaterBridge applicatoin)
+        public Updater(IMessagingGui gui, IApplicationUpdaterBridge app)
         {
             this.gui = gui;
-            this.application = application;
+            this.application = app;
         }
 
 
@@ -40,8 +38,10 @@ namespace Homegrown.Updater
         public void CheckUpdates()
         {
             // if no application, or no gui, don't bother checking for update
-            if (null == gui || null== application)
+            if (null == gui || null == application)
+            {
                 return;
+            }
 
             // check every 30 days
             int checkingFrequency = 30;
@@ -81,18 +81,16 @@ namespace Homegrown.Updater
             {
                 gui.setProgressLabel("No updates available");
                 application.SetLastCheckedForUpdateDate(DateTime.Now);
-
-                //TODO set last checked for updates date
                 return;
             }
 
             // but if something is available do offer user a dialog.
             string title = "Download new version?";
             string question = "New version of cacheCopy is available. Download?";
-            if (MessageBox.Show(question, title, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (gui.showConfirmationDialog(question, title))
             {
                 //TODO download and install new file.
-                MessageBox.Show("downloading new version");
+                gui.showMessageBox("downloading new version");
             }
         }
 
@@ -120,7 +118,6 @@ namespace Homegrown.Updater
                 {
                     throw new ApplicationException("Badly formatted XML. Please inform trailmax1@gmail.com");
                 }
-
                 
                 while (reader.Read())
                 {
@@ -160,13 +157,24 @@ namespace Homegrown.Updater
             }
 
             // get the running version  
-            Version curVersion = Assembly.GetExecutingAssembly().GetName().Version;
+            Version curVersion = application.GetApplicationVersion();
 
             // compare the versions  
             if (curVersion.CompareTo(onlineVersion) < 0)
             {
                 isNewVersionAvailable = true;
             }
+        }
+
+
+
+        /// <summary>
+        /// After the update we know if there are updates available.
+        /// </summary>
+        /// <returns></returns>
+        public bool isUpdateAvailable()
+        {
+            return isNewVersionAvailable;
         }
 
     }

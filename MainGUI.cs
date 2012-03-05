@@ -418,6 +418,20 @@ namespace cacheCopy
             MessageBox.Show(message);
         }
 
+
+        /// <summary>
+        /// Present user with confirmation dialog, asking for a question. 
+        /// With 2 buttons available to press: Yes and No
+        /// </summary>
+        /// <param name="question">Message on the dialog</param>
+        /// <param name="title">Title of the dialog</param>
+        /// <returns>true if user pressed Yes, false otherwise</returns>
+        public bool showConfirmationDialog(string question, string title)
+        {
+            var result =  MessageBox.Show(question, title, MessageBoxButtons.YesNo);
+
+            return (result == DialogResult.Yes);
+        }
         
         /// <summary>
         /// Shows all the messages in the list of string as a message box.
@@ -585,7 +599,8 @@ namespace cacheCopy
         /// <returns></returns>
         public bool ConfirmAndCreateFolder(String fullPath)
         {
-            if (MessageBox.Show("Target folder does not exist. Create?", "Create target folder?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+            if (showConfirmationDialog("Target folder does not exist. Create?", "Create target folder?"))
             {
                 try
                 {
