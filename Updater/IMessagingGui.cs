@@ -5,5 +5,6 @@ namespace Homegrown.Updater
     {
         void setProgressLabel(string message);
         void showMessageBox(string message);
+        bool showConfirmationDialog(string question, string title);
     }
 }
