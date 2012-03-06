@@ -39,10 +39,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="UseFileNamingPattern" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="NamingPattern" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">*CFyyyy*-*CFMMM*-*CFdd*-*CFHH*-*CFHH*</Value>
     </Setting>
     <Setting Name="AllowOverwriteFiles" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -57,7 +57,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="LastCheckedForUpdateDate" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2012-01-01</Value>
+      <Value Profile="(Default)">2012-03-06</Value>
     </Setting>
   </Settings>
 </SettingsFile>

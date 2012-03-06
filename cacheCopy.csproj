@@ -152,9 +152,7 @@
       <DependentUpon>PatternHelpDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Updater\Updater.cs" />
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="MainGUI.resx">
@@ -197,6 +195,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="installerScript.iss" />
     <Content Include="tigger.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -213,6 +212,8 @@ if exist “$(TargetPath)” move “$(TargetPath)” “$(TargetPath).delete.%2
 IF "$(ConfigurationName)"=="Debug" Goto Exit
 
    7za a -tzip "$(TargetName)".zip "$(TargetPath)" "$(TargetPath).config" 
+  
+   c:\Program Files\Inno Setup 5\iscc.exe "$(ProjectDir)installerScript.iss"
 
 :Exit</PostBuildEvent>
   </PropertyGroup>

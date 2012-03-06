@@ -169,7 +169,7 @@ namespace cacheCopy.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool UseFileNamingPattern {
             get {
                 return ((bool)(this["UseFileNamingPattern"]));
@@ -181,7 +181,7 @@ namespace cacheCopy.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("*CFyyyy*-*CFMMM*-*CFdd*-*CFHH*-*CFHH*")]
         public string NamingPattern {
             get {
                 return ((string)(this["NamingPattern"]));
@@ -241,7 +241,7 @@ namespace cacheCopy.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2012-01-01")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2012-03-06")]
         public global::System.DateTime LastCheckedForUpdateDate {
             get {
                 return ((global::System.DateTime)(this["LastCheckedForUpdateDate"]));
