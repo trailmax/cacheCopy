@@ -2,17 +2,20 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "cacheCopy"
-#define MyAppVersion "2.0"
+;#define MyAppVersion "2.0"
 #define MyAppPublisher "AMV Software"
 #define MyAppURL "http://cachecopy.codeplex.com/"
 #define MyAppExeName "cacheCopy.exe"
 
-
-#define AppName "My App"
-#define SrcApp "MyApp.exe"
-#define FileVerStr GetFileVersion(SrcApp)
+#define strVersion GetFileVersion("c:\trailmax\myCode\csharp\cachecopy\bin\Release\"+ MyAppExeName)
 #define StripBuild(str VerStr) Copy(VerStr, 1, RPos(".", VerStr)-1)
-#define AppVerStr StripBuild(FileVerStr)
+
+#define MyAppVersion StripBuild(StripBuild(strVersion))
+
+;#define AppName "My App"
+;#define SrcApp "cacheCopy.exe"
+;#define FileVerStr GetFileVersion(SrcApp)
+;#define AppVerStr StripBuild(GetFileVersion(SrcApp))
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
