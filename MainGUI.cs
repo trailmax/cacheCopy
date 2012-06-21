@@ -15,11 +15,11 @@ namespace cacheCopy
     {
         private Core core;
         private List<ProfilePath> Profiles = new List<ProfilePath>();
-        private PatternHelpDialog helpDialog;
-        private Timer TigraTimer;
-        private Timer StopTimer;
-        private bool TigraDisplayed = false;
-        private IUpdater updater;
+        private PatternHelpDialog _helpDialog;
+        private Timer _tigraTimer;
+        private Timer _stopTimer;
+        private bool _tigraDisplayed = false;
+        private IUpdater _updater;
 
         public MainGUI(ref Core core)
         {
@@ -27,24 +27,24 @@ namespace cacheCopy
             InitializeComponent();
 
             // create help dialog and pass in a reference to this object
-            helpDialog = new PatternHelpDialog(this);
+            _helpDialog = new PatternHelpDialog(this);
         }
 
 #region Setters
 
-        public void addProfile(ProfilePath profile)
+        public void AddProfile(ProfilePath profile)
         {
             Profiles.Add(profile);
         }
 
-        public void addProfile(List<ProfilePath> profile)
+        public void AddProfile(List<ProfilePath> profile)
         {
             Profiles.AddRange(profile);
         }
 
-        public void setUpdater(ref IUpdater updater)
+        public void SetUpdater(ref IUpdater updater)
         {
-            this.updater = updater;
+            this._updater = updater;
         }
 
 #endregion
@@ -87,9 +87,9 @@ namespace cacheCopy
             PopulateAboutLabels();
 
             // if we have set the updater, do check for updates
-            if (updater != null)
+            if (_updater != null)
             {
-                updater.CheckUpdates();
+                _updater.CheckUpdates();
             }
         }
 
@@ -103,7 +103,7 @@ namespace cacheCopy
         {
             // validate the form
             List<string> messages = new List<string>();
-            if (!isValid(ref messages))
+            if (!IsValid(ref messages))
             {
                 // if form is not valid, show error messages and do nothing
                 showMessageBox(messages);
@@ -244,7 +244,7 @@ namespace cacheCopy
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void BrowserDropDown_SelectionChanged(object sender, EventArgs e)
         {
-            ProfilePath path = getSelectedProfile();
+            ProfilePath path = GetSelectedProfile();
             lblSourceFolderDisplay.Text = path.FullPath;
         }
 
@@ -280,9 +280,9 @@ namespace cacheCopy
             base.OnKeyDown(e);
             if (e.KeyCode == Keys.Escape)
             {
-                if (null != helpDialog && helpDialog.Visible)
+                if (null != _helpDialog && _helpDialog.Visible)
                 {
-                    helpDialog.Hide();
+                    _helpDialog.Hide();
                 }
                 else
                 {
@@ -330,7 +330,7 @@ namespace cacheCopy
         /// <param name="e"></param>
         private void donate_Click(object sender, EventArgs e)
         {
-            showTigra();
+            ShowTigra();
         }
 
 #endregion
@@ -524,7 +524,7 @@ namespace cacheCopy
         /// </summary>
         private void DisplaySamplePattern()
         {
-            string pattern = getFileNamingPattern();
+            string pattern = GetFileNamingPattern();
             
             if ( pattern == String.Empty)
             {
@@ -550,21 +550,21 @@ namespace cacheCopy
         /// </summary>
         private void ShowHelpDialog()
         {
-            if (null == helpDialog )
+            if (null == _helpDialog )
             {
-                helpDialog = new PatternHelpDialog(this);
+                _helpDialog = new PatternHelpDialog(this);
             }
 
             // set manual positioning
-            helpDialog.StartPosition = FormStartPosition.Manual;
+            _helpDialog.StartPosition = FormStartPosition.Manual;
 
             // place the dialog to the right from the main window
             int x = this.Location.X + this.Width;
             int y = this.Location.Y;
-            helpDialog.Location = new Point(x, y);
+            _helpDialog.Location = new Point(x, y);
 
             // actually show the dialog
-            helpDialog.Show();
+            _helpDialog.Show();
         }
 
 
@@ -687,7 +687,7 @@ namespace cacheCopy
         /// If hours filter is disabled on the form, NULL is returned
         /// </summary>
         /// <returns>null if hours filter is disabled or int value</returns>
-        public int? getHours()
+        public int? GetHours()
         {
             if (!hoursCheckbox.Checked)
             {
@@ -702,7 +702,7 @@ namespace cacheCopy
         /// If file size filter is disabled, NULL is returned
         /// </summary>
         /// <returns>Null or int value</returns>
-        public int? getKilobytes()
+        public int? GetKilobytes()
         {
             if (! kilobytesCheckbox.Checked)
             {
@@ -717,7 +717,7 @@ namespace cacheCopy
         /// If this filter is disabled, returns NULL
         /// </summary>
         /// <returns>Null or int value</returns>
-        public int? getMinWidth()
+        public int? GetMinWidth()
         {
             if (! resolutionCheckbox.Checked)
             {
@@ -732,7 +732,7 @@ namespace cacheCopy
         /// If this filter is disabled, returns NULL
         /// </summary>
         /// <returns>Null or int value</returns>
-        public int? getMinHeight()
+        public int? GetMinHeight()
         {
             if (!resolutionCheckbox.Checked)
             {
@@ -746,7 +746,7 @@ namespace cacheCopy
         /// Gets the selected profile for Firefox in a thread-safe manner
         /// </summary>
         /// <returns>Selected ProfilePath object</returns>
-        public ProfilePath getSelectedProfile()
+        public ProfilePath GetSelectedProfile()
         {
             ProfilePath selectedPath = null;
 
@@ -759,12 +759,12 @@ namespace cacheCopy
         /// Returns the selected source folder
         /// </summary>
         /// <returns></returns>
-        public string getSourceFolder()
+        public string GetSourceFolder()
         {
             // if the browser dropdown is selected, return the full path
             if (BrowserRadioButton.Checked == true)
             {
-                ProfilePath profile = getSelectedProfile();
+                ProfilePath profile = GetSelectedProfile();
                 return profile.FullPath;
             }
             // otherwise select manual profile
@@ -775,7 +775,7 @@ namespace cacheCopy
         /// Gets the target folder - selected by user
         /// </summary>
         /// <returns></returns>
-        public string getTargetFolder()
+        public string GetTargetFolder()
         {
             return targetFolderName.Text;
         }
@@ -786,7 +786,7 @@ namespace cacheCopy
         /// <returns>
         ///   <c>true</c> if [is remove images from cache]; otherwise, <c>false</c>.
         /// </returns>
-        public bool isRemoveImagesFromCache()
+        public bool IsRemoveImagesFromCache()
         {
             return chbxDeleteFilesFromCache.Checked;
         }
@@ -795,7 +795,7 @@ namespace cacheCopy
         /// Gets the file naming pattern.
         /// </summary>
         /// <returns>If the option is switched off, this returns empty string, otherwise naming pattern entered by user</returns>
-        public string getFileNamingPattern()
+        public string GetFileNamingPattern()
         {
             if (chbxFileNamingPattern.Checked)
                 return txtFileNamingPattern.Text;
@@ -810,7 +810,7 @@ namespace cacheCopy
         /// <returns>
         ///   <c>true</c> if [is allow overwrite files]; otherwise, <c>false</c>.
         /// </returns>
-        public bool isAllowOverwriteFiles(){
+        public bool IsAllowOverwriteFiles(){
             return chbxAllowOverwriteFiles.Checked;
         }
 
@@ -820,7 +820,7 @@ namespace cacheCopy
         /// <returns>
         ///   <c>true</c> if JPG checkbox is checked; otherwise, <c>false</c>.
         /// </returns>
-        public bool isJPG()
+        public bool IsJPG()
         {
             return chbxJpg.Checked;
         }
@@ -831,7 +831,7 @@ namespace cacheCopy
         /// <returns>
         ///   <c>true</c> if GIF checkbox is checked; otherwise, <c>false</c>.
         /// </returns>
-        public bool isGIF()
+        public bool IsGIF()
         {
             return chbxGif.Checked;
         }
@@ -842,7 +842,7 @@ namespace cacheCopy
         /// <returns>
         ///   <c>true</c> if PNG checkbox is checked; otherwise, <c>false</c>.
         /// </returns>
-        public bool isPNG()
+        public bool IsPNG()
         {
             return chbxPNG.Checked;
         }
@@ -865,7 +865,7 @@ namespace cacheCopy
         /// <returns>
         ///   <c>true</c> if the form is valid; otherwise, <c>false</c>.
         /// </returns>
-        private Boolean isValid(ref List<string> messages)
+        private Boolean IsValid(ref List<string> messages)
         {
             bool isValid = true;
 
@@ -901,7 +901,7 @@ namespace cacheCopy
                 ManualSelectionErrorProvider.SetError(SourceFolderName, "");
             }
 
-            if (chbxFileNamingPattern.Checked && !FileNaming.isPatternValid(getFileNamingPattern()))
+            if (chbxFileNamingPattern.Checked && !FileNaming.isPatternValid(GetFileNamingPattern()))
             {
                 FilePatternErrorProvider.SetError(txtFileNamingPattern, "Pattern contains invalid characters or not valid");
                 messages.Add("File naming pattern contains invalid characters or not valid");
@@ -916,7 +916,7 @@ namespace cacheCopy
             }
 
             // at least one file type must be enabled
-            if (!isJPG() && !isPNG() && !isGIF())
+            if (!IsJPG() && !IsPNG() && !IsGIF())
             {
                 ImageTypeErrorProvider.SetError(chbxGif, "At least one file type must be checked");
                 messages.Add("At least one file type must be checked, otherwise nothing will be copied");
@@ -941,7 +941,7 @@ namespace cacheCopy
         /// Gets the location-point for Tigra
         /// </summary>
         /// <returns>Selected ProfilePath object</returns>
-        public Point getTigraLocation()
+        public Point GetTigraLocation()
         {
             Point location = JumpingTigraGif.Location;
             JumpingTigraGif.InvokeEx(f => location = JumpingTigraGif.Location);
@@ -949,20 +949,20 @@ namespace cacheCopy
         }
 
         /// <summary>
-        /// Set TigraGif location. Taylored for multi-tread
+        /// Set TigraGif location. Tailored for multi-tread
         /// </summary>
         /// <param name="newLocation"></param>
-        public void setTigraLocation(Point newLocation)
+        public void SetTigraLocation(Point newLocation)
         {
             JumpingTigraGif.InvokeEx(f => JumpingTigraGif.Location = newLocation);
         }
 
         /// <summary>
         /// Toggle tigra to be visible or not.
-        /// Works in multi-tread invironment
+        /// Works in multi-tread environment
         /// </summary>
         /// <param name="visib"></param>
-        public void setTigraVisibility(bool visib)
+        public void SetTigraVisibility(bool visib)
         {
             JumpingTigraGif.InvokeEx(f => JumpingTigraGif.Visible = visib);
         }
@@ -970,30 +970,30 @@ namespace cacheCopy
         /// <summary>
         /// Makes the tigra jump out
         /// </summary>
-        private void showTigra()
+        private void ShowTigra()
         {
             // if the animation already displayed, do nothing.
-            if (TigraDisplayed == true)
+            if (_tigraDisplayed == true)
                 return;
             
             // don't show the animation second time.
-            TigraDisplayed = true;
+            _tigraDisplayed = true;
 
             // show tigra
-            setTigraVisibility(true);
+            SetTigraVisibility(true);
 
-            // place Tigra outside of the frame
-            Point currLocation = getTigraLocation();
-            setTigraLocation(new Point(tabPage1.Size.Width,currLocation.Y));
+            // place tigra outside of the frame
+            Point currLocation = GetTigraLocation();
+            SetTigraLocation(new Point(tabPage1.Size.Width,currLocation.Y));
 
-            TigraTimer = new Timer();
-            TigraTimer.Interval = 135;
-            TigraTimer.Tick += new EventHandler(TigraTimer_Tick);
-            TigraTimer.Start();
+            _tigraTimer = new Timer();
+            _tigraTimer.Interval = 135;
+            _tigraTimer.Tick += new EventHandler(TigraTimer_Tick);
+            _tigraTimer.Start();
 
-            StopTimer = new Timer();
-            StopTimer.Interval = 10000;
-            StopTimer.Tick += new EventHandler(StopTimer_Tick);
+            _stopTimer = new Timer();
+            _stopTimer.Interval = 10000;
+            _stopTimer.Tick += new EventHandler(StopTimer_Tick);
 
         }
 
@@ -1004,24 +1004,24 @@ namespace cacheCopy
         /// <param name="e"></param>
         void TigraTimer_Tick(object sender, EventArgs e)
         {
-            Point currLocation = getTigraLocation();
+            Point currLocation = GetTigraLocation();
 
             if (currLocation.X > lblCoffeeCupDonation.Location.X+lblCoffeeCupDonation.Size.Width)     // 34 - width of Tigra image
             {
                 // update the location
                 int X = currLocation.X - 5;    // 5 = jumping step
-                setTigraLocation(new Point(X, currLocation.Y));
+                SetTigraLocation(new Point(X, currLocation.Y));
             }
             else
             {
                 // when we reached the destination, stop moving
-                TigraTimer.Stop();
+                _tigraTimer.Stop();
 
                 // forward to the donation page
                 Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=trailmax1%40gmail%2ecom&lc=GB&item_name=trailmax&item_number=cacheCopy&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted");
 
                 // and start stop-timer - hide Tigra soon.
-                StopTimer.Start();
+                _stopTimer.Start();
             }
         
         }
@@ -1035,7 +1035,7 @@ namespace cacheCopy
         {
             JumpingTigraGif.Visible = false;
             JumpingTigraGif.Enabled = false;
-            StopTimer.Stop();
+            _stopTimer.Stop();
         }
 
 #endregion

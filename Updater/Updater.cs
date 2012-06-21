@@ -14,17 +14,17 @@ namespace Homegrown.Updater
     /// </summary>
     public class Updater : IUpdater
     {
-        private bool isNewVersionAvailable = false;
-        private Version onlineVersion;
-        private string onlineDownloadUrl;
+        private bool _isNewVersionAvailable = false;
+        private Version _onlineVersion;
+        private string _onlineDownloadUrl;
         private IMessagingGui gui;
         private IApplicationUpdaterBridge application;
-        private BackgroundWorker bgdWorker;
+        private BackgroundWorker _bgdWorker;
         private const string xmlURL = "http://trailmax.info/cachecopy/version.xml"; // url where to go for XML file with update info
-        private String fullTempPath;
+        private String _fullTempPath;
 
         /// <summary>
-        /// Create Updater object and send the GUI reference
+        /// Create updater object and send the GUI reference
         /// </summary>
         /// <param name="gui"></param>
         public Updater(IMessagingGui gui, IApplicationUpdaterBridge app)
@@ -59,12 +59,12 @@ namespace Homegrown.Updater
                 gui.setProgressLabel("Checking for updates...");
 
                 // create a threaded task to check for the update.
-                bgdWorker = new BackgroundWorker();
-                bgdWorker.DoWork += new DoWorkEventHandler(DoOnlineCheck);
-                bgdWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(CheckingFinished);
+                _bgdWorker = new BackgroundWorker();
+                _bgdWorker.DoWork += new DoWorkEventHandler(DoOnlineCheck);
+                _bgdWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(CheckingFinished);
 
                 //execute the checker for the update
-                bgdWorker.RunWorkerAsync();
+                _bgdWorker.RunWorkerAsync();
             }
 
         }
@@ -90,7 +90,7 @@ namespace Homegrown.Updater
                 string elementName = "";
 
                 // we check if the xml starts with a proper "cachecopy" element node  
-                if (!(reader.NodeType == XmlNodeType.Element) || !(reader.Name == "cachecopy"))
+                if (reader.NodeType != XmlNodeType.Element || reader.Name != "cachecopy")
                 {
                     throw new ApplicationException("Badly formatted XML. Please inform trailmax1@gmail.com");
                 }
@@ -113,10 +113,10 @@ namespace Homegrown.Updater
                             case "version":
                                 // that is why we keep the version info in xxx.xxx.xxx.xxx format  
                                 // the Version class does the parsing for us  
-                                onlineVersion = new Version(reader.Value);
+                                _onlineVersion = new Version(reader.Value);
                                 break;
                             case "url":
-                                onlineDownloadUrl = reader.Value;
+                                _onlineDownloadUrl = reader.Value;
                                 break;
                         }
                     }
@@ -124,7 +124,7 @@ namespace Homegrown.Updater
             }
             catch (Exception ex) 
             {
-                isNewVersionAvailable = false;
+                _isNewVersionAvailable = false;
                 if (ex is ApplicationException)
                     gui.setProgressLabel(ex.Message);
                 else
@@ -141,9 +141,9 @@ namespace Homegrown.Updater
             Version curVersion = application.GetApplicationVersion();
 
             // compare the versions  
-            if (curVersion.CompareTo(onlineVersion) < 0)
+            if (curVersion.CompareTo(_onlineVersion) < 0)
             {
-                isNewVersionAvailable = true;
+                _isNewVersionAvailable = true;
             }
         }
 
@@ -161,7 +161,7 @@ namespace Homegrown.Updater
         private void CheckingFinished(object sender, RunWorkerCompletedEventArgs e)
         {
             // if nothing is available, just quit the process
-            if (isNewVersionAvailable == false)
+            if (_isNewVersionAvailable == false)
             {
                 gui.setProgressLabel("No updates available");
                 application.SetLastCheckedForUpdateDate(DateTime.Now);
@@ -175,7 +175,7 @@ namespace Homegrown.Updater
             string question = "New version of cacheCopy is available. Download?";
             if (gui.showConfirmationDialog(question, title))
             {
-                DownloadFile(onlineDownloadUrl);
+                DownloadFile(_onlineDownloadUrl);
             }
         }
 
@@ -197,14 +197,14 @@ namespace Homegrown.Updater
 
                 // make up a new name for the download
                 String filename = "cacheCopy_update_" + Guid.NewGuid()+"."+extension;
-                fullTempPath = Path.Combine(tempPath, filename);
+                _fullTempPath = Path.Combine(tempPath, filename);
 
                 // download the file in separate thread, save into the temp location
                 WebClient client = new WebClient();
                 Uri uri = new Uri(url);
                 // when download complete execute DownloadFileComplete function
                 client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCompleted);
-                client.DownloadFileAsync(uri, fullTempPath);
+                client.DownloadFileAsync(uri, _fullTempPath);
             }
             catch (Exception e)
             {
@@ -226,7 +226,7 @@ namespace Homegrown.Updater
                 if (gui.showConfirmationDialog("Download of update is complete. Install?", "Install Update?"))
                 {
                     // start the installer
-                    Process.Start(fullTempPath);
+                    Process.Start(_fullTempPath);
 
                     // exit the application, so we remove file locks.
                     application.Exit();

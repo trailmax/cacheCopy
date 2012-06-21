@@ -16,7 +16,7 @@ namespace cacheCopy
 
         /// <summary>
         /// Get list of all the files in the directory. 
-        /// This scans all the files inside of the sub-dirs
+        /// This scans all the files inside of the subdirs
         /// </summary>
         /// <param name="directory">string with directory path</param>
         /// <returns>List with FileInfo</returns>
@@ -75,15 +75,15 @@ namespace cacheCopy
         /// <summary>
         /// Reads the key from win registry
         /// </summary>
-        /// <param name="KeyName">Name of the key.</param>
+        /// <param name="keyName">Name of the key.</param>
         /// <param name="valueName">Name of the value.</param>
         /// <returns></returns>
-        public static string ReadRegistryKey(string KeyName, string valueName)
+        public static string ReadRegistryKey(string keyName, string valueName)
         {
             string value;
             try
             {
-                value = (String)Registry.GetValue(KeyName, valueName, "");
+                value = (String)Registry.GetValue(keyName, valueName, "");
             }
             catch (Exception)
             {
@@ -98,17 +98,17 @@ namespace cacheCopy
         /// Finds the registry key in a registry folder
         /// </summary>
         /// <param name="folder">The folder to search in</param>
-        /// <param name="StartsWith">The search criteria - key must start with this value</param>
+        /// <param name="startsWith">The search criteria - key must start with this value</param>
         /// <returns> Full key name if found, empty string if nothing found</returns>
-        public static string FindRegistryKey(RegistryKey regFolder, String StartsWith)
+        public static string FindRegistryKey(RegistryKey regFolder, String startsWith)
         {
             if (null == regFolder)
                 return "";
 
             var subKeys = regFolder.GetSubKeyNames();
-            String key = subKeys.Where(k => k.StartsWith(StartsWith)).FirstOrDefault();
+            String key = subKeys.FirstOrDefault(k => k.StartsWith(startsWith));
 
-            if (null != key && key != string.Empty)
+            if (!string.IsNullOrEmpty(key))
             {
                 return regFolder.Name + @"\" + key;
             }
@@ -122,17 +122,17 @@ namespace cacheCopy
         /// <summary>
         /// Determines whether a value is present at the specified key name
         /// </summary>
-        /// <param name="KeyName">Name of the key.</param>
+        /// <param name="keyName">Name of the key.</param>
         /// <param name="valueName">Name of the value.</param>
         /// <returns>
         ///   <c>true</c> if value is present at the specified key name; otherwise, <c>false</c>.
         /// </returns>
-        public static bool isRegistryValuePresent(string KeyName, string valueName)
+        public static bool IsRegistryValuePresent(string keyName, string valueName)
         {
             string value = "";
             try
             {
-                value = (String)Registry.GetValue(KeyName, valueName, "");
+                value = (String)Registry.GetValue(keyName, valueName, "");
             }
             catch (Exception)
             {
