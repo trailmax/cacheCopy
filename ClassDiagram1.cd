@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Homegrown.Updater.Updater" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABAEABAAAABAAAhASAAAQAAACAACAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Updater\Updater.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FileTypeDetective.Detective" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BACgBQIIghBAgAIAAACAgAAgAEQAUAEAAAEABCogGAA=</HashCode>
+      <FileName>Naming\Detective.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileTypeDetective.FileType" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQCAAAAAAAEgAAAAAAAAAAAAAAAAAEAAAAgAAA=</HashCode>
+      <FileName>Naming\FileType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cacheCopy.Properties.Settings" Collapsed="true">
+    <Position X="11.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAgABCABwCAAAAAAAAIEAAAEGFEQAAAEEEQAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cacheCopy.filters.DateFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAEg=</HashCode>
+      <FileName>filters\DateFilter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="cacheCopy.filters.FileSizeFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>filters\FileSizeFilter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="cacheCopy.filters.ImageSizeFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>filters\ImageSizeFilter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="cacheCopy.filters.ImageTypeFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIgAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>filters\ImageTypeFilter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="cacheCopy.ChromeHelper" Collapsed="true">
+    <Position X="1" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\ChromeHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="cacheCopy.ChromiumHelper" Collapsed="true">
+    <Position X="4.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\ChromiumHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="cacheCopy.DefaultBrowser" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAEAABAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\DefaultBrowser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="cacheCopy.FirefoxHelper" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\FirefoxHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="cacheCopy.IEHelper" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\IEHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="cacheCopy.OperaHelper" Collapsed="true">
+    <Position X="2.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\OperaHelper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="cacheCopy.ProfilePath" Collapsed="true">
+    <Position X="11.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\ProfilePath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cacheCopy.Core" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAgBAAAAAAgAAQgEAAACAAEAEAAAAACAAgAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cacheCopy.MainGUI" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>O7T6DzJ1lPBuz5MoAhyDREAbIjYAghw0kALABejBFCE=</HashCode>
+      <FileName>MainGUI.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="cacheCopy.FileNaming" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQBAAABAAAAAABAAAAAAAAAAAQAAAABCgA=</HashCode>
+      <FileName>Naming\FileNaming.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cacheCopy.PatternHelpDialog" Collapsed="true">
+    <Position X="11" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAATBAABAAAACAIAACAAIBYAAABIAAAwAAACA=</HashCode>
+      <FileName>PatternHelpDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cacheCopy.Program" Collapsed="true">
+    <Position X="8" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cacheCopy.cacheCopyUpdaterBridge" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAABAAAACAAAAKAAAAAAAAAA=</HashCode>
+      <FileName>Updater\ApplicationUpdaterBridge.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="cacheCopy.Util" Collapsed="true">
+    <Position X="9.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAEAAAAIJAAAAAAAAAAAAABAAAiQIAIQBAAA=</HashCode>
+      <FileName>Util.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Homegrown.Updater.IApplicationUpdaterBridge" Collapsed="true">
+    <Position X="2.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAABAAAACAAAAKAAAAAAAAAA=</HashCode>
+      <FileName>Updater\IApplicationUpdaterBridge.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Homegrown.Updater.IMessagingGui" Collapsed="true">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAgAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Updater\IMessagingGui.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Homegrown.Updater.IUpdater" Collapsed="true">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Updater\IUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="cacheCopy.IBrowserHelper" Collapsed="true">
+    <Position X="8" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Browsers\IBrowserHelper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="cacheCopy.IFilter" Collapsed="true">
+    <Position X="9.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>filters\IFilter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -168,7 +168,7 @@ namespace cacheCopy
 
                 List<String> errors = new List<string>();
 
-                string source = mainGUI.getSourceFolder();
+                string source = mainGUI.GetSourceFolder();
                 readFiles(source);
 
                 // read data about filters from GUI and set the filters in Core
@@ -180,7 +180,7 @@ namespace cacheCopy
 
                 int totalFilesCopied = 0;
                 // finally copy the files
-                string targetFolder = mainGUI.getTargetFolder();
+                string targetFolder = mainGUI.GetTargetFolder();
                 for (int i = 0; i < files.Count; i++)
                 {
                     FileInfo file = files[i];
@@ -194,7 +194,7 @@ namespace cacheCopy
 
                     // now make a new filename, according to the parameters provided by user
                     string paddedNumber = Util.PadNumberToMaximum(i, files.Count);
-                    string newPath = FileNaming.GenerateFileName(file, mainGUI.getFileNamingPattern(), mainGUI.isAllowOverwriteFiles(), targetFolder, paddedNumber);
+                    string newPath = FileNaming.GenerateFileName(file, mainGUI.GetFileNamingPattern(), mainGUI.IsAllowOverwriteFiles(), targetFolder, paddedNumber);
 
                     try
                     {
@@ -202,7 +202,7 @@ namespace cacheCopy
                         totalFilesCopied++;
 
                         // if user checked the box for file deletion, try to remove the file.
-                        if (mainGUI.isRemoveImagesFromCache())
+                        if (mainGUI.IsRemoveImagesFromCache())
                         {
                             file.Delete();
                         }
@@ -244,32 +244,32 @@ namespace cacheCopy
             filters.Clear();
 
             // check if the checkbox is set
-            if ( mainGUI.getHours() != null )
+            if ( mainGUI.GetHours() != null )
             {
                 // if checkbox is set on hours, set the filter
                 IFilter dateFilter = new DateFilter(
-                    DateTime.Now.AddHours(-1* (int)mainGUI.getHours()));
+                    DateTime.Now.AddHours(-1* (int)mainGUI.GetHours()));
                 addFilter(dateFilter);
             }
 
-            if (mainGUI.getKilobytes() != null)
+            if (mainGUI.GetKilobytes() != null)
             {
-                IFilter FileSizeFilter = new FileSizeFilter((int)mainGUI.getKilobytes() * 1000);
+                IFilter FileSizeFilter = new FileSizeFilter((int)mainGUI.GetKilobytes() * 1000);
                 addFilter(FileSizeFilter);
             }
 
 
              // always add jpeg filter before filter with image size.
-            IFilter imageFilter = new ImageTypeFilter(mainGUI.isJPG(), mainGUI.isPNG(), mainGUI.isGIF());
+            IFilter imageFilter = new ImageTypeFilter(mainGUI.IsJPG(), mainGUI.IsPNG(), mainGUI.IsGIF());
             addFilter(imageFilter);
 
 
             // we only need to check if one of the dimensions is set,
             // as both of them are required on the form.
-            if (mainGUI.getMinHeight() != null)
+            if (mainGUI.GetMinHeight() != null)
             {
-                int minWidth = (int)mainGUI.getMinWidth();
-                int minHeight = (int)mainGUI.getMinHeight();
+                int minWidth = (int)mainGUI.GetMinWidth();
+                int minHeight = (int)mainGUI.GetMinHeight();
                 IFilter imageSizeFilter = new ImageSizeFilter(minWidth, minHeight);
                 addFilter(imageSizeFilter);
             }

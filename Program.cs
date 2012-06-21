@@ -35,30 +35,30 @@ namespace cacheCopy
                 MainGUI gui = new MainGUI(ref core);
 
                 FirefoxHelper firefox = new FirefoxHelper();
-                gui.addProfile(firefox.getProfiles());
+                gui.AddProfile(firefox.getProfiles());
 
                 ChromeHelper chrome = new ChromeHelper();
-                gui.addProfile(chrome.getProfiles());
+                gui.AddProfile(chrome.getProfiles());
 
                 ChromiumHelper chromium = new ChromiumHelper();
-                gui.addProfile(chromium.getProfiles());
+                gui.AddProfile(chromium.getProfiles());
 
                 IEHelper explorer = new IEHelper();
-                gui.addProfile(explorer.getProfiles());
+                gui.AddProfile(explorer.getProfiles());
 
                 OperaHelper opera = new OperaHelper();
-                gui.addProfile(opera.getProfiles());
+                gui.AddProfile(opera.getProfiles());
 
 
                 // provide core with reference to GUI object
                 core.setMainGUI(ref gui);
 
-                // create the application bridge for the upater - decoupling layer
+                // create the application bridge for the updater - decoupling layer
                 IApplicationUpdaterBridge application = new cacheCopyUpdaterBridge();
 
                 // new updater, pass references for gui and application.
                 IUpdater updater = new Updater((IMessagingGui)gui, application);
-                gui.setUpdater(ref updater);
+                gui.SetUpdater(ref updater);
                 
                 Application.Run(gui);
 

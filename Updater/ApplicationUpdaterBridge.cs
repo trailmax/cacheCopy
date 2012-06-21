@@ -11,7 +11,7 @@ namespace cacheCopy
 {
     /// <summary>
     /// Class that works as de-coupling measure between the application and the
-    /// Updater class. This class will be changed is to be changed on every application, 
+    /// Updater class. This class is to be changed on every application, 
     /// but Updater class to stay as it is.
     /// </summary>
     public class cacheCopyUpdaterBridge : IApplicationUpdaterBridge
