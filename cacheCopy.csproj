@@ -127,6 +127,11 @@
     <Compile Include="Browsers\ProfilePath.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="filters\FileSizeFilter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Updater\IMessagingGui.cs" />
     <Compile Include="Updater\ApplicationUpdaterBridge.cs" />
     <Compile Include="Updater\IApplicationUpdaterBridge.cs" />
@@ -160,6 +165,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PatternHelpDialog.resx">
       <DependentUpon>PatternHelpDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />

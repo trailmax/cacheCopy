@@ -171,7 +171,7 @@ namespace cacheCopy
             if (!e.Cancelled && null == e.Error )
             {
                 int totalFilesCopied = (int)e.Result;
-                showMessageBox(totalFilesCopied.ToString() + " files copied");
+                ShowMessageBox(totalFilesCopied.ToString() + " files copied");
             }
 
         }
@@ -330,7 +330,18 @@ namespace cacheCopy
         /// <param name="e"></param>
         private void donate_Click(object sender, EventArgs e)
         {
+            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=trailmax1%40gmail%2ecom&lc=GB&item_name=trailmax&item_number=cacheCopy&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted");
             ShowTigra();
+        }
+
+        private void DropboxClick(object sender, EventArgs e)
+        {
+            ShowMessageBox("Dropbox is a service for file synchronisation between your devices. It is very useful and I'm using it big time!" +
+            "When you sign up using this link, I will get a bonus space. 2Gb of storage is free!");
+            Process.Start("http://tech.trailmax.info/dropbox");
+
+            ShowTigra();
+
         }
 
 #endregion
@@ -413,7 +424,7 @@ namespace cacheCopy
         /// Shows the message box.
         /// </summary>
         /// <param name="message">The message.</param>
-        public void showMessageBox(String message)
+        public void ShowMessageBox(String message)
         {
             MessageBox.Show(message);
         }
@@ -426,7 +437,7 @@ namespace cacheCopy
         /// <param name="question">Message on the dialog</param>
         /// <param name="title">Title of the dialog</param>
         /// <returns>true if user pressed Yes, false otherwise</returns>
-        public bool showConfirmationDialog(string question, string title)
+        public bool ShowConfirmationDialog(string question, string title)
         {
             var result =  MessageBox.Show(question, title, MessageBoxButtons.YesNo);
 
@@ -444,7 +455,7 @@ namespace cacheCopy
             {
                 msg.Append("* " + m + "\n");
             }
-            showMessageBox(msg.ToString());
+            ShowMessageBox(msg.ToString());
         }
 
         
@@ -600,7 +611,7 @@ namespace cacheCopy
         public bool ConfirmAndCreateFolder(String fullPath)
         {
 
-            if (showConfirmationDialog("Target folder does not exist. Create?", "Create target folder?"))
+            if (ShowConfirmationDialog("Target folder does not exist. Create?", "Create target folder?"))
             {
                 try
                 {
@@ -623,16 +634,13 @@ namespace cacheCopy
         private void PopulateAboutLabels() 
         {
             lblVersion.Text = "cacheCopy version " + Application.ProductVersion.ToString();
-            lblCopyright.Text = "Copyright " + '\u00A9'.ToString() + " 2012-2100";
+            lblCopyright.Text = "Copyright " + '\u00A9'.ToString() + " 2012-3012";
 
             LinkLabel.Link link = new LinkLabel.Link();
             link.LinkData = lnkHomePage.Text;
             lnkHomePage.Links.Add(link);
 
-            lblCoffeeCupDonation.Text = String.Format("Every feature done was supported by a cup of coffee.{0}"+
-                "I would appreciate if you help me out with coffee beans.",Environment.NewLine) ;
         }
-
 
 #endregion
 
@@ -972,8 +980,9 @@ namespace cacheCopy
         /// </summary>
         private void ShowTigra()
         {
+
             // if the animation already displayed, do nothing.
-            if (_tigraDisplayed == true)
+            if ( _tigraDisplayed == true )
                 return;
             
             // don't show the animation second time.
@@ -988,12 +997,12 @@ namespace cacheCopy
 
             _tigraTimer = new Timer();
             _tigraTimer.Interval = 135;
-            _tigraTimer.Tick += new EventHandler(TigraTimer_Tick);
+            _tigraTimer.Tick += TigraTimer_Tick;
             _tigraTimer.Start();
 
             _stopTimer = new Timer();
             _stopTimer.Interval = 10000;
-            _stopTimer.Tick += new EventHandler(StopTimer_Tick);
+            _stopTimer.Tick += StopTimer_Tick;
 
         }
 
@@ -1006,7 +1015,7 @@ namespace cacheCopy
         {
             Point currLocation = GetTigraLocation();
 
-            if (currLocation.X > lblCoffeeCupDonation.Location.X+lblCoffeeCupDonation.Size.Width)     // 34 - width of Tigra image
+            if (currLocation.X > groupDonate.Location.X + groupDonate.Size.Width+5)     // 34 - width of Tiggra image
             {
                 // update the location
                 int X = currLocation.X - 5;    // 5 = jumping step
@@ -1017,10 +1026,7 @@ namespace cacheCopy
                 // when we reached the destination, stop moving
                 _tigraTimer.Stop();
 
-                // forward to the donation page
-                Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=trailmax1%40gmail%2ecom&lc=GB&item_name=trailmax&item_number=cacheCopy&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted");
-
-                // and start stop-timer - hide Tigra soon.
+                // and start stop-timer - hide Tiggra soon.
                 _stopTimer.Start();
             }
         
@@ -1039,6 +1045,7 @@ namespace cacheCopy
         }
 
 #endregion
+
 
 
     }

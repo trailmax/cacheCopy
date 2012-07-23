@@ -84,12 +84,19 @@
             this.btnPatternHelp = new System.Windows.Forms.Button();
             this.lblPatternTranslationSample = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.JumpingTigraGif = new System.Windows.Forms.PictureBox();
+            this.groupDonate = new System.Windows.Forms.GroupBox();
+            this.lblDonate = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.groupAmazon = new System.Windows.Forms.GroupBox();
+            this.pictureAmazon = new System.Windows.Forms.PictureBox();
+            this.lblAmazon2 = new System.Windows.Forms.Label();
+            this.lblAmazon1 = new System.Windows.Forms.Label();
+            this.groupDropbox = new System.Windows.Forms.GroupBox();
+            this.lblDropbox2 = new System.Windows.Forms.Label();
+            this.pictureDropbox = new System.Windows.Forms.PictureBox();
+            this.lblDropbox = new System.Windows.Forms.Label();
             this.lblTrailmax = new System.Windows.Forms.Label();
-            this.lblCoffeeDonations = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblCoffeeCupDonation = new System.Windows.Forms.Label();
             this.lnkHomePage = new System.Windows.Forms.LinkLabel();
             this.lblCopyright = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
@@ -107,9 +114,13 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupDonate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupAmazon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureAmazon)).BeginInit();
+            this.groupDropbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDropbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -528,7 +539,7 @@
             this.chbxDeleteFilesFromCache.AutoSize = true;
             this.chbxDeleteFilesFromCache.Location = new System.Drawing.Point(6, 31);
             this.chbxDeleteFilesFromCache.Name = "chbxDeleteFilesFromCache";
-            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(189, 17);
+            this.chbxDeleteFilesFromCache.Size = new System.Drawing.Size(235, 20);
             this.chbxDeleteFilesFromCache.TabIndex = 100;
             this.chbxDeleteFilesFromCache.Text = "Delete images from browser cache";
             this.chbxDeleteFilesFromCache.UseVisualStyleBackColor = true;
@@ -548,7 +559,7 @@
             this.chbxFileNamingPattern.AutoSize = true;
             this.chbxFileNamingPattern.Location = new System.Drawing.Point(6, 58);
             this.chbxFileNamingPattern.Name = "chbxFileNamingPattern";
-            this.chbxFileNamingPattern.Size = new System.Drawing.Size(143, 17);
+            this.chbxFileNamingPattern.Size = new System.Drawing.Size(174, 20);
             this.chbxFileNamingPattern.TabIndex = 110;
             this.chbxFileNamingPattern.Text = "Use pattern to name files";
             this.chbxFileNamingPattern.UseVisualStyleBackColor = true;
@@ -567,7 +578,7 @@
             this.chbxAllowOverwriteFiles.AutoSize = true;
             this.chbxAllowOverwriteFiles.Location = new System.Drawing.Point(6, 6);
             this.chbxAllowOverwriteFiles.Name = "chbxAllowOverwriteFiles";
-            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(188, 17);
+            this.chbxAllowOverwriteFiles.Size = new System.Drawing.Size(230, 20);
             this.chbxAllowOverwriteFiles.TabIndex = 95;
             this.chbxAllowOverwriteFiles.Text = "Allow overwrite files in target folder";
             this.chbxAllowOverwriteFiles.UseVisualStyleBackColor = true;
@@ -693,12 +704,11 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.pictureBox2);
             this.tabPage3.Controls.Add(this.JumpingTigraGif);
+            this.tabPage3.Controls.Add(this.groupDonate);
+            this.tabPage3.Controls.Add(this.groupAmazon);
+            this.tabPage3.Controls.Add(this.groupDropbox);
             this.tabPage3.Controls.Add(this.lblTrailmax);
-            this.tabPage3.Controls.Add(this.lblCoffeeDonations);
-            this.tabPage3.Controls.Add(this.pictureBox1);
-            this.tabPage3.Controls.Add(this.lblCoffeeCupDonation);
             this.tabPage3.Controls.Add(this.lnkHomePage);
             this.tabPage3.Controls.Add(this.lblCopyright);
             this.tabPage3.Controls.Add(this.lblVersion);
@@ -709,18 +719,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "About";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(218, 89);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.donate_Click);
             // 
             // JumpingTigraGif
             // 
@@ -733,6 +731,123 @@
             this.JumpingTigraGif.TabStop = false;
             this.emailToolTip.SetToolTip(this.JumpingTigraGif, "Tiggra says WO-HOO-HOO!!! RRRRRRRRR!!!");
             this.JumpingTigraGif.Visible = false;
+            // 
+            // groupDonate
+            // 
+            this.groupDonate.Controls.Add(this.lblDonate);
+            this.groupDonate.Controls.Add(this.pictureBox2);
+            this.groupDonate.Location = new System.Drawing.Point(472, 3);
+            this.groupDonate.Name = "groupDonate";
+            this.groupDonate.Size = new System.Drawing.Size(136, 129);
+            this.groupDonate.TabIndex = 13;
+            this.groupDonate.TabStop = false;
+            this.groupDonate.Text = "Donate";
+            // 
+            // lblDonate
+            // 
+            this.lblDonate.Location = new System.Drawing.Point(3, 18);
+            this.lblDonate.Name = "lblDonate";
+            this.lblDonate.Size = new System.Drawing.Size(130, 53);
+            this.lblDonate.TabIndex = 10;
+            this.lblDonate.Text = "Feeling Generous? Buy me a cup of coffee. Thanks!";
+            this.lblDonate.Click += new System.EventHandler(this.donate_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(50, 83);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.donate_Click);
+            // 
+            // groupAmazon
+            // 
+            this.groupAmazon.Controls.Add(this.pictureAmazon);
+            this.groupAmazon.Controls.Add(this.lblAmazon2);
+            this.groupAmazon.Controls.Add(this.lblAmazon1);
+            this.groupAmazon.Location = new System.Drawing.Point(317, 4);
+            this.groupAmazon.Name = "groupAmazon";
+            this.groupAmazon.Size = new System.Drawing.Size(151, 128);
+            this.groupAmazon.TabIndex = 12;
+            this.groupAmazon.TabStop = false;
+            this.groupAmazon.Text = "Amazon";
+            // 
+            // pictureAmazon
+            // 
+            this.pictureAmazon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureAmazon.Image = ((System.Drawing.Image)(resources.GetObject("pictureAmazon.Image")));
+            this.pictureAmazon.Location = new System.Drawing.Point(23, 87);
+            this.pictureAmazon.Name = "pictureAmazon";
+            this.pictureAmazon.Size = new System.Drawing.Size(103, 35);
+            this.pictureAmazon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureAmazon.TabIndex = 2;
+            this.pictureAmazon.TabStop = false;
+            // 
+            // lblAmazon2
+            // 
+            this.lblAmazon2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAmazon2.AutoSize = true;
+            this.lblAmazon2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmazon2.Location = new System.Drawing.Point(11, 68);
+            this.lblAmazon2.Name = "lblAmazon2";
+            this.lblAmazon2.Size = new System.Drawing.Size(126, 16);
+            this.lblAmazon2.TabIndex = 1;
+            this.lblAmazon2.Text = "At no cost to you!";
+            // 
+            // lblAmazon1
+            // 
+            this.lblAmazon1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblAmazon1.Location = new System.Drawing.Point(3, 18);
+            this.lblAmazon1.Name = "lblAmazon1";
+            this.lblAmazon1.Size = new System.Drawing.Size(145, 53);
+            this.lblAmazon1.TabIndex = 0;
+            this.lblAmazon1.Text = "Shop with Amazon and I\'ll get percent from referential link.";
+            // 
+            // groupDropbox
+            // 
+            this.groupDropbox.Controls.Add(this.lblDropbox2);
+            this.groupDropbox.Controls.Add(this.pictureDropbox);
+            this.groupDropbox.Controls.Add(this.lblDropbox);
+            this.groupDropbox.Location = new System.Drawing.Point(174, 3);
+            this.groupDropbox.Name = "groupDropbox";
+            this.groupDropbox.Size = new System.Drawing.Size(137, 129);
+            this.groupDropbox.TabIndex = 11;
+            this.groupDropbox.TabStop = false;
+            this.groupDropbox.Text = "Dropbox";
+            // 
+            // lblDropbox2
+            // 
+            this.lblDropbox2.Location = new System.Drawing.Point(70, 65);
+            this.lblDropbox2.Name = "lblDropbox2";
+            this.lblDropbox2.Size = new System.Drawing.Size(65, 54);
+            this.lblDropbox2.TabIndex = 12;
+            this.lblDropbox2.Text = "Sign up for free! ";
+            this.lblDropbox2.Click += new System.EventHandler(this.DropboxClick);
+            // 
+            // pictureDropbox
+            // 
+            this.pictureDropbox.Image = ((System.Drawing.Image)(resources.GetObject("pictureDropbox.Image")));
+            this.pictureDropbox.Location = new System.Drawing.Point(2, 63);
+            this.pictureDropbox.Name = "pictureDropbox";
+            this.pictureDropbox.Size = new System.Drawing.Size(64, 64);
+            this.pictureDropbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureDropbox.TabIndex = 10;
+            this.pictureDropbox.TabStop = false;
+            this.pictureDropbox.Click += new System.EventHandler(this.DropboxClick);
+            // 
+            // lblDropbox
+            // 
+            this.lblDropbox.Location = new System.Drawing.Point(6, 16);
+            this.lblDropbox.Name = "lblDropbox";
+            this.lblDropbox.Size = new System.Drawing.Size(129, 56);
+            this.lblDropbox.TabIndex = 11;
+            this.lblDropbox.Text = "Always have your files when you need it with Dropbox.";
+            this.lblDropbox.Click += new System.EventHandler(this.DropboxClick);
             // 
             // lblTrailmax
             // 
@@ -747,49 +862,15 @@
             this.emailToolTip.SetToolTip(this.lblTrailmax, "trailmax1@gmail.com");
             this.lblTrailmax.Click += new System.EventHandler(this.lblTrailmax_Click);
             // 
-            // lblCoffeeDonations
-            // 
-            this.lblCoffeeDonations.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCoffeeDonations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoffeeDonations.Location = new System.Drawing.Point(259, 95);
-            this.lblCoffeeDonations.Name = "lblCoffeeDonations";
-            this.lblCoffeeDonations.Size = new System.Drawing.Size(264, 29);
-            this.lblCoffeeDonations.TabIndex = 6;
-            this.lblCoffeeDonations.Text = "Coffee Donations are welcome!";
-            this.lblCoffeeDonations.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCoffeeDonations.Click += new System.EventHandler(this.donate_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(340, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.donate_Click);
-            // 
-            // lblCoffeeCupDonation
-            // 
-            this.lblCoffeeCupDonation.Location = new System.Drawing.Point(202, 7);
-            this.lblCoffeeCupDonation.Name = "lblCoffeeCupDonation";
-            this.lblCoffeeCupDonation.Size = new System.Drawing.Size(346, 38);
-            this.lblCoffeeCupDonation.TabIndex = 4;
-            this.lblCoffeeCupDonation.Text = "A fresh cup of good coffee inspired me to work on new features. I would appreciat" +
-    "e if you help me out with coffee beans. ";
-            this.lblCoffeeCupDonation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // lnkHomePage
             // 
             this.lnkHomePage.AutoSize = true;
             this.lnkHomePage.Location = new System.Drawing.Point(3, 73);
             this.lnkHomePage.Name = "lnkHomePage";
-            this.lnkHomePage.Size = new System.Drawing.Size(197, 16);
+            this.lnkHomePage.Size = new System.Drawing.Size(165, 16);
             this.lnkHomePage.TabIndex = 2;
             this.lnkHomePage.TabStop = true;
-            this.lnkHomePage.Text = "http://cacheCopy.codeplex.com";
+            this.lnkHomePage.Text = "cacheCopy.codeplex.com";
             this.lnkHomePage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkHomePage_LinkClicked);
             // 
             // lblCopyright
@@ -864,9 +945,16 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.JumpingTigraGif)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupDonate.ResumeLayout(false);
+            this.groupDonate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupAmazon.ResumeLayout(false);
+            this.groupAmazon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureAmazon)).EndInit();
+            this.groupDropbox.ResumeLayout(false);
+            this.groupDropbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDropbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageTypeErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -933,13 +1021,20 @@
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label lblCopyright;
         private System.Windows.Forms.LinkLabel lnkHomePage;
-        private System.Windows.Forms.Label lblCoffeeCupDonation;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblCoffeeDonations;
         private System.Windows.Forms.Label lblTrailmax;
         private System.Windows.Forms.ToolTip emailToolTip;
         private System.Windows.Forms.PictureBox JumpingTigraGif;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.GroupBox groupDropbox;
+        private System.Windows.Forms.Label lblDropbox2;
+        private System.Windows.Forms.PictureBox pictureDropbox;
+        private System.Windows.Forms.Label lblDropbox;
+        private System.Windows.Forms.GroupBox groupAmazon;
+        private System.Windows.Forms.Label lblAmazon1;
+        private System.Windows.Forms.PictureBox pictureAmazon;
+        private System.Windows.Forms.Label lblAmazon2;
+        private System.Windows.Forms.GroupBox groupDonate;
+        private System.Windows.Forms.Label lblDonate;
     }
 }
 
