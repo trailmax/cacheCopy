@@ -4,7 +4,7 @@ namespace Homegrown.Updater
     public interface IMessagingGui
     {
         void setProgressLabel(string message);
-        void showMessageBox(string message);
-        bool showConfirmationDialog(string question, string title);
+        void ShowMessageBox(string message);
+        bool ShowConfirmationDialog(string question, string title);
     }
 }

@@ -173,7 +173,7 @@ namespace Homegrown.Updater
             // but if something is available do offer user a dialog.
             string title = "Download new version?";
             string question = "New version of cacheCopy is available. Download?";
-            if (gui.showConfirmationDialog(question, title))
+            if (gui.ShowConfirmationDialog(question, title))
             {
                 DownloadFile(_onlineDownloadUrl);
             }
@@ -223,7 +223,7 @@ namespace Homegrown.Updater
         {
             try
             {
-                if (gui.showConfirmationDialog("Download of update is complete. Install?", "Install Update?"))
+                if (gui.ShowConfirmationDialog("Download of update is complete. Install?", "Install Update?"))
                 {
                     // start the installer
                     Process.Start(_fullTempPath);
