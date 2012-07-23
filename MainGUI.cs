@@ -344,6 +344,18 @@ namespace cacheCopy
 
         }
 
+        private void AmazonClick(object sender, EventArgs e)
+        {
+            //TODO show message explaining that I'll get some percent from your shopping.
+
+            //TODO move this link to a tech.trailmax.info/amazon_uk
+            Process.Start("http://www.amazon.co.uk/?_encoding=UTF8&camp=1634&creative=6738&linkCode=ur2&tag=techtrailmaxi-21");
+            
+            //TODO register with US and EU Amazon.
+            //TODO offer user a selection of countries.
+
+            ShowTigra();
+        }
 #endregion
 
 
