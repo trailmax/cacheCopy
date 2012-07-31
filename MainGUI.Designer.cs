@@ -745,12 +745,13 @@
             // 
             // lblDonate
             // 
+            this.lblDonate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblDonate.Location = new System.Drawing.Point(3, 18);
             this.lblDonate.Name = "lblDonate";
             this.lblDonate.Size = new System.Drawing.Size(130, 53);
             this.lblDonate.TabIndex = 10;
             this.lblDonate.Text = "Feeling Generous? Buy me a cup of coffee. Thanks!";
-            this.lblDonate.Click += new System.EventHandler(this.donate_Click);
+            this.lblDonate.Click += new System.EventHandler(this.PaypalClick);
             // 
             // pictureBox2
             // 
@@ -762,7 +763,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.donate_Click);
+            this.pictureBox2.Click += new System.EventHandler(this.PaypalClick);
             // 
             // groupAmazon
             // 
@@ -780,6 +781,7 @@
             // 
             this.pictureAmazon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureAmazon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureAmazon.Image = ((System.Drawing.Image)(resources.GetObject("pictureAmazon.Image")));
             this.pictureAmazon.Location = new System.Drawing.Point(23, 87);
             this.pictureAmazon.Name = "pictureAmazon";
@@ -787,26 +789,31 @@
             this.pictureAmazon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureAmazon.TabIndex = 2;
             this.pictureAmazon.TabStop = false;
+            this.pictureAmazon.Click += new System.EventHandler(this.AmazonClick);
             // 
             // lblAmazon2
             // 
             this.lblAmazon2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAmazon2.AutoSize = true;
+            this.lblAmazon2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAmazon2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAmazon2.Location = new System.Drawing.Point(11, 68);
             this.lblAmazon2.Name = "lblAmazon2";
             this.lblAmazon2.Size = new System.Drawing.Size(126, 16);
             this.lblAmazon2.TabIndex = 1;
             this.lblAmazon2.Text = "At no cost to you!";
+            this.lblAmazon2.Click += new System.EventHandler(this.AmazonClick);
             // 
             // lblAmazon1
             // 
+            this.lblAmazon1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAmazon1.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblAmazon1.Location = new System.Drawing.Point(3, 18);
             this.lblAmazon1.Name = "lblAmazon1";
             this.lblAmazon1.Size = new System.Drawing.Size(145, 53);
             this.lblAmazon1.TabIndex = 0;
-            this.lblAmazon1.Text = "Shop with Amazon and I\'ll get percent from referential link.";
+            this.lblAmazon1.Text = "Shop with Amazon and I\'ll get percent from affilate link.";
+            this.lblAmazon1.Click += new System.EventHandler(this.AmazonClick);
             // 
             // groupDropbox
             // 
@@ -822,6 +829,7 @@
             // 
             // lblDropbox2
             // 
+            this.lblDropbox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblDropbox2.Location = new System.Drawing.Point(70, 65);
             this.lblDropbox2.Name = "lblDropbox2";
             this.lblDropbox2.Size = new System.Drawing.Size(65, 54);
@@ -831,6 +839,7 @@
             // 
             // pictureDropbox
             // 
+            this.pictureDropbox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureDropbox.Image = ((System.Drawing.Image)(resources.GetObject("pictureDropbox.Image")));
             this.pictureDropbox.Location = new System.Drawing.Point(2, 63);
             this.pictureDropbox.Name = "pictureDropbox";
@@ -842,6 +851,7 @@
             // 
             // lblDropbox
             // 
+            this.lblDropbox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblDropbox.Location = new System.Drawing.Point(6, 16);
             this.lblDropbox.Name = "lblDropbox";
             this.lblDropbox.Size = new System.Drawing.Size(129, 56);
