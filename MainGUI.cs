@@ -328,7 +328,7 @@ namespace cacheCopy
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void donate_Click(object sender, EventArgs e)
+        private void PaypalClick(object sender, EventArgs e)
         {
             Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=trailmax1%40gmail%2ecom&lc=GB&item_name=trailmax&item_number=cacheCopy&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted");
             ShowTigra();
@@ -346,13 +346,9 @@ namespace cacheCopy
 
         private void AmazonClick(object sender, EventArgs e)
         {
-            //TODO show message explaining that I'll get some percent from your shopping.
+            ShowMessageBox("Buy shopping on Amazon via this link you are supporting this project. For every purchase you make, we get a gift voucher!");
 
-            //TODO move this link to a tech.trailmax.info/amazon_uk
-            Process.Start("http://www.amazon.co.uk/?_encoding=UTF8&camp=1634&creative=6738&linkCode=ur2&tag=techtrailmaxi-21");
-            
-            //TODO register with US and EU Amazon.
-            //TODO offer user a selection of countries.
+            Process.Start("http://tech.trailmax.info/amazon");
 
             ShowTigra();
         }
@@ -645,10 +641,10 @@ namespace cacheCopy
         /// </summary>
         private void PopulateAboutLabels() 
         {
-            lblVersion.Text = "cacheCopy version " + Application.ProductVersion.ToString();
-            lblCopyright.Text = "Copyright " + '\u00A9'.ToString() + " 2012-3012";
+            lblVersion.Text = string.Format("cacheCopy version {0}", Application.ProductVersion);
+            lblCopyright.Text = string.Format("Copyright {0} 2012-3012", '\u00A9'.ToString());
 
-            LinkLabel.Link link = new LinkLabel.Link();
+            var link = new LinkLabel.Link();
             link.LinkData = lnkHomePage.Text;
             lnkHomePage.Links.Add(link);
 
