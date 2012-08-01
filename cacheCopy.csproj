@@ -223,7 +223,7 @@ IF "$(ConfigurationName)"=="Debug" Goto Exit
 
    7za a -tzip "$(TargetName)".zip "$(TargetPath)" "$(TargetPath).config" 
   
-  "c:\Program Files\Inno Setup 5\iscc.exe" "$(ProjectDir)installerScript.iss"
+  "c:\Program Files (x86)\Inno Setup 5\iscc.exe" "$(ProjectDir)installerScript.iss"
  
   copy "$(ProjectDir)version.xml" "$(TargetDir)"
 
