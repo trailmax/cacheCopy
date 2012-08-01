@@ -7,7 +7,7 @@
 #define MyAppURL "http://cachecopy.codeplex.com/"
 #define MyAppExeName "cacheCopy.exe"
 
-#define strVersion GetFileVersion("c:\trailmax\myCode\csharp\cachecopy\bin\Release\"+ MyAppExeName)
+#define strVersion GetFileVersion("d:\trailmax\docs\myCode\csharp\cacheCopy\bin\Release\"+ MyAppExeName)
 #define StripBuild(str VerStr) Copy(VerStr, 1, RPos(".", VerStr)-1)
 
 #define MyAppVersion StripBuild(StripBuild(strVersion))
@@ -33,7 +33,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 OutputBaseFilename=cacheCopy-setup-{#MyAppVersion}
-SetupIconFile=C:\trailmax\myCode\csharp\cachecopy\tigger.ico
+SetupIconFile=d:\trailmax\docs\myCode\csharp\cacheCopy\tigger.ico
 Compression=lzma
 SolidCompression=yes
 OutputDir=bin\release
@@ -46,8 +46,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "C:\trailmax\myCode\csharp\cachecopy\bin\Release\cacheCopy.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\trailmax\myCode\csharp\cachecopy\bin\Release\cacheCopy.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "d:\trailmax\docs\myCode\csharp\cacheCopy\bin\Release\cacheCopy.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "d:\trailmax\docs\myCode\csharp\cacheCopy\bin\Release\cacheCopy.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

@@ -1,0 +1,9 @@
+Improvements since version 1.0:
+ * Support for *Firefox*, *Opera*, *Chrome*, *Chromium*, *IE*
+ * Support of *JPG, GIF, PNG* images
+ * File naming pattern. Allows you to assign names to copied files according to provided pattern. Includes pattern builder. 
+ * Application updater. Whenever newer version is available - the application will download it for you. 
+ * Options to overwrite existing files, remove copied files from the cache.
+ * Easter egg! see if you can find it!
+
+Happy copying!

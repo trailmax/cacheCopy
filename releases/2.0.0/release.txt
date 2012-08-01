@@ -1,0 +1,30 @@
+cacheCopy is a little application for ripping images from your browser cache into a folder on your drive.
+All the images that are displayed in your browser are stored somewhere on your hard-drive (unless you use private browsing in Firefox, Chrome or IE). You can access these images yourself if you know where to look for. But you’ll need to sort the files into images, text and other media, add file extensions to images and sort them. Or you can use cacheCopy application that will copy images from browser cache into a folder on your drive.
+
+Another use of this tool is to sort your image collection - remove images smaller that a certain resolution or file-size. Just point "Manual Selection" folder to your image collection, set target folder and set the filter. Or rename images using their date of creation in the name.
+
+Features:
+* Detects cache locations for most of the browsers
+* You can point the application to YOUR folder with images to sort out image collection.
+* Allows filtering images by age
+* Filtering images by resolution and file size
+* Supports *JPG, GIF, PNG*
+* Supports deleting files from browser cache.
+* Custom file names and file name builder
+* Application updater. Installes new version when it is available.
+* Easter egg included.
+
+Main application window
+[image:http://trailmax.info/cachecopy/cacheCopy1.png]
+
+Supported browsers
+[image:http://trailmax.info/cachecopy/cacheCopy2.png]
+
+File creation and naming options with pattern builder
+[image:http://trailmax.info/cachecopy/cacheCopy1.png]
+
+
+Every feature developed was supported by a cup of coffee.  I would appreciate if you help me out with coffee beans, or cup of good coffee:
+[url:Would you like to buy me a cup of coffee?|https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=trailmax1%40gmail%2ecom&lc=GB&item_name=trailmax&item_number=cacheCopy&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted]
+
+My other project is [url:FileTypeDetective|http://filetypedetective.codeplex.com/]- .Net library to detect the file type without using an extension.
