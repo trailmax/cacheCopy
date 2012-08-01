@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Microsoft.Win32;
 
 namespace cacheCopy
@@ -152,10 +153,13 @@ namespace cacheCopy
         /// <summary>
         /// Writes exception information to log file.
         /// </summary>
-        /// <param name="e">The e.</param>
         public static void WriteToLogFile(Exception e)
         {
-            StreamWriter sw = new StreamWriter("Errors.txt", true);
+            String directory = Application.LocalUserAppDataPath;
+
+            String fileFullPath = Path.Combine(directory, "cacheCopy_errors.txt");
+
+            StreamWriter sw = new StreamWriter(fileFullPath, true);
             sw.WriteLine("################################################");
             sw.WriteLine();
             sw.WriteLine("Error occurred at #{0}", DateTime.Now.ToString());

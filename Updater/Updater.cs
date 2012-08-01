@@ -203,7 +203,7 @@ namespace Homegrown.Updater
                 WebClient client = new WebClient();
                 Uri uri = new Uri(url);
                 // when download complete execute DownloadFileComplete function
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCompleted);
+                client.DownloadFileCompleted += DownloadFileCompleted;
                 client.DownloadFileAsync(uri, _fullTempPath);
             }
             catch (Exception e)

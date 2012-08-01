@@ -2,30 +2,22 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "cacheCopy"
-;#define MyAppVersion "2.0"
 #define MyAppPublisher "AMV Software"
 #define MyAppURL "http://cachecopy.codeplex.com/"
 #define MyAppExeName "cacheCopy.exe"
 
-#define strVersion GetFileVersion("d:\trailmax\docs\myCode\csharp\cacheCopy\bin\Release\"+ MyAppExeName)
+#define strVersion GetFileVersion("bin\Release\"+ MyAppExeName)
 #define StripBuild(str VerStr) Copy(VerStr, 1, RPos(".", VerStr)-1)
 
-#define MyAppVersion StripBuild(StripBuild(strVersion))
-
-;#define AppName "My App"
-;#define SrcApp "cacheCopy.exe"
-;#define FileVerStr GetFileVersion(SrcApp)
-;#define AppVerStr StripBuild(GetFileVersion(SrcApp))
+#define MyAppVersion StripBuild(strVersion)
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-;AppId={{ADCCA230-1B14-4826-8EA7-6A4B121B5183}
 AppId = {{BF8DC620-2B4F-487F-9982-497B1E08BE36}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
@@ -33,7 +25,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 OutputBaseFilename=cacheCopy-setup-{#MyAppVersion}
-SetupIconFile=d:\trailmax\docs\myCode\csharp\cacheCopy\tigger.ico
+SetupIconFile=tigger.ico
 Compression=lzma
 SolidCompression=yes
 OutputDir=bin\release
@@ -46,8 +38,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "d:\trailmax\docs\myCode\csharp\cacheCopy\bin\Release\cacheCopy.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "d:\trailmax\docs\myCode\csharp\cacheCopy\bin\Release\cacheCopy.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\cacheCopy.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\Release\cacheCopy.exe.config"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -57,4 +49,3 @@ Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Fil
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
-
