@@ -1,3 +1,7 @@
+Download the latest release from <a href="https://github.com/trailmax/cacheCopy/releases">Releases</a> page
+
+repository has been migrated from <a href="https://cachecopy.codeplex.com">Codeplex</a>
+
 <p>cacheCopy is a little application for ripping images from your browser cache into a folder on your drive.<br /> All the images that are displayed in your browser are stored somewhere on your hard-drive (unless you use private browsing in Firefox, Chrome or IE). You can access these images yourself if you know where to look for. But you&rsquo;ll need to sort the files into images, text and other media, add file extensions to images and sort them. Or you can use cacheCopy application that will copy images from browser cache into a folder on your drive.<br /> <br /> Another use of this tool is to sort your image collection - remove images smaller that a certain resolution or file-size. Just point "Manual Selection" folder to your image collection, set target folder and set the filter. Or rename images using their date of creation in the name.<br /> <br /> <br /> <a href="http://cachecopy.software.informer.com/" target="_blank"><img src="http://img.informer.com/awards/si_editor4.gif" alt="Software.Informer Editor's pick award" width="166" height="111" border="0" /> <br /> Editror's Pick Award from Software Informer</a></p>
 <p><br /> Features:</p>
 <ul>
